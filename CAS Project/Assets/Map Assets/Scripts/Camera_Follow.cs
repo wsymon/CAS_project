@@ -9,7 +9,9 @@ public class Camera_Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float panSpeed = 5f;
 
-  
+    
+
+
     //to reference actual camera game object in unity 
     [SerializeField]
     Camera _camera;
@@ -18,7 +20,6 @@ public class Camera_Movement : MonoBehaviour
     {
      //referencing the body of the object to be moved
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     private void Update()

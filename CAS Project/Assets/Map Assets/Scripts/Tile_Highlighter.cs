@@ -22,6 +22,9 @@ public class Highlighting : MonoBehaviour
             //reads value of mouse position when clicked and converts to position on the tilemap
             var mousePosReal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var mousePosGrid = Grid.WorldToCell(mousePosReal);
+
+            Debug.Log(mousePosGrid);
+
             //sets highlight tile to that point in the grid
             Grid.SetTile(mousePosGrid, highlight);
             //checks if previous tile is the same as the current one

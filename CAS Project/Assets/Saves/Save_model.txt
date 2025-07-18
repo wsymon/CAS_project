@@ -1,0 +1,8 @@
+Name
+City
+Round
+Subround (maybe)
+Credits
+Time (Vector3Int or 
+
+Research and Tilemap stored elsewhere
