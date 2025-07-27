@@ -4,18 +4,17 @@ using UnityEngine;
 public class OnStart : MonoBehaviour
 {
     //field to add animated opening sequence object into 
-    [SerializeField] Animator transition;
-    
-        
+    [SerializeField] Animator myAnimator;
+
+
     void Awake()
     {
-        animation_starter();
+        
 
     }
-    private void animation_starter()
+    void Start()
     {
-        //trigger 
-        transition.SetTrigger("Start");
-        Debug.Log("inside camera movement void start");
+        
     }
 }
+

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,7 +15,10 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class title_functions : MonoBehaviour
 {
-    
+    //field for object with script that counts number of existing plyaer files
+    [SerializeField]
+    GameObject file_Select_Script;
+
     private string[] path;
     private void Start()
     {
@@ -52,6 +56,7 @@ public class title_functions : MonoBehaviour
     [SerializeField]
     Button selectFile_Object;
 
+
     //begin menu object(with panel inside) to make it openable (via isActive)\
     [SerializeField]
     GameObject new_game_menu;
@@ -75,6 +80,7 @@ public class title_functions : MonoBehaviour
         Application.Quit();
     }
 
+    
     public void new_game_opener()
     {
         //checks if new game menu isActive when select file is clicked to make select file menu appear
@@ -102,37 +108,23 @@ public class title_functions : MonoBehaviour
     }
     public void Save_names()
     {
-        string Name = nameInput.text.ToString();
-        string cityName = cityInput.text.ToString();
-        string content = Name + "\n" + cityName + "\n0\n1\n100\n0, 0, 0";
-        Debug.Log("inside save names function");
-;        if (File.Exists(path[0]))
+        //counts number of files in saves folder, then subtracts 4 for the template and current files (and their meta data) before cutting in half (metadata) and adding ibe
+        int n = 0;
+        while (n < 100)
         {
-
-            if (File.Exists(path[1]))
+            if (File.Exists(Application.dataPath + "\\Saves\\Save" + n + ".txt"))
             {
-                if (File.Exists(path[2]))
-                {
-                    File.WriteAllText(Application.dataPath + "\\Saves\\Save3.txt", content);
-                    Debug.Log("reached te end ig?");
-
-                } else
-                {
-                    File.WriteAllText(Application.dataPath + "\\Saves\\Save2.txt", content);
-                    Debug.Log("inside save names function 2");
-
-                }
+                n++;
             }
             else
             {
-                File.WriteAllText(Application.dataPath + "\\Saves\\Save1.txt", content);
-                Debug.Log("inside save names function1");
+                string Name = nameInput.text.ToString();
+                string cityName = cityInput.text.ToString();
+                string content = Name + "\n" + cityName + "\n0\n1\n100\n0, 0, 0";
+                //writes data to new file with number y 
+                File.WriteAllText(Application.dataPath + "\\Saves\\Save" + n + ".txt", content);
+                break;
             }
-        }
-        else
-        {
-            File.WriteAllText(Application.dataPath + "\\Saves\\Save0.txt", content);
-            Debug.Log("inside save names function 0");
         }
     }
 }
