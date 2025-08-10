@@ -1,0 +1,447 @@
+fileFormatVersion: 2
+guid: f81796d14bffc934f8ab19ee0d2e73e9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7011925648157326805
+    second: create_file_sheet_0
+  - first:
+      213: 1292671833675204319
+    second: create_file_sheet_1
+  - first:
+      213: 8355851562824475142
+    second: create_file_sheet_2
+  - first:
+      213: -7577352189839120404
+    second: create_file_sheet_3
+  - first:
+      213: 4799471560930850277
+    second: create_file_sheet_4
+  - first:
+      213: 2199348847201654208
+    second: create_file_sheet_5
+  - first:
+      213: -2268306789023483693
+    second: create_file_sheet_6
+  - first:
+      213: 234112552705791141
+    second: create_file_sheet_7
+  - first:
+      213: 1867741542260770263
+    second: create_file_sheet_8
+  - first:
+      213: 690849054204502343
+    second: create_file_sheet_9
+  - first:
+      213: 8495728480967367406
+    second: create_file_sheet_10
+  - first:
+      213: -447407202380371919
+    second: create_file_sheet_11
+  - first:
+      213: 6610139684056866821
+    second: create_file_sheet_12
+  - first:
+      213: 3882456040504172548
+    second: create_file_sheet_13
+  - first:
+      213: 8284614785091409937
+    second: create_file_sheet_14
+  - first:
+      213: -5891890029553280204
+    second: create_file_sheet_15
+  - first:
+      213: 3140184417217737240
+    second: create_file_sheet_16
+  - first:
+      213: 8621715629269196918
+    second: create_file_sheet_17
+  - first:
+      213: 8803006131402006974
+    second: create_file_sheet_18
+  - first:
+      213: -6758988420534818543
+    second: create_file_sheet_19
+  - first:
+      213: -3370857293753181574
+    second: create_file_sheet_20
+  - first:
+      213: 3568171107537470873
+    second: create_file_sheet_21
+  - first:
+      213: 4539747933099313240
+    second: create_file_sheet_22
+  - first:
+      213: 1776807172552585133
+    second: create_file_sheet_23
+  - first:
+      213: 5814888967139769775
+    second: create_file_sheet_24
+  - first:
+      213: 1376616025878284714
+    second: create_file_sheet_25
+  - first:
+      213: 1982373695610142646
+    second: create_file_sheet_26
+  - first:
+      213: 242179773150269311
+    second: create_file_sheet_27
+  - first:
+      213: -1062839210063279210
+    second: create_file_sheet_28
+  - first:
+      213: -9102305761196699134
+    second: create_file_sheet_29
+  - first:
+      213: -8404273189629890035
+    second: create_file_sheet_30
+  - first:
+      213: 2144535746902370480
+    second: create_file_sheet_31
+  - first:
+      213: 3791539850328135509
+    second: create_file_sheet_32
+  - first:
+      213: 6808438901182633270
+    second: create_file_sheet_33
+  - first:
+      213: 6436483179733063219
+    second: create_file_sheet_34
+  - first:
+      213: 911403507399316579
+    second: create_file_sheet_35
+  - first:
+      213: -4644686347432762611
+    second: create_file_sheet_36
+  - first:
+      213: 4735269509316118076
+    second: create_file_sheet_37
+  - first:
+      213: -7654780274157960278
+    second: create_file_sheet_38
+  - first:
+      213: 8352007855285544892
+    second: create_file_sheet_39
+  - first:
+      213: 306835841629843975
+    second: create_file_sheet_40
+  - first:
+      213: 8210169703650463086
+    second: create_file_sheet_41
+  - first:
+      213: 8414203090559464701
+    second: create_file_sheet_42
+  - first:
+      213: -6133539145106998110
+    second: create_file_sheet_43
+  - first:
+      213: 7966417463854574063
+    second: create_file_sheet_44
+  - first:
+      213: 4093480876807938891
+    second: create_file_sheet_45
+  - first:
+      213: 2071647896474735566
+    second: create_file_sheet_46
+  - first:
+      213: -1382708511633573939
+    second: create_file_sheet_47
+  - first:
+      213: -6629472700821480065
+    second: create_file_sheet_48
+  - first:
+      213: 1493089917236400513
+    second: create_file_sheet_49
+  - first:
+      213: -5761583224843865564
+    second: create_file_sheet_50
+  - first:
+      213: 1297255464523546196
+    second: create_file_sheet_51
+  - first:
+      213: 1012664272172509404
+    second: create_file_sheet_52
+  - first:
+      213: 2889373963158119249
+    second: create_file_sheet_53
+  - first:
+      213: 4291216099178118099
+    second: create_file_sheet_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: create_file_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 75
+        width: 195
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd3ed9e93d5f4160800000000000000
+      internalID: 7011925648157326805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: create_file_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 75
+        width: 195
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd60d511f2e70f110800000000000000
+      internalID: 1292671833675204319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: create_file_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 39
+        width: 195
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602ab06a9b2f5f370800000000000000
+      internalID: 8355851562824475142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: create_file_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 39
+        width: 195
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858c23a41bc600f30800000000000000
+      internalID: 4539747933099313240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: create_file_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3
+        width: 195
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe92589b9766e8e60800000000000000
+      internalID: 7966417463854574063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e9ee5444e2b3e7b40a4f58d783db2a02
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      create_file_sheet_0: 7011925648157326805
+      create_file_sheet_1: 1292671833675204319
+      create_file_sheet_10: 8495728480967367406
+      create_file_sheet_11: -447407202380371919
+      create_file_sheet_12: 6610139684056866821
+      create_file_sheet_13: 3882456040504172548
+      create_file_sheet_14: 8284614785091409937
+      create_file_sheet_15: -5891890029553280204
+      create_file_sheet_16: 3140184417217737240
+      create_file_sheet_17: 8621715629269196918
+      create_file_sheet_18: 8803006131402006974
+      create_file_sheet_19: -6758988420534818543
+      create_file_sheet_2: 8355851562824475142
+      create_file_sheet_20: -3370857293753181574
+      create_file_sheet_21: 3568171107537470873
+      create_file_sheet_22: 4539747933099313240
+      create_file_sheet_23: 1776807172552585133
+      create_file_sheet_24: 5814888967139769775
+      create_file_sheet_25: 1376616025878284714
+      create_file_sheet_26: 1982373695610142646
+      create_file_sheet_27: 242179773150269311
+      create_file_sheet_28: -1062839210063279210
+      create_file_sheet_29: -9102305761196699134
+      create_file_sheet_3: -7577352189839120404
+      create_file_sheet_30: -8404273189629890035
+      create_file_sheet_31: 2144535746902370480
+      create_file_sheet_32: 3791539850328135509
+      create_file_sheet_33: 6808438901182633270
+      create_file_sheet_34: 6436483179733063219
+      create_file_sheet_35: 911403507399316579
+      create_file_sheet_36: -4644686347432762611
+      create_file_sheet_37: 4735269509316118076
+      create_file_sheet_38: -7654780274157960278
+      create_file_sheet_39: 8352007855285544892
+      create_file_sheet_4: 4799471560930850277
+      create_file_sheet_40: 306835841629843975
+      create_file_sheet_41: 8210169703650463086
+      create_file_sheet_42: 8414203090559464701
+      create_file_sheet_43: -6133539145106998110
+      create_file_sheet_44: 7966417463854574063
+      create_file_sheet_45: 4093480876807938891
+      create_file_sheet_46: 2071647896474735566
+      create_file_sheet_47: -1382708511633573939
+      create_file_sheet_48: -6629472700821480065
+      create_file_sheet_49: 1493089917236400513
+      create_file_sheet_5: 2199348847201654208
+      create_file_sheet_50: -5761583224843865564
+      create_file_sheet_51: 1297255464523546196
+      create_file_sheet_52: 1012664272172509404
+      create_file_sheet_53: 2889373963158119249
+      create_file_sheet_54: 4291216099178118099
+      create_file_sheet_6: -2268306789023483693
+      create_file_sheet_7: 234112552705791141
+      create_file_sheet_8: 1867741542260770263
+      create_file_sheet_9: 690849054204502343
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

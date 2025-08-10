@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: 24ba8f42838d7ba4bb634145a9c3f9dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7653027709288189402
+    second: credits_sheet_0
+  - first:
+      213: -8893598602112176249
+    second: credits_sheet_1
+  - first:
+      213: -8649924817730665611
+    second: credits_sheet_2
+  - first:
+      213: -1600065456974158915
+    second: credits_sheet_3
+  - first:
+      213: -9063188748715233415
+    second: credits_sheet_4
+  - first:
+      213: 9140359904852420388
+    second: credits_sheet_5
+  - first:
+      213: 890897880373966944
+    second: credits_sheet_6
+  - first:
+      213: -8275260860897724217
+    second: credits_sheet_7
+  - first:
+      213: -1459337830722464470
+    second: credits_sheet_8
+  - first:
+      213: 3768240691584251466
+    second: credits_sheet_9
+  - first:
+      213: 7722536318705643462
+    second: credits_sheet_10
+  - first:
+      213: -198579836472383706
+    second: credits_sheet_11
+  - first:
+      213: -488303370254930456
+    second: credits_sheet_12
+  - first:
+      213: -6605262548619383789
+    second: credits_sheet_13
+  - first:
+      213: 2869588551750964131
+    second: credits_sheet_14
+  - first:
+      213: 3684724558832458875
+    second: credits_sheet_15
+  - first:
+      213: -8014499319762404527
+    second: credits_sheet_16
+  - first:
+      213: 2369784440005743362
+    second: credits_sheet_17
+  - first:
+      213: -421271523305518839
+    second: credits_sheet_18
+  - first:
+      213: -1776354033494608115
+    second: credits_sheet_19
+  - first:
+      213: 7784527766693097448
+    second: credits_sheet_20
+  - first:
+      213: -5704576658946904066
+    second: credits_sheet_21
+  - first:
+      213: 3685061797518265804
+    second: credits_sheet_22
+  - first:
+      213: -4829196695455859325
+    second: credits_sheet_23
+  - first:
+      213: 3365928112691946236
+    second: credits_sheet_24
+  - first:
+      213: 5497043397439288815
+    second: credits_sheet_25
+  - first:
+      213: -1540066364295405162
+    second: credits_sheet_26
+  - first:
+      213: -73672386394196277
+    second: credits_sheet_27
+  - first:
+      213: -4368360030573879622
+    second: credits_sheet_28
+  - first:
+      213: 1719001126844240504
+    second: credits_sheet_29
+  - first:
+      213: -8570627788684677671
+    second: credits_sheet_30
+  - first:
+      213: 6494775551611146605
+    second: credits_sheet_31
+  - first:
+      213: -1142865965881351985
+    second: credits_sheet_32
+  - first:
+      213: 7588901998218682661
+    second: credits_sheet_33
+  - first:
+      213: 7855442995569855693
+    second: credits_sheet_34
+  - first:
+      213: -1549518041438781153
+    second: credits_sheet_35
+  - first:
+      213: -780478411472599654
+    second: credits_sheet_36
+  - first:
+      213: 2812467019426036136
+    second: credits_sheet_37
+  - first:
+      213: 7828722071636896486
+    second: credits_sheet_38
+  - first:
+      213: 387696303831441429
+    second: credits_sheet_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: credits_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 75
+        width: 137
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622f7ab88dbfac590800000000000000
+      internalID: -7653027709288189402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: credits_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 103
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f61321137939480800000000000000
+      internalID: -8893598602112176249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: credits_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 75
+        width: 137
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a259f7099f36fbbe0800000000000000
+      internalID: -1459337830722464470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: credits_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 40
+        width: 137
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15bb3f0d457c6c090800000000000000
+      internalID: -8014499319762404527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: credits_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 40
+        width: 137
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf22188f8cd26be20800000000000000
+      internalID: 3365928112691946236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: credits_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 5
+        width: 137
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc022cd8579b320f0800000000000000
+      internalID: -1142865965881351985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 07f32e2835445e84da5e81cf54fb0ca2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      credits_sheet_0: -7653027709288189402
+      credits_sheet_1: -8893598602112176249
+      credits_sheet_10: 7722536318705643462
+      credits_sheet_11: -198579836472383706
+      credits_sheet_12: -488303370254930456
+      credits_sheet_13: -6605262548619383789
+      credits_sheet_14: 2869588551750964131
+      credits_sheet_15: 3684724558832458875
+      credits_sheet_16: -8014499319762404527
+      credits_sheet_17: 2369784440005743362
+      credits_sheet_18: -421271523305518839
+      credits_sheet_19: -1776354033494608115
+      credits_sheet_2: -8649924817730665611
+      credits_sheet_20: 7784527766693097448
+      credits_sheet_21: -5704576658946904066
+      credits_sheet_22: 3685061797518265804
+      credits_sheet_23: -4829196695455859325
+      credits_sheet_24: 3365928112691946236
+      credits_sheet_25: 5497043397439288815
+      credits_sheet_26: -1540066364295405162
+      credits_sheet_27: -73672386394196277
+      credits_sheet_28: -4368360030573879622
+      credits_sheet_29: 1719001126844240504
+      credits_sheet_3: -1600065456974158915
+      credits_sheet_30: -8570627788684677671
+      credits_sheet_31: 6494775551611146605
+      credits_sheet_32: -1142865965881351985
+      credits_sheet_33: 7588901998218682661
+      credits_sheet_34: 7855442995569855693
+      credits_sheet_35: -1549518041438781153
+      credits_sheet_36: -780478411472599654
+      credits_sheet_37: 2812467019426036136
+      credits_sheet_38: 7828722071636896486
+      credits_sheet_39: 387696303831441429
+      credits_sheet_4: -9063188748715233415
+      credits_sheet_5: 9140359904852420388
+      credits_sheet_6: 890897880373966944
+      credits_sheet_7: -8275260860897724217
+      credits_sheet_8: -1459337830722464470
+      credits_sheet_9: 3768240691584251466
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

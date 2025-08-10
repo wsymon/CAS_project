@@ -1,0 +1,447 @@
+fileFormatVersion: 2
+guid: 64922aadb610f7d4ebacc86c849e28f2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1629259169555005890
+    second: title_sheet_0
+  - first:
+      213: -7020092895959364968
+    second: title_sheet_1
+  - first:
+      213: 1773453594505611903
+    second: title_sheet_2
+  - first:
+      213: 1814857232895738682
+    second: title_sheet_3
+  - first:
+      213: 5875747720676667035
+    second: title_sheet_4
+  - first:
+      213: 1650233704746176612
+    second: title_sheet_5
+  - first:
+      213: -7232888507843759008
+    second: title_sheet_6
+  - first:
+      213: -3561768023599250509
+    second: title_sheet_7
+  - first:
+      213: 2365717819797049367
+    second: title_sheet_8
+  - first:
+      213: -7381005490975767630
+    second: title_sheet_9
+  - first:
+      213: 4681191037967755415
+    second: title_sheet_10
+  - first:
+      213: -8701544354871039844
+    second: title_sheet_11
+  - first:
+      213: -5935010289969493912
+    second: title_sheet_12
+  - first:
+      213: 4445425357836872788
+    second: title_sheet_13
+  - first:
+      213: -5316897940981410775
+    second: title_sheet_14
+  - first:
+      213: -3462086080021205492
+    second: title_sheet_15
+  - first:
+      213: -8396567719322960965
+    second: title_sheet_16
+  - first:
+      213: 6938508546277196607
+    second: title_sheet_17
+  - first:
+      213: -4865005666887804169
+    second: title_sheet_18
+  - first:
+      213: -8953048112022212723
+    second: title_sheet_19
+  - first:
+      213: -3458143291920127137
+    second: title_sheet_20
+  - first:
+      213: 2843405852641418751
+    second: title_sheet_21
+  - first:
+      213: -7838455253568811619
+    second: title_sheet_22
+  - first:
+      213: -913448438969344136
+    second: title_sheet_23
+  - first:
+      213: -3168720824720608064
+    second: title_sheet_24
+  - first:
+      213: 1013182327915156006
+    second: title_sheet_25
+  - first:
+      213: -3455936462038515873
+    second: title_sheet_26
+  - first:
+      213: 2316290668050014551
+    second: title_sheet_27
+  - first:
+      213: 5188822266974334913
+    second: title_sheet_28
+  - first:
+      213: 8161181814850884890
+    second: title_sheet_29
+  - first:
+      213: 8259806327390650022
+    second: title_sheet_30
+  - first:
+      213: -1792811012375003031
+    second: title_sheet_31
+  - first:
+      213: 1165043482280217421
+    second: title_sheet_32
+  - first:
+      213: 4536352441593498000
+    second: title_sheet_33
+  - first:
+      213: -5482400466629554999
+    second: title_sheet_34
+  - first:
+      213: 2928698094480704157
+    second: title_sheet_35
+  - first:
+      213: -247029619245096352
+    second: title_sheet_36
+  - first:
+      213: -3730680319541369799
+    second: title_sheet_37
+  - first:
+      213: 513847644297510553
+    second: title_sheet_38
+  - first:
+      213: -8470741260944371228
+    second: title_sheet_39
+  - first:
+      213: -2421240547241524972
+    second: title_sheet_40
+  - first:
+      213: -8315226694972271425
+    second: title_sheet_41
+  - first:
+      213: -2266816648620471248
+    second: title_sheet_42
+  - first:
+      213: 2241174186341196344
+    second: title_sheet_43
+  - first:
+      213: 2107437831491532230
+    second: title_sheet_44
+  - first:
+      213: -5061201207968924455
+    second: title_sheet_45
+  - first:
+      213: -298374006829974997
+    second: title_sheet_46
+  - first:
+      213: 2855743962762951914
+    second: title_sheet_47
+  - first:
+      213: -4801565503740713204
+    second: title_sheet_48
+  - first:
+      213: -669302832031201049
+    second: title_sheet_49
+  - first:
+      213: 6554019381939527078
+    second: title_sheet_50
+  - first:
+      213: 2841552676522364765
+    second: title_sheet_51
+  - first:
+      213: 3004642078751647135
+    second: title_sheet_52
+  - first:
+      213: -2219351933774775438
+    second: title_sheet_53
+  - first:
+      213: 8087267855059374734
+    second: title_sheet_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: title_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 132
+        width: 379
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e30afda65b369e0800000000000000
+      internalID: -1629259169555005890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 132
+        width: 379
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a338ccca90baf2910800000000000000
+      internalID: 1814857232895738682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 67
+        width: 379
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d8c3f0a76383390800000000000000
+      internalID: -7838455253568811619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 67
+        width: 379
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622161c85fb8f0e00800000000000000
+      internalID: 1013182327915156006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: title_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2
+        width: 379
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5b544ca8f1f3d10800000000000000
+      internalID: 2107437831491532230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 06faeef3005c730478abc6e059113e7b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      title_sheet_0: -1629259169555005890
+      title_sheet_1: -7020092895959364968
+      title_sheet_10: 4681191037967755415
+      title_sheet_11: -8701544354871039844
+      title_sheet_12: -5935010289969493912
+      title_sheet_13: 4445425357836872788
+      title_sheet_14: -5316897940981410775
+      title_sheet_15: -3462086080021205492
+      title_sheet_16: -8396567719322960965
+      title_sheet_17: 6938508546277196607
+      title_sheet_18: -4865005666887804169
+      title_sheet_19: -8953048112022212723
+      title_sheet_2: 1773453594505611903
+      title_sheet_20: -3458143291920127137
+      title_sheet_21: 2843405852641418751
+      title_sheet_22: -7838455253568811619
+      title_sheet_23: -913448438969344136
+      title_sheet_24: -3168720824720608064
+      title_sheet_25: 1013182327915156006
+      title_sheet_26: -3455936462038515873
+      title_sheet_27: 2316290668050014551
+      title_sheet_28: 5188822266974334913
+      title_sheet_29: 8161181814850884890
+      title_sheet_3: 1814857232895738682
+      title_sheet_30: 8259806327390650022
+      title_sheet_31: -1792811012375003031
+      title_sheet_32: 1165043482280217421
+      title_sheet_33: 4536352441593498000
+      title_sheet_34: -5482400466629554999
+      title_sheet_35: 2928698094480704157
+      title_sheet_36: -247029619245096352
+      title_sheet_37: -3730680319541369799
+      title_sheet_38: 513847644297510553
+      title_sheet_39: -8470741260944371228
+      title_sheet_4: 5875747720676667035
+      title_sheet_40: -2421240547241524972
+      title_sheet_41: -8315226694972271425
+      title_sheet_42: -2266816648620471248
+      title_sheet_43: 2241174186341196344
+      title_sheet_44: 2107437831491532230
+      title_sheet_45: -5061201207968924455
+      title_sheet_46: -298374006829974997
+      title_sheet_47: 2855743962762951914
+      title_sheet_48: -4801565503740713204
+      title_sheet_49: -669302832031201049
+      title_sheet_5: 1650233704746176612
+      title_sheet_50: 6554019381939527078
+      title_sheet_51: 2841552676522364765
+      title_sheet_52: 3004642078751647135
+      title_sheet_53: -2219351933774775438
+      title_sheet_54: 8087267855059374734
+      title_sheet_6: -7232888507843759008
+      title_sheet_7: -3561768023599250509
+      title_sheet_8: 2365717819797049367
+      title_sheet_9: -7381005490975767630
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

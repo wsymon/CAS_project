@@ -1,0 +1,449 @@
+fileFormatVersion: 2
+guid: 4cb7b115bebb98241b11962878357c42
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8590643380452404134
+    second: select_sheet_0
+  - first:
+      213: -5996134891783834935
+    second: select_sheet_1
+  - first:
+      213: -4358395264756833300
+    second: select_sheet_2
+  - first:
+      213: -4662213785165735406
+    second: select_sheet_3
+  - first:
+      213: 5071277990417988089
+    second: select_sheet_4
+  - first:
+      213: -2525150076459693783
+    second: select_sheet_5
+  - first:
+      213: 5439910518008915640
+    second: select_sheet_6
+  - first:
+      213: 1947664521657276261
+    second: select_sheet_7
+  - first:
+      213: -7110191317786439904
+    second: select_sheet_8
+  - first:
+      213: 6690288763424482630
+    second: select_sheet_9
+  - first:
+      213: 442116371423836189
+    second: select_sheet_10
+  - first:
+      213: 1695330390863264878
+    second: select_sheet_11
+  - first:
+      213: 1674216624093211999
+    second: select_sheet_12
+  - first:
+      213: 520902590633420845
+    second: select_sheet_13
+  - first:
+      213: 8979375726892278900
+    second: select_sheet_14
+  - first:
+      213: 649698805415816636
+    second: select_sheet_15
+  - first:
+      213: 7916984091146417200
+    second: select_sheet_16
+  - first:
+      213: 1180097785955314945
+    second: select_sheet_17
+  - first:
+      213: -8671224408893587209
+    second: select_sheet_18
+  - first:
+      213: -2514609323964408860
+    second: select_sheet_19
+  - first:
+      213: -707576450583973695
+    second: select_sheet_20
+  - first:
+      213: 6451815390855196018
+    second: select_sheet_21
+  - first:
+      213: 2796561549772488534
+    second: select_sheet_22
+  - first:
+      213: 6535804289816857455
+    second: select_sheet_23
+  - first:
+      213: 1430456070386959239
+    second: select_sheet_24
+  - first:
+      213: -8540797278605085862
+    second: select_sheet_25
+  - first:
+      213: 1117002023612984308
+    second: select_sheet_26
+  - first:
+      213: 7849922910013688153
+    second: select_sheet_27
+  - first:
+      213: -5180182020890645760
+    second: select_sheet_28
+  - first:
+      213: -4567317197932315815
+    second: select_sheet_29
+  - first:
+      213: -5819017867477222035
+    second: select_sheet_30
+  - first:
+      213: 2929327477588584139
+    second: select_sheet_31
+  - first:
+      213: 1917579809513345671
+    second: select_sheet_32
+  - first:
+      213: 1994828204349700922
+    second: select_sheet_33
+  - first:
+      213: -3533798604808048269
+    second: select_sheet_34
+  - first:
+      213: 3458018622445739339
+    second: select_sheet_35
+  - first:
+      213: 7775491409134083573
+    second: select_sheet_36
+  - first:
+      213: -2271080332083536428
+    second: select_sheet_37
+  - first:
+      213: 1445521659920813841
+    second: select_sheet_38
+  - first:
+      213: -1440807247489958385
+    second: select_sheet_39
+  - first:
+      213: -7213351873340471134
+    second: select_sheet_40
+  - first:
+      213: 1816551274792432211
+    second: select_sheet_41
+  - first:
+      213: -5889100948754157860
+    second: select_sheet_42
+  - first:
+      213: 5730535795404030193
+    second: select_sheet_43
+  - first:
+      213: 900744430191485138
+    second: select_sheet_44
+  - first:
+      213: 8585072373118789753
+    second: select_sheet_45
+  - first:
+      213: -4220033418956436604
+    second: select_sheet_46
+  - first:
+      213: -5629013240542130579
+    second: select_sheet_47
+  - first:
+      213: -6160080137715745447
+    second: select_sheet_48
+  - first:
+      213: -7401623265618997585
+    second: select_sheet_49
+  - first:
+      213: 8773496091052942497
+    second: select_sheet_50
+  - first:
+      213: 1268174871845763402
+    second: select_sheet_51
+  - first:
+      213: -8621089119081757394
+    second: select_sheet_52
+  - first:
+      213: -4517386993233827790
+    second: select_sheet_53
+  - first:
+      213: -6922910275926511626
+    second: select_sheet_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: select_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 82
+        width: 184
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab2deba3a8183770800000000000000
+      internalID: 8590643380452404134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: select_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 82
+        width: 184
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d62503ae3798950800000000000000
+      internalID: 6451815390855196018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: select_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 42
+        width: 184
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65f74b6a9e16fc620800000000000000
+      internalID: 2796561549772488534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: select_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 42
+        width: 184
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f0c7b9b1f3f68f40800000000000000
+      internalID: 5730535795404030193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: select_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 184
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0a9f27946108c00800000000000000
+      internalID: 900744430191485138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e041c6ce79ff3b4097bf79adf1833c0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      select_sheet_0: 8590643380452404134
+      select_sheet_1: -5996134891783834935
+      select_sheet_10: 442116371423836189
+      select_sheet_11: 1695330390863264878
+      select_sheet_12: 1674216624093211999
+      select_sheet_13: 520902590633420845
+      select_sheet_14: 8979375726892278900
+      select_sheet_15: 649698805415816636
+      select_sheet_16: 7916984091146417200
+      select_sheet_17: 1180097785955314945
+      select_sheet_18: -8671224408893587209
+      select_sheet_19: -2514609323964408860
+      select_sheet_2: -4358395264756833300
+      select_sheet_20: -707576450583973695
+      select_sheet_21: 6451815390855196018
+      select_sheet_22: 2796561549772488534
+      select_sheet_23: 6535804289816857455
+      select_sheet_24: 1430456070386959239
+      select_sheet_25: -8540797278605085862
+      select_sheet_26: 1117002023612984308
+      select_sheet_27: 7849922910013688153
+      select_sheet_28: -5180182020890645760
+      select_sheet_29: -4567317197932315815
+      select_sheet_3: -4662213785165735406
+      select_sheet_30: -5819017867477222035
+      select_sheet_31: 2929327477588584139
+      select_sheet_32: 1917579809513345671
+      select_sheet_33: 1994828204349700922
+      select_sheet_34: -3533798604808048269
+      select_sheet_35: 3458018622445739339
+      select_sheet_36: 7775491409134083573
+      select_sheet_37: -2271080332083536428
+      select_sheet_38: 1445521659920813841
+      select_sheet_39: -1440807247489958385
+      select_sheet_4: 5071277990417988089
+      select_sheet_40: -7213351873340471134
+      select_sheet_41: 1816551274792432211
+      select_sheet_42: -5889100948754157860
+      select_sheet_43: 5730535795404030193
+      select_sheet_44: 900744430191485138
+      select_sheet_45: 8585072373118789753
+      select_sheet_46: -4220033418956436604
+      select_sheet_47: -5629013240542130579
+      select_sheet_48: -6160080137715745447
+      select_sheet_49: -7401623265618997585
+      select_sheet_5: -2525150076459693783
+      select_sheet_50: 8773496091052942497
+      select_sheet_51: 1268174871845763402
+      select_sheet_52: -8621089119081757394
+      select_sheet_53: -4517386993233827790
+      select_sheet_54: -6922910275926511626
+      select_sheet_55: 663291386
+      select_sheet_56: -435484767
+      select_sheet_6: 5439910518008915640
+      select_sheet_7: 1947664521657276261
+      select_sheet_8: -7110191317786439904
+      select_sheet_9: 6690288763424482630
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
