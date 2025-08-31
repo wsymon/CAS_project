@@ -15,7 +15,6 @@ public class Player_saving  : MonoBehaviour
     public string Name;
     public string CityName; 
     public int Credits;
-    public Dictionary<Vector3Int, string[]> tilemapPlayerEditsLoaded;
     public Vector3Int Time;
     //dictionary of player edits in tilemap, dictionary with 2 parts to it; the vector3Int of the tile's coordinates in the map, and a string dictionary of related details of the tile (solar_panel, lvl1, ect)
 

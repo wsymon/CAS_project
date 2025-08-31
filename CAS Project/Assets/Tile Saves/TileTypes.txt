@@ -1,0 +1,8 @@
+1,Forest
+2,Windmill
+3,SolarPanel
+4,GasPowerPlant
+5,CoalPowerPlant
+6,HydroPowerPlant
+7,NuclearPowerPlant
+8,GeoThermalPowerPlant

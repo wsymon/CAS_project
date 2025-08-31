@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: file_select_animation
   serializedVersion: 7
-  m_Legacy: 0
+  m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -41,22 +41,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 2015549526
-      script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-      typeID: 114
-      customType: 0
-      isPPtrCurve: 1
-      isIntCurve: 0
-      isSerializeReferenceCurve: 0
-    pptrCurveMapping:
-    - {fileID: -8479961622275243907, guid: 89cd33ca047d97c439821b04f0010ad2, type: 3}
-    - {fileID: -6421190452723394165, guid: 89cd33ca047d97c439821b04f0010ad2, type: 3}
-    - {fileID: -8637229358788647730, guid: 89cd33ca047d97c439821b04f0010ad2, type: 3}
-    - {fileID: 3194589635478038044, guid: 89cd33ca047d97c439821b04f0010ad2, type: 3}
-    - {fileID: -1236900102388696009, guid: 89cd33ca047d97c439821b04f0010ad2, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

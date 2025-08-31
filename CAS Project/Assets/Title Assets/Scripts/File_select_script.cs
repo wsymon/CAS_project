@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using System.Reflection;
 using JetBrains.Annotations;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
@@ -21,9 +22,11 @@ public class File_select_script : MonoBehaviour
     TextMeshProUGUI file_2;
     [SerializeField]
     TextMeshProUGUI file_3;
-    //serialized field for file select button opener to remove it if no player files found
+    //serialized field for file select button/delete button opener to remove it if no player files found
     [SerializeField]
     Button select_file_button;
+    [SerializeField]
+    Button Delete_button;
 
     //serialised buttons so i can make even/remove others if only 1/2 player files.
     [SerializeField]
@@ -38,6 +41,10 @@ public class File_select_script : MonoBehaviour
     Button File_confirm_button;
     public Dictionary<int, string> player_name_storage = new Dictionary<int, string>();
 
+    //object for player script so i can reference to get selected file 
+    [SerializeField]
+    GameObject Player_data_object;
+
     public List<int> file_numbers;
     public int p;
     public int y = 0;
@@ -49,8 +56,7 @@ public class File_select_script : MonoBehaviour
     public string last_clicked = "";
 
     //string reference to selected file to be linked to in delete function...
-    public string selected_file_link;
-
+    public string selected_file_link = "";
 
     Color usable = new Color32(255, 255, 255, 255);
     Color unusable = new Color32(255, 255, 255, 150);
@@ -124,7 +130,6 @@ public class File_select_script : MonoBehaviour
         {
             file_button_2.GetComponent<Button>().image.color = unpressed;
             selected_file = "";
-            Debug.Log(selected_file + 2);
         }
 
         
@@ -165,7 +170,7 @@ public class File_select_script : MonoBehaviour
     //writing data of selected file to current file  
     public void file_confirm_press()
     {
-
+        string city = "";
         foreach (int linker in file_numbers)
         {
             //no need to check if current name is valid as button is uninteractable otherwise( see Update())
@@ -173,11 +178,16 @@ public class File_select_script : MonoBehaviour
             {
                 if (player_name_storage[linker] == selected_file)
                 {
-                    string[] information = File.ReadAllLines(Application.dataPath + "\\Saves\\Save" + linker + ".txt");
-                    File.WriteAllLines(Application.dataPath + "\\Saves\\Current_File.txt", information);
-                }
+                    //copies save 
+                    selected_file_link = Application.dataPath + "\\Saves\\Save" + linker + ".txt";
+                    string[] information = File.ReadAllLines(selected_file_link);
+                    city = information[1];
+                    File.WriteAllLines(selected_file_link, information);
+                    }
             }
         }
+        //sends information to update selected player file once player confirms choice
+        Player_data_object.GetComponent<CurrentPlayerDataScript>().SetCurrentPlayerFileOld(selected_file, selected_file_link, city);
     }
 
     //goes through list and dictionary to find selected file, then writes file link down to a public string
@@ -188,7 +198,7 @@ public class File_select_script : MonoBehaviour
             if (player_name_storage[number] == selected_file)
             {
                 selected_file_link = Application.dataPath + "\\Saves\\Save" + number + ".txt";
-                Debug.Log("link found: " + selected_file_link);
+               // Debug.Log("link found: " + selected_file_link);
             }
         }
     }
@@ -213,7 +223,7 @@ public class File_select_script : MonoBehaviour
     //function to make file select menu work
     public void file_select_menu_setup()
     {
-        Debug.Log("in setup");
+//        Debug.Log("in setup");
         //in the set up defines these and calls the other function
         bool c1 = false;
         bool c2 = false;
@@ -231,7 +241,7 @@ public class File_select_script : MonoBehaviour
             if (File.Exists(Application.dataPath + "\\Saves\\Save" + x + ".txt"))
             {
                 file_numbers.Add(x);
-                Debug.Log(x);
+//                Debug.Log(x);
                 y++;
             }
             x++;
@@ -247,10 +257,13 @@ public class File_select_script : MonoBehaviour
         int l = (c - 4) / 2;
         if (l == 0)
         {
-            //setting file select menu open button unusable if no files.
+
+            //setting file select button unusable if no files.
             select_file_button.interactable = false;
             Color blueWithAlpha = new Color(255f, 255f, 255f, 150f);
             select_file_button.image.color = blueWithAlpha;
+
+            Delete_button.interactable = false;
         }
         else if (l == 1)
         {
@@ -277,7 +290,7 @@ public class File_select_script : MonoBehaviour
             if (player_name_storage.ContainsKey(numb))
             {
                 string current_name = player_name_storage[numb];
-                Debug.Log(current_name);
+      //          Debug.Log(current_name);
 
                 if (c1 == false)
                 {

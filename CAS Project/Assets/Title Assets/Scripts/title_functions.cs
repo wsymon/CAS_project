@@ -24,24 +24,14 @@ public class title_functions : MonoBehaviour
     {
         //var used to check if existing files are there (and thus whether 'select_file' button exists)
         int checker = 0;
-        //new string (the paths of saves) where APplication.dataPath automatically finds the Assets folder...
-        path = new string[3];
-        path[0] = Application.dataPath + "\\Saves\\Save0.txt";
-        path[1] = Application.dataPath + "\\Saves\\Save1.txt";
-        path[2] = Application.dataPath + "\\Saves\\Save2.txt";
-
-        //really ugly and clunky way of checking if any of the 3 saves spots are there. could make a for loop for the dictionary...
-        if (File.Exists(path[0]))
+        int file_suffix_check = 0;
+        while (file_suffix_check < 100)
         {
-            checker = +1;
-        }
-        if (File.Exists(path[1]))
-        {
-            checker = +1;
-        }
-        if (File.Exists(path[2]))
-        {
-            checker = +1;
+            if (File.Exists(Application.dataPath + "\\Saves\\Save" + file_suffix_check + ".txt"))
+            {
+                checker++; 
+            }
+            file_suffix_check++;
         }
         if (checker == 0)
         {
@@ -68,6 +58,9 @@ public class title_functions : MonoBehaviour
     [SerializeField]
     GameObject File_select_menu;
 
+    //so that the current player data script can access 
+    public string File_source;
+
     //fields in  unity for the input fields for city/names of player save
     [SerializeField]
     TextMeshProUGUI nameInput;
@@ -80,10 +73,9 @@ public class title_functions : MonoBehaviour
         Application.Quit();
     }
 
-    
+    //checks if new game menu isActive when select file is clicked to make select file menu appear
     public void new_game_opener()
     {
-        //checks if new game menu isActive when select file is clicked to make select file menu appear
         if (new_game_menu.activeSelf == true)
         {
             new_game_menu.SetActive(false);
@@ -91,9 +83,14 @@ public class title_functions : MonoBehaviour
         else
         {
             new_game_menu.SetActive(true);
+            if (File_select_menu.activeSelf == true)
+            {
+                File_select_menu.SetActive(false);
+            }
         }
     }
 
+    //same but for select menu 
     public void File_select_menu_opener()
     {
         //checks if 
@@ -104,8 +101,16 @@ public class title_functions : MonoBehaviour
         else
         {
             File_select_menu.SetActive(true);
+            if (new_game_menu.activeSelf == true)
+            {
+                //if the other menu was open when this menu was clicked, shut the other one. 
+                new_game_menu.SetActive(false);
+            }
         }
+
     }
+
+    //function that makes new save file
     public void Save_names()
     {
         //counts number of files in saves folder, then subtracts 4 for the template and current files (and their meta data) before cutting in half (metadata) and adding ibe
@@ -120,9 +125,11 @@ public class title_functions : MonoBehaviour
             {
                 string Name = nameInput.text.ToString();
                 string cityName = cityInput.text.ToString();
+                
                 string content = Name + "\n" + cityName + "\n0\n1\n100\n0, 0, 0";
+                File_source = Application.dataPath + "\\Saves\\Save" + n + ".txt";
                 //writes data to new file with number y 
-                File.WriteAllText(Application.dataPath + "\\Saves\\Save" + n + ".txt", content);
+                File.WriteAllText(File_source, content);
                 break;
             }
         }

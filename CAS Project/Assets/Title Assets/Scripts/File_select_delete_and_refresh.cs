@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class File_select_delete_and_refresh : MonoBehaviour
 {
-
-    //necessary serialized fields
-    [SerializeField]
-    Button Refresh;
     [SerializeField]
     Button Delete;
 
@@ -25,7 +21,6 @@ public class File_select_delete_and_refresh : MonoBehaviour
 
         //calls function to set up select file menu
         file_select_object.GetComponent<File_select_script>().file_select_menu_setup();
-        Debug.Log("refreshed!");
     }
 
     public void Delete_files()
@@ -37,10 +32,27 @@ public class File_select_delete_and_refresh : MonoBehaviour
         string deleted_meta_link = deleted_link + ".meta";
         //deletes the file at that link and refreshes the menu display of available files.
 
+        //gets information for the tileset thing
+        string current_file_name = file_select_object.GetComponent<File_select_script>().selected_file;
+        Debug.Log(current_file_name);
+        string current_tile_data = Application.dataPath + "\\Tile Saves\\TileData" + current_file_name + ".txt";
+        string current_tile_data_meta = current_tile_data + ".meta";
+        //just for debugging...
+        if (File.Exists(current_tile_data) == true)
+        {
+            Debug.Log("File exists");
+            File.Delete(current_tile_data);
+            File.Delete(current_tile_data_meta);
+        }
+        else
+        {
+            Debug.Log("User tile data not found.");
+        }
+
         File.Delete(deleted_link);
         File.Delete(deleted_meta_link);
 
+        //refreshes display to show changes
         Refresh_files();
     }
     }
-    
