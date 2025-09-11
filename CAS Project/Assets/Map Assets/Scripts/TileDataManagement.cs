@@ -6,9 +6,57 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using NUnit.Framework.Constraints;
 using Unity.Mathematics;
+using UnityEditor.Timeline.Actions;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
+using UnityEditor;
+using Unity.VisualScripting;
+
+//allows unity editor menu to show option to makea  custom tile
+#if UnityEditor
+using UnityEditor;
+#endif
+
+//class for custom tiles deriving from Tile
+public class customTile : Tile
+{
+    //various values that are associated with tile
+    [SerializeField]
+    Sprite[] spriteAnimations;
+    public Vector3Int tileGrid;
+    public int StructureType;
+    public int Level;
+    public int Output;
+    public int Sequestration;
+
+
+    //honestly note sure what this does 
+    public override void RefreshTile(Vector3Int position, ITilemap tilemap)
+    {
+        base.RefreshTile(position, tilemap);
+    }
+
+    public override bool GetTileAnimationData(Vector3Int position, ITilemap tilemap, ref TileAnimationData tileAnimationData)
+    {
+        return base.GetTileAnimationData(position, tilemap, ref tileAnimationData);
+    }
+
+   
+    public override void GetTileData(Vector3Int position, ITilemap tilemap, ref UnityEngine.Tilemaps.TileData tileData)
+    {
+        base.GetTileData(position, tilemap, ref tileData);
+    }
+
+    [MenuItem("Assets/Create/2D/CustomTiles/CustomTile")]
+    public static void createCustomTile()
+    {
+        string path = EditorUtility.SaveFilePanelInProject("Save Custom Tile", "New Custom Tile", "Asset", "Save Custom Tile", "Assets");
+        if (path == "") return;
+        AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<customTile>(), path);
+    }
+}
 
 public class TileDataManagement : MonoBehaviour
 {
@@ -19,17 +67,20 @@ public class TileDataManagement : MonoBehaviour
     [SerializeField]
     GameObject playerData;
 
+    [SerializeField]
+    GameObject MapGrid;
 
     //a custom structure/type of information for tile information
     public struct TileInformation
     {
         //sets types
         public int StructureType;
-        //public Tile TileSource;
         public int Level;
         public int Output;
         public int Sequestration;
 
+        //      public Vector3Int Gridreference;
+        //    public Sprite[] AnimationSprites;
         //sets name and reference
         public TileInformation(int structureType, int level, int output, int sequestration)
         {
@@ -67,6 +118,7 @@ public class TileDataManagement : MonoBehaviour
 
     private void Start()
     {
+        //reads and sets all currently lited tile types to a list for reference
         var types = File.ReadLines(Application.dataPath + "\\Tile Saves\\TileTypes.txt");
         foreach (string type in types)
         {
@@ -75,7 +127,7 @@ public class TileDataManagement : MonoBehaviour
             TileTypes[int.Parse(TileTypeTempList[0])] = TileTypeTempList[1];
         }
 
-
+        //gets player information to set player name to reference applay selected tile map
         string[] player_information = new string[10];
         var raw = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
         int l = 0;
@@ -102,24 +154,62 @@ public class TileDataManagement : MonoBehaviour
     //flunction that pastes tile data in file to tilemap
     public void ApplySelectedTileMap(string player_file_name)
     {
-        var currentTileData = File.ReadLines(tile_file_reference);
-        foreach (string tile in currentTileData)
+        var imbadatthis = false;
+        while (imbadatthis == false)
         {
-            string[] SeperatedTileData;
-            SeperatedTileData = Regex.Split(tile, @"\D+");
-            int x = int.Parse(SeperatedTileData[1]);
-            int y = int.Parse(SeperatedTileData[2]);
+            if (MapGrid.activeSelf == true)
+            {
+                imbadatthis = true;
 
-            //sets values for grid reference, tile type, level, output and seq based on tile info in player data
-            Vector3Int tempTilePosition = new Vector3Int(x, y, 0);
-            string tempTileType = TileTypes[int.Parse(SeperatedTileData[4])];
-            int tempLevel = int.Parse(SeperatedTileData[5]);
-            int tempOutput = int.Parse(SeperatedTileData[6]);
-            int tempSeq = int.Parse(SeperatedTileData[7]);
+                var currentTileData = File.ReadLines(tile_file_reference);
+                foreach (string tile in currentTileData)
+                {
+                    Debug.Log(tile);
+                    string[] SeperatedTileData; 
+                    SeperatedTileData = Regex.Split(tile, @"\D+");
+                    int x = int.Parse(SeperatedTileData[1]);
+                    int y = int.Parse(SeperatedTileData[2]);
 
-            //playerTileMap.SetTile(tempTilePosition, );
-            //setTile(null) = destroy a tile 
-        }
+                    //sets values for grid reference, tile type, level, output and seq based on tile info in player data
+                    Vector3Int tempTilePosition = new Vector3Int(x, y, 0);
+                    int tempLevel = int.Parse(SeperatedTileData[5]);
+                    int tempOutput = int.Parse(SeperatedTileData[6]);
+                    int tempSeq = int.Parse(SeperatedTileData[7]);
+
+
+                    if (TileTypes.ContainsKey(int.Parse(SeperatedTileData[4])))
+                    {
+                        string tempTileType = TileTypes[int.Parse(SeperatedTileData[4])];
+                        if (File.Exists(Application.dataPath + "\\Resources\\" + tempTileType + ".Asset") == true)
+                        {
+                            //loads the tile data from the file and pastes it at the temp file position. 
+                            var tempTileData = Resources.Load<Tile>(tempTileType);
+                            //  Debug.Log(tempTileData);
+                            Tile tempTile = tempTileData;
+                            playerTileMap.SetTile(tempTilePosition, tempTile);
+                            ExistingTileDataCollection(playerTileMap, tempTilePosition);
+                        }
+                        else
+                        {
+                            Debug.Log("Could not find tile file with tag " + SeperatedTileData[4] + " and name " + TileTypes[int.Parse(SeperatedTileData[4])]);
+                        }
+                    }
+                }
+
+            }
+            else
+            {
+                            Debug.Log("map not real");
+            }
+        }     
+    }
+
+    //is capable of reading the data from existing custom files at some reference and in some map
+    public void ExistingTileDataCollection(Tilemap Specifiedtilemap, Vector3Int gridReference)
+    {
+        Debug.Log("inside data collection");
+        customTile specificTile = (customTile)Specifiedtilemap.GetTile(gridReference);
+        Debug.Log(gridReference + " level " + specificTile.Level + " seq " + specificTile.Sequestration + " type " + specificTile.StructureType + " output " + specificTile.Output);
     }
 
     //practice function that sets up the standard tile map (can adjust for size of map, have to manually include the desired tile information and delete unwanted ones)
@@ -182,9 +272,6 @@ public class TileDataManagement : MonoBehaviour
                 newFile.WriteLine(Tile);
             }
         }
-        ApplySelectedTileMap(player_name);
+        ApplySelectedTileMap(player_file_name);
     }
 }
-//Assets/Map/PC Computer - Omori - Snowglobe Mountain_XXX.asset 
-
-//if (tilemapData.TryGetValue(position, out TileData tileData))

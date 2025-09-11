@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Windmill
+  m_EditorClassIdentifier: Assembly-CSharp::customTile
+  m_Sprite: {fileID: -3073707793356776036, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Transform:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_InstancedGameObject: {fileID: 7785116280035303671, guid: 2b21aa82e5498974b915eb13c1fc5909, type: 3}
+  m_Flags: 1
+  m_ColliderType: 2
+  spriteAnimations:
+  - {fileID: -3073707793356776036, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  - {fileID: 3504050236467853115, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  - {fileID: -6222767011761113528, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  - {fileID: -4720376672098875414, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  - {fileID: 6773105102989729718, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  - {fileID: 1368808653693265452, guid: 5b0c312de14cdf2418314cd052ffca1f, type: 3}
+  tileMap: {fileID: 0}
+  tileGrid: {x: 0, y: 0, z: 0}
+  StructureType: 1
+  Level: 1
+  Output: 200
+  Sequestration: 400

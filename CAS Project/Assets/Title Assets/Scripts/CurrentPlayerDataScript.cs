@@ -28,11 +28,6 @@ public class CurrentPlayerDataScript : MonoBehaviour
     public string Selected_File_city = "";
     public string Selected_File_source = "";
 
-    private void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     public void SetCurrentPlayerFileNew()
     {
         Selected_File_name = name_field.text.ToString();

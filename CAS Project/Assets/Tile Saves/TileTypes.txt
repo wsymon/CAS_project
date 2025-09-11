@@ -1,5 +1,5 @@
-1,Forest
-2,Windmill
+1,Windmill
+2,Forest
 3,SolarPanel
 4,GasPowerPlant
 5,CoalPowerPlant
