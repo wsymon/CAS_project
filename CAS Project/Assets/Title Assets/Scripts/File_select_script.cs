@@ -241,7 +241,6 @@ public class File_select_script : MonoBehaviour
             if (File.Exists(Application.dataPath + "\\Saves\\Save" + x + ".txt"))
             {
                 file_numbers.Add(x);
-//                Debug.Log(x);
                 y++;
             }
             x++;

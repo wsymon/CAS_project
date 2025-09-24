@@ -37,7 +37,8 @@ MonoBehaviour:
   spriteAnimations:
   - {fileID: 4902347068930497980, guid: 5e1e6f0f025dce043b6a60ff83291943, type: 3}
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: 0
-  Level: 0
-  Output: 0
-  Sequestration: 0
+  StructureType: 2
+  Level: 1
+  Output: 10
+  Sequestration: 10
+  Education: Spspspsp

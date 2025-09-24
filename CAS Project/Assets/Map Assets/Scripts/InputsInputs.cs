@@ -178,6 +178,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""e3d699b9-f590-41b1-a482-aa5d0e075da6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeyboardInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""667b3f4f-25cc-4a7b-a426-621e8fa7efc3"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",

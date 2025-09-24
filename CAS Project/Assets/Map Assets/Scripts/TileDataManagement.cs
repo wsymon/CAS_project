@@ -15,6 +15,9 @@ using UnityEditor;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows.Speech;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal.Internal;
 
 
 
@@ -34,26 +37,19 @@ public class TileDataManagement : MonoBehaviour
     public struct TileInformation
     {
         //sets types
-        public int StructureType;
+        public string StructureType;
         public int Level;
-        public int Output;
-        public int Sequestration;
 
-        //      public Vector3Int Gridreference;
-        //    public Sprite[] AnimationSprites;
-        //sets name and reference
-        public TileInformation(int structureType, int level, int output, int sequestration)
+        public TileInformation(string structureType, int level)
         {
             StructureType = structureType;
             Level = level;
-            Output = output;
-            Sequestration = sequestration;
         }
 
         //VERY IMPORTANT, overrides normal type of TileInformation as TileDataMangagement+TileInformation to be string...
         public override string ToString()
         {
-            return $"StructureType: {StructureType}, Level: {Level}, Output: {Output}, Sequestration: {Sequestration}";
+            return $"StructureType: {StructureType}, Level: {Level}";
         }
     }
 
@@ -65,7 +61,7 @@ public class TileDataManagement : MonoBehaviour
     public Dictionary<Vector3Int, TileInformation> CurrentTileData = new Dictionary<Vector3Int, TileInformation>();
 
     //dictionary for the types of tiles 
-    public Dictionary<int, string> TileTypes = new Dictionary<int, string>();
+//    public Dictionary<int, string> TileTypes = new Dictionary<int, string>();
 
     //for setup function and for coordinates in tile pasting
     int x = 0;
@@ -78,18 +74,11 @@ public class TileDataManagement : MonoBehaviour
 
     private void Start()
     {
+        ResetStandardTileMap();
         Debug.Log(SceneManager.GetActiveScene().name );
         if (SceneManager.GetActiveScene().name == "Map")
         {
             //reads and sets all currently lited tile types to a list for reference
-        var types = File.ReadLines(Application.dataPath + "\\Tile Saves\\TileTypes.txt");
-        foreach (string type in types)
-        {
-            string[] TileTypeTempList;
-            TileTypeTempList = type.Split(",");
-            TileTypes[int.Parse(TileTypeTempList[0])] = TileTypeTempList[1];
-        }
-
         //gets player information to set player name to reference applay selected tile map
         string[] player_information = new string[10];
         var raw = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
@@ -136,28 +125,26 @@ public class TileDataManagement : MonoBehaviour
 
                     //sets values for grid reference, tile type, level, output and seq based on tile info in player data
                     Vector3Int tempTilePosition = new Vector3Int(x, y, 0);
-                    int tempLevel = int.Parse(SeperatedTileData[5]);
-                    int tempOutput = int.Parse(SeperatedTileData[6]);
-                    int tempSeq = int.Parse(SeperatedTileData[7]);
+                    int tempLevel = int.Parse(SeperatedTileData[4]);
 
+                    //funny way to find tile type string
+                    string[] lp = tile.ToString().Split(' ');
+                    string tempTileType = lp[4].Substring(0, lp[4].Length - 1);
 
-                    if (TileTypes.ContainsKey(int.Parse(SeperatedTileData[4])))
+                    Debug.Log(tempTileType + "L" + tempLevel);
+                    if (File.Exists(Application.dataPath + "\\Resources\\" + tempTileType + "L" + tempLevel + ".Asset") == true)
                     {
-                        string tempTileType = TileTypes[int.Parse(SeperatedTileData[4])];
-                        if (File.Exists(Application.dataPath + "\\Resources\\" + tempTileType + ".Asset") == true)
-                        {
-                            //loads the tile data from the file and pastes it at the temp file position. 
-                            var tempTileData = Resources.Load<customTile>(tempTileType);
-                            //  Debug.Log(tempTileData);
-                            customTile tempTile = tempTileData;
-//                            Debug.Log(tempTile.StructureType);
-                            playerTileMap.SetTile(tempTilePosition, tempTile);
-//                            ExistingTileDataCollection(playerTileMap, tempTilePosition);
-                        }
-                        else
-                        {
-                            Debug.Log("Could not find tile file with tag " + SeperatedTileData[4] + " and name " + TileTypes[int.Parse(SeperatedTileData[4])]);
-                        }
+                        //loads the tile data from the file and pastes it at the temp file position. 
+                        var tempTileData = Resources.Load<customTile>(tempTileType + "L" + tempLevel);
+                        //  Debug.Log(tempTileData);
+                        customTile tempTile = tempTileData;
+                        //                           Debug.Log(tempTile.StructureType);
+                        playerTileMap.SetTile(tempTilePosition, tempTile);
+                        //ExistingTileDataCollection(playerTileMap, tempTilePosition);
+                    }
+                    else
+                    {
+                        Debug.Log("Could not find tile file with tag " + SeperatedTileData[4] + " and name " + SeperatedTileData[4]);
                     }
                 }
 
@@ -170,11 +157,12 @@ public class TileDataManagement : MonoBehaviour
     }
 
     //is capable of reading the data from existing custom files at some reference and in some map
+    //not needed, is in TileMapInteractivity in an more developed form just here for reference
     public void ExistingTileDataCollection(Tilemap Specifiedtilemap, Vector3Int gridReference)
     {
         Debug.Log("inside data collection");
         customTile specificTile = (customTile)Specifiedtilemap.GetTile(gridReference);
-        Debug.Log(gridReference + " level " + specificTile.Level + " seq " + specificTile.Sequestration + " type " + specificTile.StructureType + " output " + specificTile.Output);
+        Debug.Log(gridReference + " level " + specificTile.Level + " seq " + specificTile.Sequestration + " type " + specificTile.StructureType + " output " + specificTile.Output + "education" + specificTile.Education);
     }
 
     //practice function that sets up the standard tile map (can adjust for size of map, have to manually include the desired tile information and delete unwanted ones)
@@ -186,7 +174,7 @@ public class TileDataManagement : MonoBehaviour
             while (y < 11)
             {
                 //manually change this information in the file itself, cannot here
-                StandardtileData[new Vector3Int(x, y, 0)] = new TileInformation(1, 1, 100, 200);
+                StandardtileData[new Vector3Int(x, y, 0)] = new TileInformation("Windmill", 1);
                 y++;
             }
             x++;
@@ -198,7 +186,7 @@ public class TileDataManagement : MonoBehaviour
         {
             foreach (KeyValuePair<Vector3Int, TileInformation> Tile in StandardtileData)
             {
-                standardTileData.WriteLine(Tile);
+                standardTileData.WriteLine(Tile);                
             }
         }
 
@@ -222,12 +210,16 @@ public class TileDataManagement : MonoBehaviour
             int b = int.Parse(linenumbers[2]);
             Vector3Int s = new Vector3Int(a, b, 0);
 
-            int c = int.Parse(linenumbers[4]);
-            int d = int.Parse(linenumbers[5]);
-            int e = int.Parse(linenumbers[6]);
-            int f = int.Parse(linenumbers[7]);
+            //the 0-x-1th letters of the 4th substring of the line divided by spaces is the name
+            string[] lp = line.ToString().Split(' ');
+            string c = lp[4].Substring(0, lp[4].Length - 1);
 
-            CurrentTileData[s] = new TileInformation(c, d, e, f);
+            //5 = level
+            Debug.Log(linenumbers[4]);
+            int d = int.Parse(linenumbers[4]);
+            Debug.Log(s + " " + c + " " + d);
+            CurrentTileData[s] = new TileInformation(c.ToSafeString(), d);
+            CurrentTileData[s] = new TileInformation(c, d);
             //Array.Clear(linenumbers, 0, linenumbers.Length);
         }
         foreach (KeyValuePair<Vector3Int, TileInformation> Tile in CurrentTileData)

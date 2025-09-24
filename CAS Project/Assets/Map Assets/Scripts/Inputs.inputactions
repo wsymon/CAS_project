@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "Inputs",
     "maps": [
         {
@@ -82,6 +83,17 @@
                     "name": "",
                     "id": "ec6a6901-7088-4361-8d59-a8c8c1cd2577",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyboardInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3d699b9-f590-41b1-a482-aa5d0e075da6",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
