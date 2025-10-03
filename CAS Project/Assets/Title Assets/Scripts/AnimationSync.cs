@@ -32,7 +32,7 @@ public class AnimationSync : MonoBehaviour
         while (x == 1)
         {
             //waits 1 second
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds((float)0.5);
             if (CurrentState == SpriteCount)
             {
                 //state was 4, set to 1 and play

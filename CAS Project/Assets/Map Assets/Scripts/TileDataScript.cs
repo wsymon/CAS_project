@@ -23,6 +23,8 @@ public class customTile : AnimatedTile
     public int Output;
     public int Sequestration;
     public string Education;
+    public int CreditCost;
+    public string[] SuitableTileTypePlacements;
 
     //honestly note sure what this does 
     public override void RefreshTile(Vector3Int position, ITilemap tilemap)

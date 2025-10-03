@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
+  m_Name: GrasslandL1
+  m_EditorClassIdentifier: Assembly-CSharp::customTile
+  m_AnimatedSprites:
+  - {fileID: 199898790257432134, guid: 75c97178dcd107c4587a212e08f5adb6, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
+  tileGrid: {x: 0, y: 0, z: 0}
+  StructureType: Grassland
+  Level: 0
+  Output: 0
+  Sequestration: 5
+  Education: 'An area dominated by grasses and other herbaceous plants, known as
+    one of the major ecosystems of the world that covering close to one-third of
+    the Earth''s surface. While their sequestration capacity is debated, grasslands
+    are recognised as areas of important biodiversity. '
+  CreditCost: 10
+  SuitableTileTypePlacements:
+  - Windmill
+  - Forest

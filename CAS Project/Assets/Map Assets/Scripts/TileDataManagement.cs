@@ -18,6 +18,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
+using Unity.Collections;
 
 
 
@@ -61,7 +62,7 @@ public class TileDataManagement : MonoBehaviour
     public Dictionary<Vector3Int, TileInformation> CurrentTileData = new Dictionary<Vector3Int, TileInformation>();
 
     //dictionary for the types of tiles 
-//    public Dictionary<int, string> TileTypes = new Dictionary<int, string>();
+    //    public Dictionary<int, string> TileTypes = new Dictionary<int, string>();
 
     //for setup function and for coordinates in tile pasting
     int x = 0;
@@ -70,37 +71,50 @@ public class TileDataManagement : MonoBehaviour
     public string player_file_name;
     public string tile_file_reference;
 
+    public int CurrentTotalSeq;
+    public int CurrentTotalOutput;
+    public int CurrentTotalCreditCost;
+    public int PastCreditCost;
+
+    private int Round;
+
+
+
+    //0 is player name, 1 is player city, 2 is round, 3 is credits, 4 is output, 5 is seq
+    private string[] CurrentPlayerData = new string[5];
+
 
 
     private void Start()
     {
         ResetStandardTileMap();
-        Debug.Log(SceneManager.GetActiveScene().name );
+        Debug.Log(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "Map")
         {
             //reads and sets all currently lited tile types to a list for reference
-        //gets player information to set player name to reference applay selected tile map
-        string[] player_information = new string[10];
-        var raw = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
-        int l = 0;
-        foreach (string line in raw)
-        {
-            player_information[l] = line;
-            l++;
-        }
-        player_file_name = player_information[0];
-        tile_file_reference = Application.dataPath + "\\Tile Saves\\TileData" + player_file_name + ".txt";
-        Debug.Log(player_file_name + "   " + tile_file_reference);
-
-        //if tile file exists (was an old file) then apply those tile edits, if not make a new one
-        if (File.Exists(tile_file_reference) == true)
-        {
-            ApplySelectedTileMap();
-        }
-        else
-        {
-            NewFileTileDataSetup(player_file_name);
-        }
+            //gets player information to set player name to reference applay selected tile map
+            string[] player_information = new string[10];
+            var raw = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
+            int l = 0;
+            foreach (string line in raw)
+            {
+                player_information[l] = line;
+                l++;
+            }
+            player_file_name = player_information[0];
+            tile_file_reference = Application.dataPath + "\\Tile Saves\\TileData" + player_file_name + ".txt";
+            Debug.Log(player_file_name + "   " + tile_file_reference);
+            Round = int.Parse(player_information[2]);
+            //if tile file exists (was an old file) then apply those tile edits, if not make a new one
+            if (File.Exists(tile_file_reference) == true)
+            {
+                ApplySelectedTileMap();
+            }
+            else
+            {
+                NewFileTileDataSetup(player_file_name);
+            }
+            UpdateGlobalInfo();
         }
     }
 
@@ -117,8 +131,7 @@ public class TileDataManagement : MonoBehaviour
                 var currentTileData = File.ReadLines(tile_file_reference);
                 foreach (string tile in currentTileData)
                 {
-                    Debug.Log(tile);
-                    string[] SeperatedTileData; 
+                    string[] SeperatedTileData;
                     SeperatedTileData = Regex.Split(tile, @"\D+");
                     int x = int.Parse(SeperatedTileData[1]);
                     int y = int.Parse(SeperatedTileData[2]);
@@ -130,8 +143,6 @@ public class TileDataManagement : MonoBehaviour
                     //funny way to find tile type string
                     string[] lp = tile.ToString().Split(' ');
                     string tempTileType = lp[4].Substring(0, lp[4].Length - 1);
-
-                    Debug.Log(tempTileType + "L" + tempLevel);
                     if (File.Exists(Application.dataPath + "\\Resources\\" + tempTileType + "L" + tempLevel + ".Asset") == true)
                     {
                         //loads the tile data from the file and pastes it at the temp file position. 
@@ -151,9 +162,9 @@ public class TileDataManagement : MonoBehaviour
             }
             else
             {
-                            Debug.Log("map not real");
+                Debug.Log("map not real");
             }
-        }     
+        }
     }
 
     //is capable of reading the data from existing custom files at some reference and in some map
@@ -186,7 +197,7 @@ public class TileDataManagement : MonoBehaviour
         {
             foreach (KeyValuePair<Vector3Int, TileInformation> Tile in StandardtileData)
             {
-                standardTileData.WriteLine(Tile);                
+                standardTileData.WriteLine(Tile);
             }
         }
 
@@ -230,5 +241,39 @@ public class TileDataManagement : MonoBehaviour
             }
         }
         ApplySelectedTileMap();
+    }
+
+    public void UpdateGlobalInfo()
+    {
+        //string reference = Application.dataPath + "\\Tile Saves\\TileData" + player_Name + ".txt";
+        //var rawPastGlobalData = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
+        CurrentPlayerData[2] = Round.ToString();
+        CurrentTotalCreditCost = 0;
+        CurrentTotalSeq = 0;
+        CurrentTotalOutput = 0;
+
+        int x1 = 0;
+        int y1 = 0;
+        while (x1 < 100)
+        {
+            while (y1 < 100)
+            {
+                if (playerTileMap.HasTile(new Vector3Int(x1, y1, 0)) && playerTileMap.GetTile(new Vector3Int(x1, y1, 0)).GetType() == typeof(customTile))
+                {
+                    customTile retrievedTile = (customTile)playerTileMap.GetTile(new Vector3Int(x1, y1, 0));
+                    CurrentTotalSeq = CurrentTotalSeq + retrievedTile.Sequestration;
+                    CurrentTotalOutput = CurrentTotalOutput + retrievedTile.Output;
+                    CurrentTotalCreditCost = CurrentTotalCreditCost + retrievedTile.CreditCost;
+                }
+                y1++;
+            }
+            x1++;
+            y1 = 0;
+        }
+        //0 is player name, 1 is player city, 2 is round, 3 is credits, 4 is output, 5 is seq
+        CurrentPlayerData[3] = (100 + 1.5 * CurrentTotalOutput).ToSafeString();
+        Debug.Log("Sums (seq, out, credit): " + CurrentTotalSeq + " " + CurrentTotalOutput + " " + CurrentTotalCreditCost);
+        Debug.Log(CurrentTotalCreditCost - PastCreditCost);
+        PastCreditCost = CurrentTotalCreditCost;
     }
 }

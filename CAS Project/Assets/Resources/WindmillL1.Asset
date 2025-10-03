@@ -28,6 +28,8 @@ MonoBehaviour:
   tileGrid: {x: 0, y: 0, z: 0}
   StructureType: Windmill Lvl 1
   Level: 0
-  Output: 0
+  Output: 20
   Sequestration: 50
   Education: Education for Windmill
+  CreditCost: 10
+  SuitableTileTypePlacements: []

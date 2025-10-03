@@ -1,0 +1,349 @@
+fileFormatVersion: 2
+guid: 1a7b0f01248a11143a14b905b03050a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7841086481950517709
+    second: tutorial_sheet_0
+  - first:
+      213: 83426295833072961
+    second: tutorial_sheet_1
+  - first:
+      213: 954128844326930412
+    second: tutorial_sheet_2
+  - first:
+      213: -3207090799386226223
+    second: tutorial_sheet_3
+  - first:
+      213: 1188109797576498498
+    second: tutorial_sheet_4
+  - first:
+      213: -8450868215364321024
+    second: tutorial_sheet_5
+  - first:
+      213: 8896815574442162357
+    second: tutorial_sheet_6
+  - first:
+      213: -5953213762828370397
+    second: tutorial_sheet_7
+  - first:
+      213: 2162889064047169080
+    second: tutorial_sheet_8
+  - first:
+      213: 6962395981836966742
+    second: tutorial_sheet_9
+  - first:
+      213: -2184632742638111955
+    second: tutorial_sheet_10
+  - first:
+      213: -361003137370273881
+    second: tutorial_sheet_11
+  - first:
+      213: 7922101252034050064
+    second: tutorial_sheet_12
+  - first:
+      213: 7010516958995063043
+    second: tutorial_sheet_13
+  - first:
+      213: -3208427134970828868
+    second: tutorial_sheet_14
+  - first:
+      213: 3613073706286988261
+    second: tutorial_sheet_15
+  - first:
+      213: 2167456183063949042
+    second: tutorial_sheet_16
+  - first:
+      213: -2861388179759844254
+    second: tutorial_sheet_17
+  - first:
+      213: 5186757656812946027
+    second: tutorial_sheet_18
+  - first:
+      213: -2048530916863653253
+    second: tutorial_sheet_19
+  - first:
+      213: -5598194674910280660
+    second: tutorial_sheet_20
+  - first:
+      213: -6987861388772844288
+    second: tutorial_sheet_21
+  - first:
+      213: 4269251191112093324
+    second: tutorial_sheet_22
+  - first:
+      213: -2255911217095841845
+    second: tutorial_sheet_23
+  - first:
+      213: 8267941784542409651
+    second: tutorial_sheet_24
+  - first:
+      213: -2582993249267492222
+    second: tutorial_sheet_25
+  - first:
+      213: -6555861829088405911
+    second: tutorial_sheet_26
+  - first:
+      213: -7848696980940543697
+    second: tutorial_sheet_27
+  - first:
+      213: 8446173646077674745
+    second: tutorial_sheet_28
+  - first:
+      213: -5835621114128441600
+    second: tutorial_sheet_29
+  - first:
+      213: 6445752789806879885
+    second: tutorial_sheet_30
+  - first:
+      213: 1655144655551184350
+    second: tutorial_sheet_31
+  - first:
+      213: -1875808931644315589
+    second: tutorial_sheet_32
+  - first:
+      213: -198610061951333230
+    second: tutorial_sheet_33
+  - first:
+      213: 2783660258730936668
+    second: tutorial_sheet_34
+  - first:
+      213: 5764300073161868267
+    second: tutorial_sheet_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tutorial_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105
+        width: 146
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc927c98c9221dc60800000000000000
+      internalID: 7841086481950517709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorial_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 146
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bdff2d1466f9060800000000000000
+      internalID: 6962395981836966742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorial_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 146
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b628f56bb901bf740800000000000000
+      internalID: 5186757656812946027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tutorial_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 146
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29ab551ea3d31390800000000000000
+      internalID: -7848696980940543697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3e4b5889c00dbca49ab5dbf6cda8f259
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tutorial_sheet_0: 7841086481950517709
+      tutorial_sheet_1: 83426295833072961
+      tutorial_sheet_10: -2184632742638111955
+      tutorial_sheet_11: -361003137370273881
+      tutorial_sheet_12: 7922101252034050064
+      tutorial_sheet_13: 7010516958995063043
+      tutorial_sheet_14: -3208427134970828868
+      tutorial_sheet_15: 3613073706286988261
+      tutorial_sheet_16: 2167456183063949042
+      tutorial_sheet_17: -2861388179759844254
+      tutorial_sheet_18: 5186757656812946027
+      tutorial_sheet_19: -2048530916863653253
+      tutorial_sheet_2: 954128844326930412
+      tutorial_sheet_20: -5598194674910280660
+      tutorial_sheet_21: -6987861388772844288
+      tutorial_sheet_22: 4269251191112093324
+      tutorial_sheet_23: -2255911217095841845
+      tutorial_sheet_24: 8267941784542409651
+      tutorial_sheet_25: -2582993249267492222
+      tutorial_sheet_26: -6555861829088405911
+      tutorial_sheet_27: -7848696980940543697
+      tutorial_sheet_28: 8446173646077674745
+      tutorial_sheet_29: -5835621114128441600
+      tutorial_sheet_3: -3207090799386226223
+      tutorial_sheet_30: 6445752789806879885
+      tutorial_sheet_31: 1655144655551184350
+      tutorial_sheet_32: -1875808931644315589
+      tutorial_sheet_33: -198610061951333230
+      tutorial_sheet_34: 2783660258730936668
+      tutorial_sheet_35: 5764300073161868267
+      tutorial_sheet_4: 1188109797576498498
+      tutorial_sheet_5: -8450868215364321024
+      tutorial_sheet_6: 8896815574442162357
+      tutorial_sheet_7: -5953213762828370397
+      tutorial_sheet_8: 2162889064047169080
+      tutorial_sheet_9: 6962395981836966742
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
