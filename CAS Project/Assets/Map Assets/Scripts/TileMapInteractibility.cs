@@ -86,6 +86,11 @@ public class TileMapInteractibility : MonoBehaviour
     [SerializeField]
     GameObject tempEditTileImage;
 
+    [SerializeField]
+    GameObject SettingsMenu;
+
+    [SerializeField]
+    GameObject SettingsButton;
 
 
 
@@ -146,7 +151,7 @@ public class TileMapInteractibility : MonoBehaviour
 
         //MAKE AN ELSE IF LATER
         //if tile menus are open
-        if (TileInformationMenuObject.activeSelf == true)
+        if (TileInformationMenuObject.activeSelf == true || SettingsMenu.activeSelf == true || SettingsButton.activeSelf == true)
         {
             //if menu open and click outside menu
             //later add global menu!!
