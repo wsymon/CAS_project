@@ -5,7 +5,7 @@ using System.Collections;
 
 public class RoundSystem : MonoBehaviour
 {
-    public int currentround = 0;
+    public int currentRound = 0;
     public int MoneyPerRound = 100;
 
     public MoneyManager moneyManager;
@@ -14,30 +14,17 @@ public class RoundSystem : MonoBehaviour
     public TextMeshProUGUI RoundText;
 
 
-    public void StartNextRound()
-    {
-        currentround++;
-
-        //Adds money
-        moneyManager.AddMoney(MoneyPerRound);
-
-        //Update save data
-        playerData.Round = currentround;
-
-        //Update UI
-        UpdateRoundUI();
-
-    }
-
-    private void UpdateRoundUI()
-    {
-        RoundText.text = "Current Round: " + currentround;
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        if (PlayerPrefs.HasKey("CurrentRound"))
+        {
+            currentRound = PlayerPrefs.GetInt("CurrentRound");
+        }
+        else
+        {
+            currentRound = 0;
+        }
     }
 
 
@@ -46,6 +33,31 @@ public class RoundSystem : MonoBehaviour
     {
 
     }
+
+    public void StartNextRound()
+    {
+        currentRound++;
+
+        //Save round
+        PlayerPrefs.SetInt("CurrentRound", currentRound);
+
+        //Adds money
+        moneyManager.AddMoney(MoneyPerRound);
+
+        //Update save data
+        playerData.Round = currentRound;
+
+        //Update UI
+        UpdateRoundUI();
+
+    }
+
+    private void UpdateRoundUI()
+    {
+        RoundText.text = "Current Round: " + currentRound;
+    }
+
+
 
 }
 
