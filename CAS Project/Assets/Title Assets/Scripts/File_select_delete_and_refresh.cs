@@ -53,6 +53,6 @@ public class File_select_delete_and_refresh : MonoBehaviour
         File.Delete(deleted_meta_link);
 
         //refreshes display to show changes
-        Refresh_files();
+        file_select_object.GetComponent<File_select_script>().file_select_menu_setup();
     }
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GrasslandL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
-  - {fileID: 199898790257432134, guid: 75c97178dcd107c4587a212e08f5adb6, type: 3}
+  - {fileID: 320082797, guid: 75c97178dcd107c4587a212e08f5adb6, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -22,14 +22,15 @@ MonoBehaviour:
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
   StructureType: Grassland
-  Level: 0
-  Output: 0
+  Level: 1
+  Output: 2
   Sequestration: 5
   Education: 'An area dominated by grasses and other herbaceous plants, known as
     one of the major ecosystems of the world that covering close to one-third of
     the Earth''s surface. While their sequestration capacity is debated, grasslands
     are recognised as areas of important biodiversity. '
   CreditCost: 10
+  CarbonCost: 0
   SuitableTileTypePlacements:
   - Windmill
   - Forest

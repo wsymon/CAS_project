@@ -28,11 +28,12 @@ public class CurrentPlayerDataScript : MonoBehaviour
     public string Selected_File_city = "";
     public string Selected_File_source = "";
 
+    //writes player info to current player file (txt in saves) so file sin next scene can read
     public void SetCurrentPlayerFileNew()
     {
         Selected_File_name = name_field.text.ToString();
         Selected_File_city = city_field.text.ToString();
-        Selected_File_source = Title_functions_object.GetComponent<title_functions>().File_source;
+        Selected_File_source = title_functions.File_source;
         //writes player info to current player file (txt in saves) so file sin next scene can read
         string[] player_information = new string[10];
         var raw = File.ReadLines(Selected_File_source);

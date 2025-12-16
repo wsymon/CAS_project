@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ForestL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
-  - {fileID: 4902347068930497980, guid: 5e1e6f0f025dce043b6a60ff83291943, type: 3}
+  - {fileID: -233161755, guid: 75c97178dcd107c4587a212e08f5adb6, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -21,10 +21,11 @@ MonoBehaviour:
   m_TileColliderType: 0
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: 2
+  StructureType: Forest
   Level: 1
   Output: 10
   Sequestration: 10
   Education: Spspspsp
-  CreditCost: 0
+  CreditCost: 20
+  CarbonCost: 0
   SuitableTileTypePlacements: []

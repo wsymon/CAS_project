@@ -26,10 +26,11 @@ MonoBehaviour:
   m_TileColliderType: 0
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: Windmill Lvl 1
-  Level: 0
+  StructureType: Windmill
+  Level: 1
   Output: 20
   Sequestration: 50
-  Education: Education for Windmill
-  CreditCost: 10
+  Education: yet to be done for windmill
+  CreditCost: 120
+  CarbonCost: 15
   SuitableTileTypePlacements: []

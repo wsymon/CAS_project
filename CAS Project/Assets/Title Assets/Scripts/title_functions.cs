@@ -59,7 +59,7 @@ public class title_functions : MonoBehaviour
     GameObject File_select_menu;
 
     //so that the current player data script can access 
-    public string File_source;
+    public static string File_source;
 
     //fields in  unity for the input fields for city/names of player save
     [SerializeField]
@@ -126,7 +126,7 @@ public class title_functions : MonoBehaviour
                 string Name = nameInput.text.ToString();
                 string cityName = cityInput.text.ToString();
                 
-                string content = Name + "\n" + cityName + "\n0\n1\n100\n0, 0, 0";
+                string content = Name + "\n" + cityName + "\n1\n1\n100\n0, 0, 0\nWindmill CoalStation Forest SolarPanel GasStation";
                 File_source = Application.dataPath + "\\Saves\\Save" + n + ".txt";
                 //writes data to new file with number y 
                 File.WriteAllText(File_source, content);

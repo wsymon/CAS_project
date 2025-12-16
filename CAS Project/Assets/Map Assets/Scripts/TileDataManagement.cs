@@ -1,24 +1,17 @@
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
-using NUnit.Framework.Constraints;
-using Unity.Mathematics;
-using UnityEditor.Timeline.Actions;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
-using UnityEditor;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows.Speech;
-using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal.Internal;
-using Unity.Collections;
+using System.Linq;
+using System.IO.Hashing;
+using UnityEngine.UIElements;
+using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
+using System.ComponentModel.Design;
+
 
 
 
@@ -28,6 +21,7 @@ public class TileDataManagement : MonoBehaviour
     [SerializeField]
     Tilemap playerTileMap;
 
+    //player data object, important
     [SerializeField]
     GameObject playerData;
 
@@ -75,24 +69,28 @@ public class TileDataManagement : MonoBehaviour
     public int CurrentTotalOutput;
     public int CurrentTotalCreditCost;
     public int PastCreditCost;
+    public int CurrentTotalCarbonCost;
 
-    private int Round;
+    public int Round;
+
+    //solely for updating player (not tile) file at changes/end of scene
+    private string tech;
+    private string data;
 
 
 
     //0 is player name, 1 is player city, 2 is round, 3 is credits, 4 is output, 5 is seq
-    private string[] CurrentPlayerData = new string[5];
+    private string[] CurrentPlayerDataList = new string[5];
 
-
-
-    private void Start()
+    //THIS PARTICULAR START FUNCTION WILL BE THE START FUNCTION FOR ALL OF THE MAP SCENE
+    //THIS INCLUDES THE SETTING OF VALUES TO PLAYER_SAVING CLASS FOR ALL FUTURE REFERENCE...
+    private void Awake()
     {
         ResetStandardTileMap();
-        Debug.Log(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "Map")
         {
             //reads and sets all currently lited tile types to a list for reference
-            //gets player information to set player name to reference applay selected tile map
+            //gets player information to set player name to reference apply selected tile map
             string[] player_information = new string[10];
             var raw = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
             int l = 0;
@@ -103,7 +101,6 @@ public class TileDataManagement : MonoBehaviour
             }
             player_file_name = player_information[0];
             tile_file_reference = Application.dataPath + "\\Tile Saves\\TileData" + player_file_name + ".txt";
-            Debug.Log(player_file_name + "   " + tile_file_reference);
             Round = int.Parse(player_information[2]);
             //if tile file exists (was an old file) then apply those tile edits, if not make a new one
             if (File.Exists(tile_file_reference) == true)
@@ -114,13 +111,15 @@ public class TileDataManagement : MonoBehaviour
             {
                 NewFileTileDataSetup(player_file_name);
             }
-            UpdateGlobalInfo();
         }
     }
+
+
 
     //flunction that pastes tile data in file to tilemap
     public void ApplySelectedTileMap()
     {
+        //silly var solely to ensure map tilemap exists when called, previously would occur prior to initialisation
         var imbadatthis = false;
         while (imbadatthis == false)
         {
@@ -184,7 +183,7 @@ public class TileDataManagement : MonoBehaviour
         {
             while (y < 11)
             {
-                //manually change this information in the file itself, cannot here
+                //manually change this information in the file itself, cannot here. Or get this to read off exisitng map constructed in unity then remove reference...
                 StandardtileData[new Vector3Int(x, y, 0)] = new TileInformation("Windmill", 1);
                 y++;
             }
@@ -192,7 +191,6 @@ public class TileDataManagement : MonoBehaviour
             y = 0;
         }
         //writes StandardTileData to the file that has been cleared
-        File.WriteAllText(Application.dataPath + "\\Tile Saves\\StandardTileData.txt", string.Empty);
         using (StreamWriter standardTileData = File.AppendText(Application.dataPath + "\\Tile Saves\\StandardTileData.txt"))
         {
             foreach (KeyValuePair<Vector3Int, TileInformation> Tile in StandardtileData)
@@ -204,7 +202,6 @@ public class TileDataManagement : MonoBehaviour
     }
 
     //Creates new file in name of new player with standard tile data 
-    //IMPORTANT use parts of this function as the basis for reading tile data and pasting to grid map in scene load...
     public void NewFileTileDataSetup(string player_name)
     {
         CurrentTileData.Clear();
@@ -226,9 +223,7 @@ public class TileDataManagement : MonoBehaviour
             string c = lp[4].Substring(0, lp[4].Length - 1);
 
             //5 = level
-            Debug.Log(linenumbers[4]);
             int d = int.Parse(linenumbers[4]);
-            Debug.Log(s + " " + c + " " + d);
             CurrentTileData[s] = new TileInformation(c.ToSafeString(), d);
             CurrentTileData[s] = new TileInformation(c, d);
             //Array.Clear(linenumbers, 0, linenumbers.Length);
@@ -243,14 +238,14 @@ public class TileDataManagement : MonoBehaviour
         ApplySelectedTileMap();
     }
 
-    public void UpdateGlobalInfo()
+    public void TileInfoCollection()
     {
         //string reference = Application.dataPath + "\\Tile Saves\\TileData" + player_Name + ".txt";
         //var rawPastGlobalData = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
-        CurrentPlayerData[2] = Round.ToString();
-        CurrentTotalCreditCost = 0;
+
         CurrentTotalSeq = 0;
         CurrentTotalOutput = 0;
+        CurrentTotalCarbonCost = 0;
 
         int x1 = 0;
         int y1 = 0;
@@ -264,16 +259,79 @@ public class TileDataManagement : MonoBehaviour
                     CurrentTotalSeq = CurrentTotalSeq + retrievedTile.Sequestration;
                     CurrentTotalOutput = CurrentTotalOutput + retrievedTile.Output;
                     CurrentTotalCreditCost = CurrentTotalCreditCost + retrievedTile.CreditCost;
+                    CurrentTotalCarbonCost = CurrentTotalCarbonCost + retrievedTile.CarbonCost;
                 }
                 y1++;
             }
             x1++;
             y1 = 0;
         }
-        //0 is player name, 1 is player city, 2 is round, 3 is credits, 4 is output, 5 is seq
-        CurrentPlayerData[3] = (100 + 1.5 * CurrentTotalOutput).ToSafeString();
-        Debug.Log("Sums (seq, out, credit): " + CurrentTotalSeq + " " + CurrentTotalOutput + " " + CurrentTotalCreditCost);
-        Debug.Log(CurrentTotalCreditCost - PastCreditCost);
-        PastCreditCost = CurrentTotalCreditCost;
+    }
+
+
+    //at end of round collects all tiledata existing (with changes) from the round and saves to player tile data file
+    public void UpdateTileAndPlayerFileData()
+    {
+        //alter bounds later to match that of the real map
+        int x = -50;
+        int y = -50;
+        Vector3Int Pos;
+
+        //clears current tile data/player to refill it
+        CurrentTileData.Clear();
+        tech = "";
+        
+        //loops through entire map and adds tiles within playertile to an array
+        while(x < 50)
+        {
+            while(y < 50)
+            {
+                Pos =  new Vector3Int(x, y, 0);
+                if (playerTileMap.HasTile(Pos))
+                {
+                    customTile ATile = playerTileMap.GetTile<customTile>(Pos);
+                    CurrentTileData[Pos] = new TileInformation(ATile.StructureType, ATile.Level);
+                }
+                y++;
+            }
+            y = -50;
+            x++;
+        }
+
+        //clears player tile file...
+        File.WriteAllText(Application.dataPath + "\\Tile Saves\\TileData" + CurrentPlayerData.Name + ".txt", "");
+
+        //writes array to player tile file
+        foreach (KeyValuePair<Vector3Int, TileInformation> Tile in CurrentTileData)
+        {
+            using (StreamWriter newFile = File.AppendText(Application.dataPath + "\\Tile Saves\\TileData" + CurrentPlayerData.Name + ".txt"))
+            {
+                newFile.WriteLine(Tile);
+            }
+        }
+
+        foreach(string alteredtechpeice in CurrentPlayerData.DevelopedTechnologies)
+        {
+            tech =  tech + " " + alteredtechpeice;
+        }
+        data = CurrentPlayerData.Name + "\n" + CurrentPlayerData.CityName + "\n" + CurrentPlayerData.Round + "\n0\n" + CurrentPlayerData.RoundCredits.ToString() + "\n0, 0, 0\n" + tech;
+
+        x = 0;
+        while(x < 10)
+        {
+            if (File.Exists(Application.dataPath + "\\Saves\\Save" + x + ".txt"))
+            {
+                string nametest = File.ReadLines(Application.dataPath + "\\Saves\\Save" + x + ".txt").FirstOrDefault();
+                if(nametest == CurrentPlayerData.Name)
+                {
+                    File.WriteAllText(Application.dataPath + "\\Saves\\Save" + x + ".txt", data);
+                }
+            }   
+            x++;
+        }
+        //writes to current and old file
+        //File.WriteAllText(title_functions.File_source, data);         //use this later, top substitute is for testing so i don't need to run through title scene
+        File.WriteAllText(Application.dataPath + "\\Saves\\Current_File.txt", data);
+        data = "";
     }
 }

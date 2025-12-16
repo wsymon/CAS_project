@@ -15,8 +15,6 @@ public class customTile : AnimatedTile
 {
     //various values that are associated with tile
     [SerializeField]
-    //public Sprite[] spriteAnimations;
-
     public Vector3Int tileGrid;
     public string StructureType;
     public int Level;
@@ -24,6 +22,7 @@ public class customTile : AnimatedTile
     public int Sequestration;
     public string Education;
     public int CreditCost;
+    public int CarbonCost;
     public string[] SuitableTileTypePlacements;
 
     //honestly note sure what this does 

@@ -28,6 +28,9 @@ public class File_select_script : MonoBehaviour
     [SerializeField]
     Button Delete_button;
 
+    [SerializeField]
+    GameObject FileSelectObject;
+
     //serialised buttons so i can make even/remove others if only 1/2 player files.
     [SerializeField]
     GameObject file_button_1;
@@ -235,6 +238,7 @@ public class File_select_script : MonoBehaviour
         file_3.text = "";
 
         //adding all file numbers of existing files to 
+        file_numbers.Clear();
         int x = 0;
         while (x < 100)
         {
@@ -246,8 +250,14 @@ public class File_select_script : MonoBehaviour
             x++;
         }
 
-
-        
+        //just makes the select button menu and button not visible in the event no player files exist as they were deleted
+        Debug.Log(file_numbers.Count);
+        if(file_numbers.Count == 0)
+        {
+            FileSelectObject.SetActive(false);
+            select_file_button.interactable = false;
+            select_file_button.image.color = new Color(191, 191, 191, 255);
+        }
 
         //links to function that adds first line of text in player files to dictionary 
         existing_file_counter();

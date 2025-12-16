@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
@@ -19,6 +18,8 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Runtime.CompilerServices;
 
 public class TileMapInteractibility : MonoBehaviour
 {
@@ -66,10 +67,10 @@ public class TileMapInteractibility : MonoBehaviour
     TextMeshProUGUI TileInfoOutputDisplay;
 
     [SerializeField]
-    SpriteRenderer InfoMenuBacking;
+    UnityEngine.UI.Image InfoMenuBacking;
 
     [SerializeField]
-    SpriteRenderer EditMenuBacking;
+    UnityEngine.UI.Image EditMenuBacking;
 
     [SerializeField]
     GameObject DropDownObject;
@@ -92,13 +93,15 @@ public class TileMapInteractibility : MonoBehaviour
     [SerializeField]
     GameObject SettingsButton;
 
-
+    [SerializeField]
+    UnityEngine.UI.Button EditConfirmButton;
 
     //vectors for past/current selected tile and current/past tile mouse is on 
     public Vector3Int PastSelected = new Vector3Int(0, 0, 0);
     public Vector3Int SelectedGrid = new Vector3Int(0, 0, 0);
     private Vector3Int PastGrid = new Vector3Int(0, 0, 0);
     private Vector3Int CurrentGrid = new Vector3Int(0, 0, 0);
+    private string[] TileEditPossibilities;
 
     //small start look to ensure first hover animation plays wherever mouse is initially (not just at 0,0)
     void Start()
@@ -285,7 +288,6 @@ public class TileMapInteractibility : MonoBehaviour
             customTile BaseTile = (customTile)BaseTileMap.GetTile(currentGrid);
             if (BaseTile.SuitableTileTypePlacements.Count() != 0)
             {
-                Debug.Log(BaseTile.SuitableTileTypePlacements.Count());
                 TileEditMenuObject.SetActive(true);
                 resetDropDown(currentGrid);
                 resetEditDisplayInfo();
@@ -299,10 +301,10 @@ public class TileMapInteractibility : MonoBehaviour
     //logic, info and updates to edit menu for tiles 
     public void EditMenuUpdaterandOpener(Vector3Int currentGrid)
     {
-        //if base tile at clicked position is customtile
+        //if base tile at clicked position is customtile, will always be the case once completed but for interim period 
         if (BaseTileMap.GetTile(currentGrid) is customTile)
         {
-            //if the tile at that position has edibible (incorrect spelling) possibilities then open edit menu
+            //if the tile at that position has editable possibilities then open edit menu
             customTile BaseTile = (customTile)BaseTileMap.GetTile(SelectedGrid);
             if (BaseTile.SuitableTileTypePlacements.Count() != 0)
             {
@@ -311,11 +313,32 @@ public class TileMapInteractibility : MonoBehaviour
                 resetEditDisplayInfo();
                 TileEditMenuObject.SetActive(true);
                 DropDownObject.SetActive(true);
+
+                //ensures selected options viability matches that presented by the confirm button
+                EditMenuConfirmButtonUpdater();            
             }
+            else
+            {
+                //if cannot edit then shut menu
+                TileEditMenuCloser();
+            }
+        }
+    }
+
+    public void EditMenuConfirmButtonUpdater()
+    {
+        //if credit cost is not payable
+        string choice = DropDownObject.GetComponent<Dropdown>().options[DropDownObject.GetComponent<Dropdown>().value].text.ToString();
+        if(Resources.Load<customTile>(choice + "L1").CreditCost > CurrentPlayerData.RoundCredits)
+        {
+            //make button inaccessible and make text of it red 
+            EditConfirmButton.GetComponent<UnityEngine.UI.Image>().color = new Color(6f, 185f, 185f, 255f);
+            EditConfirmButton.interactable = false;
         }
         else
         {
-            Debug.Log("edit menu not opened as basetile is not editable");
+            EditConfirmButton.GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 255);
+            EditConfirmButton.interactable = true;
         }
     }
 
@@ -327,7 +350,13 @@ public class TileMapInteractibility : MonoBehaviour
         List<string> PossibleOptions = new List<string> { };
         foreach (string possibleOption in BaseTile.SuitableTileTypePlacements)
         {
-            PossibleOptions.Add(possibleOption);
+            foreach(string Tech in CurrentPlayerData.DevelopedTechnologies)
+            {
+                if(possibleOption == Tech)
+                {
+                    PossibleOptions.Add(possibleOption);
+                }
+            }
         }
         DropDownObject.GetComponent<Dropdown>().AddOptions(PossibleOptions);
     }
@@ -340,7 +369,6 @@ public class TileMapInteractibility : MonoBehaviour
         int referencerr = DropDownObject.GetComponent<Dropdown>().value;
         List<string> tempList = new List<string> { DropDownObject.GetComponent<Dropdown>().options.ToString() };
         string selectedEditOptionText = DropDownObject.GetComponent<Dropdown>().captionText.text.ToString();
-
 
         //provided customTile data in Resources folder exists for that option, get data and update for edit display
         if (File.Exists(Application.dataPath + "\\Resources\\" + selectedEditOptionText + "L1.Asset") == true)
@@ -356,5 +384,26 @@ public class TileMapInteractibility : MonoBehaviour
         {
             Debug.Log("customTile information for tile in resource folder under name: " + selectedEditOptionText + "L1 could not be found.");
         }
+    }
+
+    //if the x is hit, which destroys building for limited return credits (75%)
+    public void ScroungeTileChange()
+    {
+        Debug.Log("Scrounge!!");
+        //adds 75% of tile's credit value to the round credit tally
+        customTile DeletedTile = (customTile)playerTileMap.GetTile(PastSelected);
+        CurrentPlayerData.RoundCredits += (int)Math.Round(DeletedTile.CreditCost * 0.75);
+        playerTileMap.SetTile(PastSelected, null);
+
+        //PLAY ANIMATION HERE EVENTUALLY WITH COROUTINE PERHAPS?
+    }
+
+    //try past selected then attempt reordering function call to do this first
+    public void ApplyTileChange()
+    {
+        //gets change and notes credit cost change (don't worry about seq/output, globalui will sort out)
+        customTile NewTile = Resources.Load<customTile>(DropDownObject.GetComponent<Dropdown>().captionText.text.ToString() + "L1");
+        CurrentPlayerData.RoundCredits -= NewTile.CreditCost;
+        playerTileMap.SetTile(PastSelected, NewTile);
     }
 }

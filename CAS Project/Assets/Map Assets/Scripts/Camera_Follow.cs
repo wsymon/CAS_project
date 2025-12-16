@@ -9,9 +9,6 @@ public class Camera_Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float panSpeed = 5f;
 
-    
-
-
     //to reference actual camera game object in unity 
     [SerializeField]
     Camera _camera;
@@ -34,3 +31,6 @@ public class Camera_Movement : MonoBehaviour
     }
 }
 
+//Come back later to add domain restrictions for camera locations so that it can barely see (on max zoom) the tiles 
+//on the line x = 0, y = 0 and the other side of the map however large it is...
+//perhaps adjust max zoom if map is smaller depending on Henry tile sizing...
