@@ -31,6 +31,8 @@ MonoBehaviour:
     are recognised as areas of important biodiversity. '
   CreditCost: 10
   CarbonCost: 0
+  DevelopmentCost: 5
   SuitableTileTypePlacements:
-  - Windmill
   - Forest
+  - Windmill
+  - Grassland

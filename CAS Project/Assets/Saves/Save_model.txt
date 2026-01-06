@@ -1,8 +1,7 @@
 Name
 City
 Round
-Subround (maybe)
+Subround (unused, ignore this line)
 Credits
 Time (Vector3Int or 
-
-Research and Tilemap stored elsewhere
+OutputCounter (in form "x +" or "x -")

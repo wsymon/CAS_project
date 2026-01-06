@@ -62,20 +62,20 @@ public class AnimationScript : MonoBehaviour
         }
 
     }
+    
     //obv open and exit scene animation 
     public void SceneOpenAnimation()
     {
         PercentComplete = (ElapsedTime / EndTime);
         Backdrop.GetComponent<Image>().color = new Color(255, 255, 255, Mathf.Lerp(1, 0, PercentComplete));
-        ElapsedTime += Time.deltaTime;  
-        //Debug.Log(Backdrop.GetComponent<Image>().color.a);
-        //Debug.Log(ElapsedTime + " " + EndTime + " " + PercentComplete);
+        ElapsedTime += Time.deltaTime;
     }
     public void SceneCloseAnimation()
     {
         Closing = true;
         ElapsedTime += Time.deltaTime;
-        PercentComplete = 1 - (ElapsedTime / EndTime);
-        Backdrop.GetComponent<Image>().color = new Color(255, 255, 255, Mathf.Lerp(1, 0, PercentComplete));
+        PercentComplete = ElapsedTime / EndTime;
+        Backdrop.GetComponent<Image>().color = new Color(255, 255, 255, Mathf.Lerp(0, 1, PercentComplete));
     }
+
 }

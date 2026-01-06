@@ -6,20 +6,16 @@ using UnityEngine.Tilemaps;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using System.Linq;
-using System.IO.Hashing;
-using UnityEngine.UIElements;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.ComponentModel.Design;
-
-
-
-
+using System.IO.Compression;
+using System.Numerics;
 public class TileDataManagement : MonoBehaviour
 {
     //reference for the player's tilemap (including all edits and all structures that contribute to Seq/output)
     [SerializeField]
     Tilemap playerTileMap;
+
+    [SerializeField]
+    Tilemap ConstructionTileMap;
 
     //player data object, important
     [SerializeField]
@@ -28,23 +24,30 @@ public class TileDataManagement : MonoBehaviour
     [SerializeField]
     GameObject MapGrid;
 
+    [SerializeField]
+    customTile constructionTile;
+
+
     //a custom structure/type of information for tile information
     public struct TileInformation
     {
         //sets types
         public string StructureType;
         public int Level;
+        public int ConstructionTimeRemaining;
 
-        public TileInformation(string structureType, int level)
+        public TileInformation(string structureType, int level, int constructionTimeRemaining)
         {
             StructureType = structureType;
             Level = level;
+            ConstructionTimeRemaining = constructionTimeRemaining;
+
         }
 
         //VERY IMPORTANT, overrides normal type of TileInformation as TileDataMangagement+TileInformation to be string...
         public override string ToString()
         {
-            return $"StructureType: {StructureType}, Level: {Level}";
+            return $"StructureType: {StructureType}, Level: {Level}, {ConstructionTimeRemaining}";
         }
     }
 
@@ -55,12 +58,8 @@ public class TileDataManagement : MonoBehaviour
     //current dictionary for player 
     public Dictionary<Vector3Int, TileInformation> CurrentTileData = new Dictionary<Vector3Int, TileInformation>();
 
-    //dictionary for the types of tiles 
-    //    public Dictionary<int, string> TileTypes = new Dictionary<int, string>();
-
-    //for setup function and for coordinates in tile pasting
-    int x = 0;
-    int y = 0;
+    //dictionary for the construction time left on tiles
+    public Dictionary<Vector3Int, int> TileConstructionTimeData = new Dictionary<Vector3Int, int>();
 
     public string player_file_name;
     public string tile_file_reference;
@@ -78,18 +77,12 @@ public class TileDataManagement : MonoBehaviour
     private string data;
 
 
-
-    //0 is player name, 1 is player city, 2 is round, 3 is credits, 4 is output, 5 is seq
-    private string[] CurrentPlayerDataList = new string[5];
-
-    //THIS PARTICULAR START FUNCTION WILL BE THE START FUNCTION FOR ALL OF THE MAP SCENE
-    //THIS INCLUDES THE SETTING OF VALUES TO PLAYER_SAVING CLASS FOR ALL FUTURE REFERENCE...
     private void Awake()
     {
-        ResetStandardTileMap();
         if (SceneManager.GetActiveScene().name == "Map")
         {
-            //reads and sets all currently lited tile types to a list for reference
+
+            //reads and sets all currently listed tile types to a list for reference
             //gets player information to set player name to reference apply selected tile map
             string[] player_information = new string[10];
             var raw = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
@@ -114,9 +107,7 @@ public class TileDataManagement : MonoBehaviour
         }
     }
 
-
-
-    //flunction that pastes tile data in file to tilemap
+    //function that pastes tile data in file to tilemap
     public void ApplySelectedTileMap()
     {
         //silly var solely to ensure map tilemap exists when called, previously would occur prior to initialisation
@@ -138,67 +129,44 @@ public class TileDataManagement : MonoBehaviour
                     //sets values for grid reference, tile type, level, output and seq based on tile info in player data
                     Vector3Int tempTilePosition = new Vector3Int(x, y, 0);
                     int tempLevel = int.Parse(SeperatedTileData[4]);
-
-                    //funny way to find tile type string
+                    
+                   //funny way to find tile type string
                     string[] lp = tile.ToString().Split(' ');
                     string tempTileType = lp[4].Substring(0, lp[4].Length - 1);
                     if (File.Exists(Application.dataPath + "\\Resources\\" + tempTileType + "L" + tempLevel + ".Asset") == true)
                     {
                         //loads the tile data from the file and pastes it at the temp file position. 
-                        var tempTileData = Resources.Load<customTile>(tempTileType + "L" + tempLevel);
-                        //  Debug.Log(tempTileData);
-                        customTile tempTile = tempTileData;
-                        //                           Debug.Log(tempTile.StructureType);
+                        customTile tempTile = Resources.Load<customTile>(tempTileType + "L" + tempLevel);;
                         playerTileMap.SetTile(tempTilePosition, tempTile);
-                        //ExistingTileDataCollection(playerTileMap, tempTilePosition);
+
+                        if(int.Parse(SeperatedTileData[5]) > 0)
+                        {
+                            ConstructionTileMap.SetTile(tempTilePosition, constructionTile);
+                            TileConstructionTimeData.Add(tempTilePosition, int.Parse(SeperatedTileData[5]));
+                        }
+
                     }
                     else
                     {
                         Debug.Log("Could not find tile file with tag " + SeperatedTileData[4] + " and name " + SeperatedTileData[4]);
                     }
                 }
-
             }
             else
             {
                 Debug.Log("map not real");
             }
         }
+
+    
     }
 
     //is capable of reading the data from existing custom files at some reference and in some map
     //not needed, is in TileMapInteractivity in an more developed form just here for reference
     public void ExistingTileDataCollection(Tilemap Specifiedtilemap, Vector3Int gridReference)
     {
-        Debug.Log("inside data collection");
         customTile specificTile = (customTile)Specifiedtilemap.GetTile(gridReference);
-        Debug.Log(gridReference + " level " + specificTile.Level + " seq " + specificTile.Sequestration + " type " + specificTile.StructureType + " output " + specificTile.Output + "education" + specificTile.Education);
-    }
-
-    //practice function that sets up the standard tile map (can adjust for size of map, have to manually include the desired tile information and delete unwanted ones)
-    private void ResetStandardTileMap()
-    {
-        //adjust the x/y maxes to desired map size
-        while (x < 11)
-        {
-            while (y < 11)
-            {
-                //manually change this information in the file itself, cannot here. Or get this to read off exisitng map constructed in unity then remove reference...
-                StandardtileData[new Vector3Int(x, y, 0)] = new TileInformation("Windmill", 1);
-                y++;
-            }
-            x++;
-            y = 0;
-        }
-        //writes StandardTileData to the file that has been cleared
-        using (StreamWriter standardTileData = File.AppendText(Application.dataPath + "\\Tile Saves\\StandardTileData.txt"))
-        {
-            foreach (KeyValuePair<Vector3Int, TileInformation> Tile in StandardtileData)
-            {
-                standardTileData.WriteLine(Tile);
-            }
-        }
-
+        Debug.Log(gridReference + " level " + specificTile.Level + " seq " + specificTile.Sequestration + " type " + specificTile.StructureType + " output " + specificTile.Output + "education" + specificTile.Education + specificTile.ConstructionTimeRemaining);
     }
 
     //Creates new file in name of new player with standard tile data 
@@ -207,10 +175,10 @@ public class TileDataManagement : MonoBehaviour
         CurrentTileData.Clear();
         //gets a long var[] of all lines in the standard tile data
         var DataList = File.ReadLines(Application.dataPath + "\\Tile Saves\\StandardTileData.txt");
+
         //loops through each line
         foreach (string line in DataList)
         {
-            //opens
             string[] linenumbers;
             linenumbers = Regex.Split(line, @"\D+");
 
@@ -224,25 +192,25 @@ public class TileDataManagement : MonoBehaviour
 
             //5 = level
             int d = int.Parse(linenumbers[4]);
-            CurrentTileData[s] = new TileInformation(c.ToSafeString(), d);
-            CurrentTileData[s] = new TileInformation(c, d);
-            //Array.Clear(linenumbers, 0, linenumbers.Length);
+            int e = int.Parse(linenumbers[5]);  //this is construction time...
+
+            CurrentTileData[s] = new TileInformation(c.ToSafeString(), d, e);
+            CurrentTileData[s] = new TileInformation(c, d, e);
         }
         foreach (KeyValuePair<Vector3Int, TileInformation> Tile in CurrentTileData)
         {
             using (StreamWriter newFile = File.AppendText(Application.dataPath + "\\Tile Saves\\TileData" + player_name + ".txt"))
             {
+                Debug.Log(Tile);
                 newFile.WriteLine(Tile);
             }
         }
         ApplySelectedTileMap();
     }
 
+    //updates values for totals of tilemap to be accessed by playerdata for end screen calculations
     public void TileInfoCollection()
     {
-        //string reference = Application.dataPath + "\\Tile Saves\\TileData" + player_Name + ".txt";
-        //var rawPastGlobalData = File.ReadLines(Application.dataPath + "\\saves\\Current_File.txt");
-
         CurrentTotalSeq = 0;
         CurrentTotalOutput = 0;
         CurrentTotalCarbonCost = 0;
@@ -253,7 +221,7 @@ public class TileDataManagement : MonoBehaviour
         {
             while (y1 < 100)
             {
-                if (playerTileMap.HasTile(new Vector3Int(x1, y1, 0)) && playerTileMap.GetTile(new Vector3Int(x1, y1, 0)).GetType() == typeof(customTile))
+                if (playerTileMap.HasTile(new Vector3Int(x1, y1, 0)) && ConstructionTileMap.HasTile(new Vector3Int(x1, y1, 0)) == false)
                 {
                     customTile retrievedTile = (customTile)playerTileMap.GetTile(new Vector3Int(x1, y1, 0));
                     CurrentTotalSeq = CurrentTotalSeq + retrievedTile.Sequestration;
@@ -269,32 +237,41 @@ public class TileDataManagement : MonoBehaviour
     }
 
 
-    //at end of round collects all tiledata existing (with changes) from the round and saves to player tile data file
+    //now defunct, but collects all data from the tilemap and CurrentPlayerData and writes to both tile, player and current files.
+    //as no more saving during Rounds (only at round end), a modified version of this now occurs within GlobalUIScript...
     public void UpdateTileAndPlayerFileData()
     {
         //alter bounds later to match that of the real map
-        int x = -50;
-        int y = -50;
+        int x = 0;
+        int y = 0;
         Vector3Int Pos;
 
         //clears current tile data/player to refill it
         CurrentTileData.Clear();
         tech = "";
-        
+
         //loops through entire map and adds tiles within playertile to an array
-        while(x < 50)
+        //ADD SIZE OF MAP HERE LATER
+        while(x < 100)
         {
-            while(y < 50)
+            while(y < 100)
             {
                 Pos =  new Vector3Int(x, y, 0);
                 if (playerTileMap.HasTile(Pos))
                 {
                     customTile ATile = playerTileMap.GetTile<customTile>(Pos);
-                    CurrentTileData[Pos] = new TileInformation(ATile.StructureType, ATile.Level);
+                    if (ConstructionTileMap.HasTile(Pos))
+                    {
+                        CurrentTileData[Pos] = new TileInformation(ATile.StructureType, ATile.Level, TileConstructionTimeData[Pos]);
+                    }
+                    else
+                    {
+                        CurrentTileData[Pos] = new TileInformation(ATile.StructureType, ATile.Level, 0);
+                    }
                 }
                 y++;
             }
-            y = -50;
+            y = 100;
             x++;
         }
 
@@ -310,14 +287,14 @@ public class TileDataManagement : MonoBehaviour
             }
         }
 
-        foreach(string alteredtechpeice in CurrentPlayerData.DevelopedTechnologies)
+        foreach(string developedTech in CurrentPlayerData.DevelopedTechnologies)
         {
-            tech =  tech + " " + alteredtechpeice;
+            tech += " " + developedTech;
         }
         data = CurrentPlayerData.Name + "\n" + CurrentPlayerData.CityName + "\n" + CurrentPlayerData.Round + "\n0\n" + CurrentPlayerData.RoundCredits.ToString() + "\n0, 0, 0\n" + tech;
 
         x = 0;
-        while(x < 10)
+        while(x < 20)
         {
             if (File.Exists(Application.dataPath + "\\Saves\\Save" + x + ".txt"))
             {
@@ -325,13 +302,12 @@ public class TileDataManagement : MonoBehaviour
                 if(nametest == CurrentPlayerData.Name)
                 {
                     File.WriteAllText(Application.dataPath + "\\Saves\\Save" + x + ".txt", data);
+                    File.WriteAllText(Application.dataPath + "\\Saves\\Current_File.txt", data);
+                    x = 21;
                 }
             }   
             x++;
         }
-        //writes to current and old file
-        //File.WriteAllText(title_functions.File_source, data);         //use this later, top substitute is for testing so i don't need to run through title scene
-        File.WriteAllText(Application.dataPath + "\\Saves\\Current_File.txt", data);
         data = "";
     }
 }

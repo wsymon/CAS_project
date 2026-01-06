@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: 942a1d7f420fb684bb53b910600fa34b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -870829888030185
+    second: End Top Text Round End Animations_0
+  - first:
+      213: -8040707040679669492
+    second: End Top Text Round End Animations_1
+  - first:
+      213: -3478631655632629743
+    second: End Top Text Round End Animations_2
+  - first:
+      213: -4655061077934633579
+    second: End Top Text Round End Animations_3
+  - first:
+      213: 1386960664840426704
+    second: End Top Text Round End Animations_4
+  - first:
+      213: 4500749338991927010
+    second: End Top Text Round End Animations_5
+  - first:
+      213: -3878493711133047636
+    second: End Top Text Round End Animations_6
+  - first:
+      213: -1378976185849888593
+    second: End Top Text Round End Animations_7
+  - first:
+      213: 5979852896443110103
+    second: End Top Text Round End Animations_8
+  - first:
+      213: 7568611045740967156
+    second: End Top Text Round End Animations_9
+  - first:
+      213: -3178984032488206372
+    second: End Top Text Round End Animations_10
+  - first:
+      213: 1948937296193261438
+    second: End Top Text Round End Animations_11
+  - first:
+      213: 1739861361390777307
+    second: End Top Text Round End Animations_12
+  - first:
+      213: 1452676799658157655
+    second: End Top Text Round End Animations_13
+  - first:
+      213: 3105499074087705535
+    second: End Top Text Round End Animations_14
+  - first:
+      213: 6225358241077634046
+    second: End Top Text Round End Animations_15
+  - first:
+      213: -2592568415448184791
+    second: End Top Text Round End Animations_16
+  - first:
+      213: 7979777232899682860
+    second: End Top Text Round End Animations_17
+  - first:
+      213: 5684182570845804471
+    second: End Top Text Round End Animations_18
+  - first:
+      213: 6628272417219086833
+    second: End Top Text Round End Animations_19
+  - first:
+      213: -3872991542146760807
+    second: End Top Text Round End Animations_20
+  - first:
+      213: -6067464987084844322
+    second: End Top Text Round End Animations_21
+  - first:
+      213: -261885135086291730
+    second: End Top Text Round End Animations_22
+  - first:
+      213: -5835574195314079279
+    second: End Top Text Round End Animations_23
+  - first:
+      213: -6532588373877232439
+    second: End Top Text Round End Animations_24
+  - first:
+      213: 9063081515085012162
+    second: End Top Text Round End Animations_25
+  - first:
+      213: -2192674884024105570
+    second: End Top Text Round End Animations_26
+  - first:
+      213: 2519159299019476109
+    second: End Top Text Round End Animations_27
+  - first:
+      213: -8057184617114423021
+    second: End Top Text Round End Animations_28
+  - first:
+      213: 526398053912303026
+    second: End Top Text Round End Animations_29
+  - first:
+      213: 3281257111933564431
+    second: End Top Text Round End Animations_30
+  - first:
+      213: 8642010666143070603
+    second: End Top Text Round End Animations_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: End Top Text Round End Animations_0
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 189
+        width: 318
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a3ddd1cf7ecfff0800000000000000
+      internalID: -870829888030185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Top Text Round End Animations_15
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 189
+        width: 318
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3abfe365ae46650800000000000000
+      internalID: 6225358241077634046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Top Text Round End Animations_16
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 116
+        width: 318
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928405d13c8550cd0800000000000000
+      internalID: -2592568415448184791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Top Text Round End Animations_24
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 43
+        width: 318
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc633f2c759755a0800000000000000
+      internalID: -6532588373877232439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b172d3ea97491994ab3fe326017f2090
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      End Top Text Round End Animations_0: -870829888030185
+      End Top Text Round End Animations_1: -8040707040679669492
+      End Top Text Round End Animations_10: -3178984032488206372
+      End Top Text Round End Animations_11: 1948937296193261438
+      End Top Text Round End Animations_12: 1739861361390777307
+      End Top Text Round End Animations_13: 1452676799658157655
+      End Top Text Round End Animations_14: 3105499074087705535
+      End Top Text Round End Animations_15: 6225358241077634046
+      End Top Text Round End Animations_16: -2592568415448184791
+      End Top Text Round End Animations_17: 7979777232899682860
+      End Top Text Round End Animations_18: 5684182570845804471
+      End Top Text Round End Animations_19: 6628272417219086833
+      End Top Text Round End Animations_2: -3478631655632629743
+      End Top Text Round End Animations_20: -3872991542146760807
+      End Top Text Round End Animations_21: -6067464987084844322
+      End Top Text Round End Animations_22: -261885135086291730
+      End Top Text Round End Animations_23: -5835574195314079279
+      End Top Text Round End Animations_24: -6532588373877232439
+      End Top Text Round End Animations_25: 9063081515085012162
+      End Top Text Round End Animations_26: -2192674884024105570
+      End Top Text Round End Animations_27: 2519159299019476109
+      End Top Text Round End Animations_28: -8057184617114423021
+      End Top Text Round End Animations_29: 526398053912303026
+      End Top Text Round End Animations_3: -4655061077934633579
+      End Top Text Round End Animations_30: 3281257111933564431
+      End Top Text Round End Animations_31: 8642010666143070603
+      End Top Text Round End Animations_4: 1386960664840426704
+      End Top Text Round End Animations_5: 4500749338991927010
+      End Top Text Round End Animations_6: -3878493711133047636
+      End Top Text Round End Animations_7: -1378976185849888593
+      End Top Text Round End Animations_8: 5979852896443110103
+      End Top Text Round End Animations_9: 7568611045740967156
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

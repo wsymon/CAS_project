@@ -1,5 +1,4 @@
-using System;
-using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -23,7 +22,9 @@ public class customTile : AnimatedTile
     public string Education;
     public int CreditCost;
     public int CarbonCost;
-    public string[] SuitableTileTypePlacements;
+    public int DevelopmentCost;
+    public int ConstructionTimeRemaining;
+    public List<string> SuitableTileTypePlacements;
 
     //honestly note sure what this does 
     public override void RefreshTile(Vector3Int position, ITilemap tilemap)

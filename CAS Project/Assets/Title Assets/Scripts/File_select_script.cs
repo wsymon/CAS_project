@@ -1,16 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Numerics;
-using System.Reflection;
-using JetBrains.Annotations;
 using TMPro;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class File_select_script : MonoBehaviour
@@ -64,6 +56,9 @@ public class File_select_script : MonoBehaviour
     Color usable = new Color32(255, 255, 255, 255);
     Color unusable = new Color32(255, 255, 255, 150);
 
+    private Color pressed = new Color(0.75f, 0.75f, 0.75f, 0.75f);
+    private Color unpressed = new Color(1, 1, 1, 1);
+
 
     public void Start()
     {
@@ -73,65 +68,55 @@ public class File_select_script : MonoBehaviour
 
     public void file_button_press1()
     {
-        //defines for opacity of selected and unselected buttons
-        Color pressed = new Color32(0, 153, 153, 150);
-        Color unpressed = new Color(1, 1, 1, 1);
-        Color current_color = file_button_1.GetComponent<Button>().image.color;
-        //note that Color32 is RGB as normal (1->255) but just Color is unity's scale from 0->1.
+        Color current_color = file_button_1.GetComponent<Image>().color;
 
         //changes color of button to indicate whether or not it is currently selected
         if (current_color == unpressed)
         {
-            file_button_1.GetComponent<Button>().image.color = pressed;
+            file_button_1.GetComponent<Image>().color = pressed;
             //sets global selected file to text in file 1
 
             //sets color of other buttons to normal (so multiple aren't pressed at once visually)
             if (last_clicked == "2")
             {
-                file_button_2.GetComponent<Button>().image.color = unpressed;
+                file_button_2.GetComponent<Image>().color = unpressed;
             }
             if (last_clicked == "3")
             {
-                file_button_3.GetComponent<Button>().image.color = unpressed;
+                file_button_3.GetComponent<Image>().color = unpressed;
             }
-            selected_file = "";
             selected_file = file_1.text;
             last_clicked = "1";
         }
         if (current_color == pressed)
         {
-            file_button_1.GetComponent<Button>().image.color = unpressed;
+            file_button_1.GetComponent<Image>().color = unpressed;
             selected_file = "";
-            Debug.Log(selected_file + 1);
         }
        
     }
     public void file_button_press2()
     {
-        //same as first function for pressing...
-        Color pressed = new Color32(0, 153, 153, 150);
-        Color unpressed = new Color(1, 1, 1, 1);
-        Color current_color = file_button_2.GetComponent<Button>().image.color;
+        Color current_color = file_button_2.GetComponent<Image>().color;
 
         if (current_color == unpressed)
         {
-            file_button_2.GetComponent<Button>().image.color = pressed;
-            selected_file = "";
+            file_button_2.GetComponent<Image>().color = pressed;
             selected_file = file_2.text;
             if (last_clicked == "1")
             {
-                file_button_1.GetComponent<Button>().image.color = unpressed;
+                file_button_1.GetComponent<Image>().color = unpressed;
             }
             if (last_clicked == "3")
             {
-                file_button_3.GetComponent<Button>().image.color = unpressed;
+                file_button_3.GetComponent<Image>().color = unpressed;
             }
             last_clicked = "2";
 
         }
         if (current_color == pressed)
         {
-            file_button_2.GetComponent<Button>().image.color = unpressed;
+            file_button_2.GetComponent<Image>().color = unpressed;
             selected_file = "";
         }
 
@@ -139,33 +124,28 @@ public class File_select_script : MonoBehaviour
     }
     public void file_button_press3()
     {
-        //same as first function
-        Color pressed = new Color32(0, 153, 153, 150);
-        Color unpressed = new Color(1, 1, 1, 1);
-        Color current_color = file_button_3.GetComponent<Button>().image.color;
-
+        
+        Color current_color = file_button_3.GetComponent<Image>().color;
 
         if (current_color == unpressed)
         {
-            file_button_3.GetComponent<Button>().image.color = pressed;
-            selected_file = "";
+            file_button_3.GetComponent<Image>().color = pressed;
             selected_file = file_3.text;
             if (last_clicked == "1")
             {
-                file_button_1.GetComponent<Button>().image.color = unpressed;
+                file_button_1.GetComponent<Image>().color = unpressed;
             }
             if (last_clicked == "2")
             {
-                file_button_2.GetComponent<Button>().image.color = unpressed;
+                file_button_2.GetComponent<Image>().color = unpressed;
             }
             last_clicked = "3";
 
         }
         else if (current_color == pressed)
         {
-            file_button_3.GetComponent<Button>().image.color = unpressed;
+            file_button_3.GetComponent<Image>().color = unpressed;
             selected_file = "";
-            Debug.Log(selected_file + 3);
         }
         
     }
@@ -198,10 +178,13 @@ public class File_select_script : MonoBehaviour
     {
         foreach (int number in file_numbers)
         {
-            if (player_name_storage[number] == selected_file)
+            if(number < player_name_storage.Count())
+            {
+                            if (player_name_storage[number] == selected_file)
             {
                 selected_file_link = Application.dataPath + "\\Saves\\Save" + number + ".txt";
                // Debug.Log("link found: " + selected_file_link);
+            }
             }
         }
     }
@@ -251,7 +234,6 @@ public class File_select_script : MonoBehaviour
         }
 
         //just makes the select button menu and button not visible in the event no player files exist as they were deleted
-        Debug.Log(file_numbers.Count);
         if(file_numbers.Count == 0)
         {
             FileSelectObject.SetActive(false);

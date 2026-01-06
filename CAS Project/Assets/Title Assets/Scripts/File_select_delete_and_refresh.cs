@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,13 +33,11 @@ public class File_select_delete_and_refresh : MonoBehaviour
 
         //gets information for the tileset thing
         string current_file_name = file_select_object.GetComponent<File_select_script>().selected_file;
-        Debug.Log(current_file_name);
         string current_tile_data = Application.dataPath + "\\Tile Saves\\TileData" + current_file_name + ".txt";
         string current_tile_data_meta = current_tile_data + ".meta";
         //just for debugging...
         if (File.Exists(current_tile_data) == true)
         {
-            Debug.Log("File exists");
             File.Delete(current_tile_data);
             File.Delete(current_tile_data_meta);
         }

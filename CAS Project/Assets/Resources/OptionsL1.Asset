@@ -24,6 +24,9 @@ MonoBehaviour:
   Level: 0
   Output: 0
   Sequestration: 0
-  Education: 
+  Education: 'No clue what this is for, I think my past self put this here to do
+    something but I have no recollection what. '
   CreditCost: 0
+  CarbonCost: 0
+  DevelopmentCost: 0
   SuitableTileTypePlacements: []

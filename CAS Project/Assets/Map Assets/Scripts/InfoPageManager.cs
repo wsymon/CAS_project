@@ -15,8 +15,6 @@ public class InfoPageManager : MonoBehaviour
 
 
     //script for the little button guys that make the pages of the education info of tiles change :3
-
-
     void Start()
     {
         ResetButtons();
@@ -30,17 +28,11 @@ public class InfoPageManager : MonoBehaviour
             LeftButton.interactable = true;
             RightButton.interactable = true;
         }
-        else
-        {
-       //     LeftButton.interactable = false;
-         //   RightButton.interactable = false;
-        }
     }
 
     //function for right page button
     public void RightPageTurn()
     {
-        Debug.Log(TileInfoText.pageToDisplay + " " +  TileInfoText.textInfo.pageCount);
         if (TileInfoText.pageToDisplay == TileInfoText.textInfo.pageCount)
         {
             TileInfoText.pageToDisplay = 1;
@@ -54,7 +46,6 @@ public class InfoPageManager : MonoBehaviour
     //function for left page button
     public void LeftPageTurn()
     {
-        Debug.Log(TileInfoText.pageToDisplay + " " +  TileInfoText.textInfo.pageCount);
         if (TileInfoText.pageToDisplay == 1)
         {
             TileInfoText.pageToDisplay = TileInfoText.textInfo.pageCount;

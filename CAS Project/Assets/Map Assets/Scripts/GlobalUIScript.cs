@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.WSA;
+using UnityEngine.Tilemaps;
 
 public class GlobalUI : MonoBehaviour
 {
@@ -34,8 +35,18 @@ public class GlobalUI : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI GlobalOutputTotalText;
+    
+    //round end
+    [SerializeField]
+    Tilemap PlayerTileMap;
 
-    //defines
+    [SerializeField]
+    Tilemap constructionTileMap;
+
+
+
+    //define
+    public Dictionary<Vector3Int, TileDataManagement.TileInformation> CurrentTileData = new Dictionary<Vector3Int, TileDataManagement.TileInformation>();
     private string PlayerName;
     private string PlayerCity;
     private int Round;
@@ -48,6 +59,7 @@ public class GlobalUI : MonoBehaviour
     private int OutputGoal;
     private int CurrentCarbonCost;
     private string[] DevelopedTech;
+    private int outputStatus;
 
     //current note, sequestration goal is current a constant but output goal scales with round number
     //start just sets up variables within CurrentPlayerData and the UI
@@ -78,10 +90,26 @@ public class GlobalUI : MonoBehaviour
         SequestrationGoal = 1000;
         CurrentCarbonCost = PlayerData.GetComponent<TileDataManagement>().CurrentTotalCarbonCost;
         DevelopedTech = player_information[6].Split(' ');
+        string[] status_line = player_information[7].Split(' ');
+        if(status_line[1] == "+")
+        {
+            outputStatus = int.Parse(player_information[7].Split(' ')[0]);
+        }
+        else
+        {
+            outputStatus = -1 * int.Parse(player_information[7].Split(' ')[0]);
+        }
 
         //calls functions to update, could could manually but may need to reference from button click...
-        PlayerData.GetComponent<CurrentPlayerData>().UpdateGlobalVariables(Round, PlayerName, PlayerCity, 0, RoundCredits, SequestrationCurrent, SequestrationGoal, CurrentCarbonCost, OutputCurrent, OutputGoal);
-        CurrentPlayerData.DevelopedTechnologies = DevelopedTech;
+        PlayerData.GetComponent<CurrentPlayerData>().UpdateGlobalVariables(Round, PlayerName, PlayerCity, 0, RoundCredits, SequestrationCurrent, SequestrationGoal, CurrentCarbonCost, OutputCurrent, OutputGoal, outputStatus);
+        
+        foreach(string tech in DevelopedTech)
+        {
+            if(tech != "")
+            {
+                PlayerData.GetComponent<CurrentPlayerData>().UpdateDevelopedTechnologies(tech);
+            }
+        }
 
         //sets UI values to those found
         GlobalRoundText.text = Round.ToString();
@@ -105,9 +133,10 @@ public class GlobalUI : MonoBehaviour
         GlobalOutputTotalText.text = CurrentPlayerData.TotalOutput.ToString();
     }
     
-    //does needed things at end of round 
+    //does needed things at end of round and opens new scene , including data saving of global and to files
     public void UpdateGlobalRoundEnd()
     {
+        Debug.Log("global round end");
         //top one just updates values in other script after scrapping the board
         PlayerData.GetComponent<TileDataManagement>().TileInfoCollection();
 
@@ -121,8 +150,89 @@ public class GlobalUI : MonoBehaviour
         OutputGoal = CurrentPlayerData.OutputGoal;
         SequestrationGoal = CurrentPlayerData.SequestrationGoal;
         CurrentCarbonCost = PlayerData.GetComponent<TileDataManagement>().CurrentTotalCarbonCost;
+        outputStatus = CurrentPlayerData.OutputStatus;
         
-        PlayerData.GetComponent<CurrentPlayerData>().UpdateGlobalVariables(Round, PlayerName, PlayerCity, ChangeInCredits, RoundCredits, SequestrationCurrent, SequestrationGoal,CurrentCarbonCost, OutputCurrent, OutputGoal);
+        PlayerData.GetComponent<CurrentPlayerData>().UpdateGlobalVariables(Round, PlayerName, PlayerCity, ChangeInCredits, RoundCredits, SequestrationCurrent, SequestrationGoal,CurrentCarbonCost, OutputCurrent, OutputGoal, outputStatus);
+
+        //alter bounds later to match that of the real map
+        int x = 0;
+        int y = 0;
+        Vector3Int Pos;
+        
+        //loops through entire map and adds tiles within playertile to an array
+        //ADD SIZE OF MAP HERE LATER, current size is 0 -> 100 x and 0 -> 100 y...
+        while(x < 100)
+        {
+            while(y < 100)
+            {
+                Pos =  new Vector3Int(x, y, 0);
+                if (PlayerTileMap.HasTile(Pos))
+                {
+                    customTile ATile = PlayerTileMap.GetTile<customTile>(Pos);
+                    //if construction tilemap has a tile AND that tile, next round, will still be under construction...
+                    if (constructionTileMap.HasTile(Pos) && PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1 > 0)
+                    {
+                        CurrentTileData[Pos] = new TileDataManagement.TileInformation(ATile.StructureType, ATile.Level, PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1);
+                    }
+                    else
+                    {
+                        CurrentTileData[Pos] = new TileDataManagement.TileInformation(ATile.StructureType, ATile.Level, 0);
+                    }
+                }
+                y++;
+            }
+            y = 0;
+            x++;
+        }
+
+        Debug.Log("file cleared");
+        //clears player tile file...
+        File.WriteAllText(Application.dataPath + "\\Tile Saves\\TileData" + CurrentPlayerData.Name + ".txt", "");
+
+
+        Debug.Log("writing now to tile");
+        //writes array to player tile file
+        foreach (KeyValuePair<Vector3Int, TileDataManagement.TileInformation> Tile in CurrentTileData)
+        {
+            using (StreamWriter newFile = File.AppendText(Application.dataPath + "\\Tile Saves\\TileData" + CurrentPlayerData.Name + ".txt"))
+            {
+                Debug.Log(Tile);
+                newFile.WriteLine(Tile);
+            }
+        }
+
+        //adds developing technologies to global developed list 
+        foreach(string developingTechnology in CurrentPlayerData.DevelopingTechnologies)
+        {
+            CurrentPlayerData.DevelopedTechnologies.Add(developingTechnology);
+        }
+
+        //gets developed technologies, including those just developed this round
+        string tech = "";
+        foreach(string developedTech in CurrentPlayerData.DevelopedTechnologies)
+        {
+            tech += " " + developedTech;
+        }
+
+        //writes to data string, finds original player and current file and writes there
+        string data = CurrentPlayerData.Name + "\n" + CurrentPlayerData.CityName + "\n" + CurrentPlayerData.Round + "\n0\n" + CurrentPlayerData.RoundCredits.ToString() + "\n0, 0, 0\n" + tech;
+        x = 0;
+        while(x < 20)
+        {
+            if (File.Exists(Application.dataPath + "\\Saves\\Save" + x + ".txt"))
+            {
+                string nametest = File.ReadLines(Application.dataPath + "\\Saves\\Save" + x + ".txt").FirstOrDefault();
+                if(nametest == CurrentPlayerData.Name)
+                {
+                            Debug.Log("writing now to save");
+
+                    File.WriteAllText(Application.dataPath + "\\Saves\\Save" + x + ".txt", data);
+                    File.WriteAllText(Application.dataPath + "\\Saves\\Current_File.txt", data);
+                    x = 21;
+                }
+            }   
+            x++;
+        }
 
        //open next scene for judgement...   
         StartCoroutine(SceneLoad());
@@ -134,10 +244,7 @@ public class GlobalUI : MonoBehaviour
     AnimatedObject.GetComponent<AnimationScript>().SceneCloseAnimation();
 
     //pause for animation to close
-    yield return new WaitForSeconds(2);
-
-    //load map scene named "x" in BUILD SETTINGS.
+    yield return new WaitForSeconds(2.0f);
     SceneManager.LoadScene(2);
-    yield return new WaitForSeconds(2);
     }
 }

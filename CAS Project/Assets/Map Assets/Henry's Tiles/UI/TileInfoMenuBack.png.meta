@@ -72,8 +72,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -103,12 +103,12 @@ TextureImporter:
       name: TileInfoMenuBack_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 6
-        width: 192
-        height: 264
+        x: 3
+        y: 0
+        width: 195
+        height: 270
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b7872a6982d80314882d1765e13bb821
     internalID: 0
     vertices: []
     indices: 

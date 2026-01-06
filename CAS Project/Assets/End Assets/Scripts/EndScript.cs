@@ -1,23 +1,17 @@
 using System;
 using System.Collections;
-using System.ComponentModel.Design;
+using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using TMPro;
-using Unity.Mathematics;
-using UnityEditor.ShaderGraph;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class EndScript : MonoBehaviour
 {
     //ALL FOR ROUND END
     [SerializeField]
     GameObject RoundEndUIGameObject;
-
-    [SerializeField]
-    TextMeshProUGUI RoundText;
 
     [SerializeField]
     TextMeshProUGUI PlayerNameAndCityText;
@@ -69,10 +63,12 @@ public class EndScript : MonoBehaviour
     [SerializeField]
     GameObject AnimationBackdropObject;
 
-    public static int SuccessiveOutputCounter;
+    public int SuccessiveOutputCounter;
     private float SeqPercent;
     private int file_number = -1;
     private string DevelopTechs;
+
+    public string cause;
 
     //just does the logic to check whether game is over (and then if won/lost) or simply round end
     void Awake()
@@ -94,9 +90,41 @@ public class EndScript : MonoBehaviour
     //everything that occurs if a round ends not at round 10+
     public void RoundEnd()
     {
+        Debug.Log("round end");
         //this because i am too silly :3
         SeqbutNoOutputTextGameObject.SetActive(true);
+        SuccessiveOutputCounter = CurrentPlayerData.OutputStatus;
 
+        if(CurrentPlayerData.TotalSequestration >= CurrentPlayerData.SequestrationGoal)
+        {
+            if(SuccessiveOutputCounter > 0)
+            {
+                SuccessiveOutputCounter++;
+            }
+            else
+            {
+                SuccessiveOutputCounter = 1;
+            }
+        }
+        else
+        {
+            if(SuccessiveOutputCounter > 0)
+            {
+                SuccessiveOutputCounter = -1;
+            }
+            else
+            {
+                SuccessiveOutputCounter--;
+            }
+        }
+
+        if(SuccessiveOutputCounter == -3)
+        {
+            Completion("Output");
+        }
+        else
+        {
+            
         //in case of premature ending earlier than round 10
         if(CurrentPlayerData.TotalSequestration >= CurrentPlayerData.SequestrationGoal)
         {
@@ -116,42 +144,8 @@ public class EndScript : MonoBehaviour
             }
         }
 
-        //checks for output success (for later next round calculations and fails)
-        if(SuccessiveOutputCounter > 0)
-        {
-            if (CurrentPlayerData.TotalOutput >= CurrentPlayerData.OutputGoal)
-            {
-                Debug.Log("Output succeeded");
-                SuccessiveOutputCounter++;
-                //make game object of tick/X visible or not
-            }
-            else
-            {
-                Debug.Log("output failed");
-                SuccessiveOutputCounter = -1;
-                //make game object visible/not, apply punishment to next round credits, look into bonus for multiple rounds of success
-            }
-        }
-        else
-        {
-            if (CurrentPlayerData.TotalOutput >= CurrentPlayerData.OutputGoal)
-            {
-                Debug.Log("Output succeeded");
-                SuccessiveOutputCounter = 1;
-                //game object visible or not
-            }
-            else
-            {
-                SuccessiveOutputCounter--;
-                if(SuccessiveOutputCounter <= -3)
-                {
-                    Completion("Output");
-                }
-            }
-        }
         //UI changes (those for past round)
-        RoundText.text = "Round # " + CurrentPlayerData.Round.ToString();
-        PlayerNameAndCityText.text = CurrentPlayerData.Name + "'s city " + CurrentPlayerData.CityName + ": ";
+        PlayerNameAndCityText.text = CurrentPlayerData.Name + "'s city " + CurrentPlayerData.CityName + ", Round "  + CurrentPlayerData.Round + ":";
         SeqText.text = "Total Sequestration: " + CurrentPlayerData.TotalSequestration.ToString() + " ppm                             Goal Sequestrion: "+ CurrentPlayerData.SequestrationGoal.ToString() + " ppm";
         SeqPercent = (float)Math.Round((decimal)100* CurrentPlayerData.TotalSequestration / CurrentPlayerData.SequestrationGoal, 2);
         SeqPercentageText.text = "You are " + SeqPercent + "% there!";
@@ -162,12 +156,14 @@ public class EndScript : MonoBehaviour
 
         //for all the calculations
         NextRoundCalculations();
+        }
     }
 
     //calculations for next round to update to the currentPlayerData global values and the needed UI changes
     //BALANCE LATER
     public void NextRoundCalculations()
     {
+        Debug.Log("next round calculations");
         //changes
         CurrentPlayerData.Round = CurrentPlayerData.Round + 1;
         CurrentPlayerData.ChangeInCredits = 0;
@@ -191,17 +187,30 @@ public class EndScript : MonoBehaviour
         }
         player_data[6] = DevelopTechs;
 
+        //output counter/status
+        CurrentPlayerData.OutputStatus = SuccessiveOutputCounter;
+        player_data[7] = SuccessiveOutputCounter.ToString();
+
         //this finds the player file to update to in case game is quit/another player is chosen
         file_number = -1;
         int k = 0;
         while (file_number == -1)
         {
-            string[] data = File.ReadAllLines(Application.dataPath + "\\Saves\\Save" + k + ".txt");
-            if(data[0] == CurrentPlayerData.Name)
+            try
             {
-                file_number = k;
-            }
+                string[] data = File.ReadAllLines(Application.dataPath + "\\Saves\\Save" + k + ".txt");
+                if(data[0] == CurrentPlayerData.Name)
+                {  
+                    file_number = k;
+                }   
             k++;
+            }
+            catch
+            {
+                k++;
+                Debug.Log("catch hit" + k);
+            }
+            
         }
         
         //does the writing to the file...
@@ -226,6 +235,9 @@ public class EndScript : MonoBehaviour
     //functions that fill the completion text based on normal/early win, output loss and unsustainability 
     public void Completion(string Cause)
     {
+        Debug.Log("completion " +  cause);
+        //cause for reference in musicplayer script to determine track 
+        cause = Cause;
         CompletionUIGameObject.SetActive(true);
         RoundEndUIGameObject.SetActive(false);
         completionNameAndCity.text = CurrentPlayerData.Name + "'s city " + CurrentPlayerData.CityName; 
@@ -236,6 +248,7 @@ public class EndScript : MonoBehaviour
             completionInfo.text = "Congratulations! In " + CurrentPlayerData.Round.ToString() + " rounds, you succeeded in an energy transformation that brought " + CurrentPlayerData.CityName + " City to a sustainable and renewable system of energy production! For more unformation, press the download button for a text file of your statistics! We encourage to reflect on any new technological or systemic knowledge you learnt, and bring that awareness into another round of Barometric and your future decisions.";
             completionSeqAndCarbonCost.text = "Your society's cost in carbon of " + CurrentPlayerData.CarbonCost.ToString() + " ppm was offset through your sequestration potential of " + CurrentPlayerData.TotalSequestration.ToString() + " ppm. Nice work!";
             completionOutput.text = "Additionally, your society's need of " + CurrentPlayerData.OutputGoal.ToString() + " kJ was more that satisfied through your production of " + CurrentPlayerData.TotalOutput.ToString() + " kJ per round.";
+            SaveFilesCompletion("Sustainability");
         }
         else if(Cause == "Output")
         {
@@ -243,6 +256,7 @@ public class EndScript : MonoBehaviour
             completionOutput.GetComponent<GameObject>().SetActive(false);
             completionInfo.text = "Unfortunately, you were unable to provide support output (of " + CurrentPlayerData.TotalOutput.ToString() +" kJ instead of the required" + CurrentPlayerData.OutputGoal.ToString() + " kJ) for your society for three consecutive rounds. For more unformation, press the download button for a text file of your statistics! We encourage to reflect on any new technological or systemic knowledge you learnt, and bring that awareness into another round of Barometric and your future decisions. Thank you for playing!";
             completionSeqAndCarbonCost.text = "However, your production of " + CurrentPlayerData.TotalOutput.ToString() + "kJ ";
+            SaveFilesCompletion("Insufficient Output");
         }
         else if(Cause == "Unsustainability")
         {
@@ -250,17 +264,64 @@ public class EndScript : MonoBehaviour
             completionInfo.text = "Unfortunately, within the allocated rounds your society was unable to provide the appropriate output nor reach sufficient sustainable practices to avoid significant environmental and ecological disaster.";
             completionSeqAndCarbonCost.text = "Out of the " + CurrentPlayerData.CarbonCost.ToString() + " ppm cost in carbon of your output, only " + CurrentPlayerData.TotalSequestration.ToString() + " ppm was sequestered per round.";
             completionOutput.text = "Additionally, your society's current output of " + CurrentPlayerData.TotalOutput.ToString() + " kJ failed to satisfy society's need for " + CurrentPlayerData.OutputGoal.ToString() + " kJ.";
+            SaveFilesCompletion("Unsustainability");
         }
 
         else
         {
             Debug.Log("something went wrong...");
             completionInfo.text = "Not sure what you did, but you broke this system. Congratulations :3 ";
+            SaveFilesCompletion("Error :3");
         }
-        
     }
 
-    //pretty self explanatory, remember to add animation support here later during the coroutine 
+    //adjusts player file to be a 'completed file' and not openable any more. 
+    public void SaveFilesCompletion(string Cause)
+    {
+        //this finds the player file to update to in case game is quit/another player is chosen
+        file_number = -1;
+        int k = 0;
+        while (file_number == -1)
+        {
+            if(File.Exists(Application.dataPath + "\\Saves\\Save" + k + ".txt"))
+            {
+                string[] data = File.ReadAllLines(Application.dataPath + "\\Saves\\Save" + k + ".txt");
+                if(data[0] == CurrentPlayerData.Name)
+                {
+                    file_number = k;
+                }
+            }
+            k++;
+        }
+
+        string[] raw_data = File.ReadAllLines(Application.dataPath + "\\Saves\\Save" + file_number + ".txt");
+        List<string> player_data = new List<string>{};
+        foreach(string line in raw_data)
+        {
+            player_data.Add(line);    
+        }
+        player_data.Add(CurrentPlayerData.TotalSequestration.ToString());
+        player_data.Add(CurrentPlayerData.SequestrationGoal.ToString());
+        player_data.Add(CurrentPlayerData.TotalOutput.ToString());
+        player_data.Add(CurrentPlayerData.OutputGoal.ToString());
+        player_data.Add(Cause);
+
+        //FINAL FORM (FOR FUTURE REFERENCE IN DISPLAY IN TITLE)                                                                                             //
+        //name, city, round, --, credits, --, developed technologies, total seq, seq goal, total output, output goal, cause of file ending
+
+        File.WriteAllLines(Application.dataPath + "\\Completed Saves\\Save" + CurrentPlayerData.Name + ".txt", player_data);
+
+        //wipes current player file just in case
+        List<string> empty = new List<string> {};
+        File.WriteAllLines(Application.dataPath + "\\Saves\\Current_File.txt", empty);
+        //delete the files...
+        File.Delete(Application.dataPath + "\\Saves\\Save" + file_number + ".txt");
+        File.Delete(Application.dataPath + "\\Saves\\Save" + file_number + ".txt.meta");
+        File.Delete(Application.dataPath + "\\Tile Saves\\TileData" + CurrentPlayerData.Name + ".txt");
+        File.Delete(Application.dataPath + "\\Tile Saves\\TileData" + CurrentPlayerData.Name + ".txt.meta");
+
+    }
+
     public void OpenTitleScene()
     {
         Debug.Log("open title");
@@ -268,7 +329,6 @@ public class EndScript : MonoBehaviour
     }
     public void OpenMapScene()
     {
-        Debug.Log("open map");
         StartCoroutine(SceneLoad(1));
     }
     IEnumerator SceneLoad(int SceneNumber)

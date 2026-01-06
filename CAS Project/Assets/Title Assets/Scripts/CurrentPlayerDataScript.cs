@@ -1,9 +1,8 @@
+using System.Collections;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CurrentPlayerDataScript : MonoBehaviour
 {
@@ -64,5 +63,18 @@ public class CurrentPlayerDataScript : MonoBehaviour
             l++;
         }
         File.WriteAllLines(Application.dataPath + "\\Saves\\Current_File.txt", player_information);
+    }
+    
+    //theoretically shuts present and open next scene... not sure what happened to the old function that did this ("Scene_opener"?)
+    public void OpenScene()
+    {
+        StartCoroutine(OpenSceneSlow());
+    }
+
+    IEnumerator OpenSceneSlow()
+    {
+        yield return new WaitForSeconds(2.05f);
+        SceneManager.LoadScene(1);
+
     }
 }

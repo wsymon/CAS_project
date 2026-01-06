@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
-using UnityEditorInternal;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 [System.Serializable]
@@ -23,7 +20,11 @@ public class CurrentPlayerData  : MonoBehaviour
     public static int CarbonCost;
     public static int TotalOutput;
     public static int OutputGoal;
-    public static string[] DevelopedTechnologies;
+    public static int ConstructionTime;
+    public static int OutputStatus;
+
+    public static List<string> DevelopedTechnologies = new List<string> {  };
+    public static List<string> DevelopingTechnologies = new List<string> { };
 
     //dictionary of player edits in tilemap, dictionary with 2 parts to it; the vector3Int of the tile's coordinates in the map, and a string dictionary of related details of the tile (solar_panel, lvl1, ect)
 
@@ -31,7 +32,7 @@ public class CurrentPlayerData  : MonoBehaviour
 
     //public PlayerDataFetch(Player player){  }
 
-    public void UpdateGlobalVariables(int round, string name, string cityname, int changeincredits, int roundCredits, int currentseq, int goalseq, int carboncost, int currentouput, int goaloutput)
+    public void UpdateGlobalVariables(int round, string name, string cityname, int changeincredits, int roundCredits, int currentseq, int goalseq, int carboncost, int currentouput, int goaloutput, int outputStatus)
     {
         Round = round;
         Name = name;
@@ -43,9 +44,10 @@ public class CurrentPlayerData  : MonoBehaviour
         CarbonCost = carboncost;
         TotalOutput = currentouput;
         OutputGoal = goaloutput;
+        OutputStatus = outputStatus;
     } 
     public void UpdateDevelopedTechnologies(string technology)
     {
-        DevelopedTechnologies.Append(technology);
+        DevelopedTechnologies.Add(technology);
     }
 }

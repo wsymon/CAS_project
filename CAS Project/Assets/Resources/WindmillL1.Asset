@@ -33,4 +33,6 @@ MonoBehaviour:
   Education: yet to be done for windmill
   CreditCost: 120
   CarbonCost: 15
+  DevelopmentCost: 240
+  ConstructionTimeRemaining: 3
   SuitableTileTypePlacements: []

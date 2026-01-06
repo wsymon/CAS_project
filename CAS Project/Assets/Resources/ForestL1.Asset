@@ -28,4 +28,5 @@ MonoBehaviour:
   Education: Spspspsp
   CreditCost: 20
   CarbonCost: 0
+  DevelopmentCost: 10
   SuitableTileTypePlacements: []

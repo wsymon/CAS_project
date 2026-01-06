@@ -1,0 +1,525 @@
+fileFormatVersion: 2
+guid: 536148efeab665f4a99704e6adebaf0b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5789323485426092537
+    second: returnToTitle and nextRound _0
+  - first:
+      213: -4591768008174568464
+    second: returnToTitle and nextRound _1
+  - first:
+      213: 4241323684956756250
+    second: returnToTitle and nextRound _2
+  - first:
+      213: 5167701042428427562
+    second: returnToTitle and nextRound _3
+  - first:
+      213: 8350879161712186875
+    second: returnToTitle and nextRound _4
+  - first:
+      213: 844243245066468048
+    second: returnToTitle and nextRound _5
+  - first:
+      213: 1900258947484384409
+    second: returnToTitle and nextRound _6
+  - first:
+      213: 800091988943840785
+    second: returnToTitle and nextRound _7
+  - first:
+      213: 4576553823564747850
+    second: returnToTitle and nextRound _8
+  - first:
+      213: -4756439431538227143
+    second: returnToTitle and nextRound _9
+  - first:
+      213: 4324937903294551321
+    second: returnToTitle and nextRound _10
+  - first:
+      213: 6931929509334560011
+    second: returnToTitle and nextRound _11
+  - first:
+      213: -3248410275320334952
+    second: returnToTitle and nextRound _12
+  - first:
+      213: 1307246636183873006
+    second: returnToTitle and nextRound _13
+  - first:
+      213: 438749992485442159
+    second: returnToTitle and nextRound _14
+  - first:
+      213: 2408389196135814898
+    second: returnToTitle and nextRound _15
+  - first:
+      213: 2758776181137987491
+    second: returnToTitle and nextRound _16
+  - first:
+      213: -160270883026503005
+    second: returnToTitle and nextRound _17
+  - first:
+      213: 4356786993948888780
+    second: returnToTitle and nextRound _18
+  - first:
+      213: 5942625262262619647
+    second: returnToTitle and nextRound _19
+  - first:
+      213: -5207384817447647133
+    second: returnToTitle and nextRound _20
+  - first:
+      213: 2471598414018961358
+    second: returnToTitle and nextRound _21
+  - first:
+      213: 3348555424206684086
+    second: returnToTitle and nextRound _22
+  - first:
+      213: 3543057740875865523
+    second: returnToTitle and nextRound _23
+  - first:
+      213: 6281703215618537516
+    second: returnToTitle and nextRound _24
+  - first:
+      213: 3640063495251865368
+    second: returnToTitle and nextRound _25
+  - first:
+      213: 3186665712384923173
+    second: returnToTitle and nextRound _26
+  - first:
+      213: 5279127429296533809
+    second: returnToTitle and nextRound _27
+  - first:
+      213: -5976463985427631208
+    second: returnToTitle and nextRound _28
+  - first:
+      213: 8528371131705044622
+    second: returnToTitle and nextRound _29
+  - first:
+      213: -2513020041629349029
+    second: returnToTitle and nextRound _30
+  - first:
+      213: -416558876282708727
+    second: returnToTitle and nextRound _31
+  - first:
+      213: 8455243438503978368
+    second: returnToTitle and nextRound _32
+  - first:
+      213: -8287092292045556004
+    second: returnToTitle and nextRound _33
+  - first:
+      213: 5515208055280831488
+    second: returnToTitle and nextRound _34
+  - first:
+      213: -3993903324195199916
+    second: returnToTitle and nextRound _35
+  - first:
+      213: -5467772325454157343
+    second: returnToTitle and nextRound _36
+  - first:
+      213: 1568710709840107247
+    second: returnToTitle and nextRound _37
+  - first:
+      213: 2467453456486731533
+    second: returnToTitle and nextRound _38
+  - first:
+      213: -4442569886832432518
+    second: returnToTitle and nextRound _39
+  - first:
+      213: -2124697453887552759
+    second: returnToTitle and nextRound _40
+  - first:
+      213: -581198319031593613
+    second: returnToTitle and nextRound _41
+  - first:
+      213: -4731981898334762544
+    second: returnToTitle and nextRound _42
+  - first:
+      213: -4588582125191118278
+    second: returnToTitle and nextRound _43
+  - first:
+      213: -5613765407070330833
+    second: returnToTitle and nextRound _44
+  - first:
+      213: 147239501770132668
+    second: returnToTitle and nextRound _45
+  - first:
+      213: -5859139280501539600
+    second: returnToTitle and nextRound _46
+  - first:
+      213: -8739850287137563524
+    second: returnToTitle and nextRound _47
+  - first:
+      213: -5922631775014262467
+    second: returnToTitle and nextRound _48
+  - first:
+      213: 5305723758030358735
+    second: returnToTitle and nextRound _49
+  - first:
+      213: -4535902367451243155
+    second: returnToTitle and nextRound _50
+  - first:
+      213: 6440541825537183885
+    second: returnToTitle and nextRound _51
+  - first:
+      213: -3941805004320231276
+    second: returnToTitle and nextRound _52
+  - first:
+      213: 9111540076345840474
+    second: returnToTitle and nextRound _53
+  - first:
+      213: -320922849476409153
+    second: returnToTitle and nextRound _54
+  - first:
+      213: -5082633911468431910
+    second: returnToTitle and nextRound _55
+  - first:
+      213: 6814802380310774440
+    second: returnToTitle and nextRound _56
+  - first:
+      213: -3243068397057797700
+    second: returnToTitle and nextRound _57
+  - first:
+      213: 8382299223418011190
+    second: returnToTitle and nextRound _58
+  - first:
+      213: 1377319553162230883
+    second: returnToTitle and nextRound _59
+  - first:
+      213: 2239983278630788374
+    second: returnToTitle and nextRound _60
+  - first:
+      213: -5996879346832746775
+    second: returnToTitle and nextRound _61
+  - first:
+      213: -6328434373061425983
+    second: returnToTitle and nextRound _62
+  - first:
+      213: 2056147306675686412
+    second: returnToTitle and nextRound _63
+  - first:
+      213: -1148825266493553152
+    second: returnToTitle and nextRound _64
+  - first:
+      213: 5143381820336060990
+    second: returnToTitle and nextRound _65
+  - first:
+      213: 8094646720493971284
+    second: returnToTitle and nextRound _66
+  - first:
+      213: -5542258451753153839
+    second: returnToTitle and nextRound _67
+  - first:
+      213: 8918244505003322232
+    second: returnToTitle and nextRound _68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: returnToTitle and nextRound _1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 94
+        width: 167
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb70c52353c640c0800000000000000
+      internalID: -4591768008174568464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: returnToTitle and nextRound _9
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 94
+        width: 167
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 938c087a98bbdfdb0800000000000000
+      internalID: -4756439431538227143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: returnToTitle and nextRound _19
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 94
+        width: 167
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd0d6ec032787250800000000000000
+      internalID: 5942625262262619647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: returnToTitle and nextRound _27
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 42
+        width: 232
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 131bd3b4d6a334940800000000000000
+      internalID: 5279127429296533809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: returnToTitle and nextRound _41
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 42
+        width: 232
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 375511a453b2fe7f0800000000000000
+      internalID: -581198319031593613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: returnToTitle and nextRound _55
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 42
+        width: 232
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5e19fe26bd679b0800000000000000
+      internalID: -5082633911468431910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6f80634486738e544a15b7f1c4ea01bd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      returnToTitle and nextRound _0: 5789323485426092537
+      returnToTitle and nextRound _1: -4591768008174568464
+      returnToTitle and nextRound _10: 4324937903294551321
+      returnToTitle and nextRound _11: 6931929509334560011
+      returnToTitle and nextRound _12: -3248410275320334952
+      returnToTitle and nextRound _13: 1307246636183873006
+      returnToTitle and nextRound _14: 438749992485442159
+      returnToTitle and nextRound _15: 2408389196135814898
+      returnToTitle and nextRound _16: 2758776181137987491
+      returnToTitle and nextRound _17: -160270883026503005
+      returnToTitle and nextRound _18: 4356786993948888780
+      returnToTitle and nextRound _19: 5942625262262619647
+      returnToTitle and nextRound _2: 4241323684956756250
+      returnToTitle and nextRound _20: -5207384817447647133
+      returnToTitle and nextRound _21: 2471598414018961358
+      returnToTitle and nextRound _22: 3348555424206684086
+      returnToTitle and nextRound _23: 3543057740875865523
+      returnToTitle and nextRound _24: 6281703215618537516
+      returnToTitle and nextRound _25: 3640063495251865368
+      returnToTitle and nextRound _26: 3186665712384923173
+      returnToTitle and nextRound _27: 5279127429296533809
+      returnToTitle and nextRound _28: -5976463985427631208
+      returnToTitle and nextRound _29: 8528371131705044622
+      returnToTitle and nextRound _3: 5167701042428427562
+      returnToTitle and nextRound _30: -2513020041629349029
+      returnToTitle and nextRound _31: -416558876282708727
+      returnToTitle and nextRound _32: 8455243438503978368
+      returnToTitle and nextRound _33: -8287092292045556004
+      returnToTitle and nextRound _34: 5515208055280831488
+      returnToTitle and nextRound _35: -3993903324195199916
+      returnToTitle and nextRound _36: -5467772325454157343
+      returnToTitle and nextRound _37: 1568710709840107247
+      returnToTitle and nextRound _38: 2467453456486731533
+      returnToTitle and nextRound _39: -4442569886832432518
+      returnToTitle and nextRound _4: 8350879161712186875
+      returnToTitle and nextRound _40: -2124697453887552759
+      returnToTitle and nextRound _41: -581198319031593613
+      returnToTitle and nextRound _42: -4731981898334762544
+      returnToTitle and nextRound _43: -4588582125191118278
+      returnToTitle and nextRound _44: -5613765407070330833
+      returnToTitle and nextRound _45: 147239501770132668
+      returnToTitle and nextRound _46: -5859139280501539600
+      returnToTitle and nextRound _47: -8739850287137563524
+      returnToTitle and nextRound _48: -5922631775014262467
+      returnToTitle and nextRound _49: 5305723758030358735
+      returnToTitle and nextRound _5: 844243245066468048
+      returnToTitle and nextRound _50: -4535902367451243155
+      returnToTitle and nextRound _51: 6440541825537183885
+      returnToTitle and nextRound _52: -3941805004320231276
+      returnToTitle and nextRound _53: 9111540076345840474
+      returnToTitle and nextRound _54: -320922849476409153
+      returnToTitle and nextRound _55: -5082633911468431910
+      returnToTitle and nextRound _56: 6814802380310774440
+      returnToTitle and nextRound _57: -3243068397057797700
+      returnToTitle and nextRound _58: 8382299223418011190
+      returnToTitle and nextRound _59: 1377319553162230883
+      returnToTitle and nextRound _6: 1900258947484384409
+      returnToTitle and nextRound _60: 2239983278630788374
+      returnToTitle and nextRound _61: -5996879346832746775
+      returnToTitle and nextRound _62: -6328434373061425983
+      returnToTitle and nextRound _63: 2056147306675686412
+      returnToTitle and nextRound _64: -1148825266493553152
+      returnToTitle and nextRound _65: 5143381820336060990
+      returnToTitle and nextRound _66: 8094646720493971284
+      returnToTitle and nextRound _67: -5542258451753153839
+      returnToTitle and nextRound _68: 8918244505003322232
+      returnToTitle and nextRound _7: 800091988943840785
+      returnToTitle and nextRound _8: 4576553823564747850
+      returnToTitle and nextRound _9: -4756439431538227143
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

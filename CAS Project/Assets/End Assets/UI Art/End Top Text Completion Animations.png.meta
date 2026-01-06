@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: 69355f6e55c81a24a9d9857d800eeda5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8222394083548636602
+    second: End Top Text Completion Animations_0
+  - first:
+      213: 4301817011663096819
+    second: End Top Text Completion Animations_1
+  - first:
+      213: -6980439715144617732
+    second: End Top Text Completion Animations_2
+  - first:
+      213: -1022191409088388481
+    second: End Top Text Completion Animations_3
+  - first:
+      213: -1691332732653334701
+    second: End Top Text Completion Animations_4
+  - first:
+      213: -6950218055353990093
+    second: End Top Text Completion Animations_5
+  - first:
+      213: -4125018486357470544
+    second: End Top Text Completion Animations_6
+  - first:
+      213: -5292075269879993523
+    second: End Top Text Completion Animations_7
+  - first:
+      213: -2264372691366273103
+    second: End Top Text Completion Animations_8
+  - first:
+      213: -5575041437814342490
+    second: End Top Text Completion Animations_9
+  - first:
+      213: 4743407765609103097
+    second: End Top Text Completion Animations_10
+  - first:
+      213: 5255035677236206201
+    second: End Top Text Completion Animations_11
+  - first:
+      213: 8424308991889302340
+    second: End Top Text Completion Animations_12
+  - first:
+      213: -5803104108700292460
+    second: End Top Text Completion Animations_13
+  - first:
+      213: -9038637619399069982
+    second: End Top Text Completion Animations_14
+  - first:
+      213: -6022709913177938844
+    second: End Top Text Completion Animations_15
+  - first:
+      213: -7024180064581662351
+    second: End Top Text Completion Animations_16
+  - first:
+      213: 1201157357721836440
+    second: End Top Text Completion Animations_17
+  - first:
+      213: 445074025067730123
+    second: End Top Text Completion Animations_18
+  - first:
+      213: -9132442445852114699
+    second: End Top Text Completion Animations_19
+  - first:
+      213: 671402639694286580
+    second: End Top Text Completion Animations_20
+  - first:
+      213: -6042101748918474009
+    second: End Top Text Completion Animations_21
+  - first:
+      213: 738307483981201846
+    second: End Top Text Completion Animations_22
+  - first:
+      213: -8368353658758912491
+    second: End Top Text Completion Animations_23
+  - first:
+      213: 2519571745856670697
+    second: End Top Text Completion Animations_24
+  - first:
+      213: -2290808644999806189
+    second: End Top Text Completion Animations_25
+  - first:
+      213: -5847422737055701937
+    second: End Top Text Completion Animations_26
+  - first:
+      213: -7400052013817922173
+    second: End Top Text Completion Animations_27
+  - first:
+      213: -5541890066866082940
+    second: End Top Text Completion Animations_28
+  - first:
+      213: -3991306519560453593
+    second: End Top Text Completion Animations_29
+  - first:
+      213: -135482656895426917
+    second: End Top Text Completion Animations_30
+  - first:
+      213: -7647910860989240321
+    second: End Top Text Completion Animations_31
+  - first:
+      213: -8027143828374513003
+    second: End Top Text Completion Animations_32
+  - first:
+      213: -4796666481606072071
+    second: End Top Text Completion Animations_33
+  - first:
+      213: -7273013371647219151
+    second: End Top Text Completion Animations_34
+  - first:
+      213: -4963566931287716458
+    second: End Top Text Completion Animations_35
+  - first:
+      213: -2818137890256969596
+    second: End Top Text Completion Animations_36
+  - first:
+      213: 1584662554530372095
+    second: End Top Text Completion Animations_37
+  - first:
+      213: -1258746354726307405
+    second: End Top Text Completion Animations_38
+  - first:
+      213: 1063513872478813443
+    second: End Top Text Completion Animations_39
+  - first:
+      213: 4731024121485299137
+    second: End Top Text Completion Animations_40
+  - first:
+      213: 966351104318049315
+    second: End Top Text Completion Animations_41
+  - first:
+      213: -7986901761536988887
+    second: End Top Text Completion Animations_42
+  - first:
+      213: -7740667192923708928
+    second: End Top Text Completion Animations_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: End Top Text Completion Animations_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 176
+        width: 360
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b25ebcba8df0c6c0800000000000000
+      internalID: -4125018486357470544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Top Text Completion Animations_14
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 176
+        width: 360
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ee6c3259fe409280800000000000000
+      internalID: -9038637619399069982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Top Text Completion Animations_25
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 93
+        width: 360
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3138462bca96530e0800000000000000
+      internalID: -2290808644999806189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: End Top Text Completion Animations_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 10
+        width: 360
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4802a2b1586f3e8d0800000000000000
+      internalID: -2818137890256969596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c65f0522a8edec74194fe46c38c05da5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      End Top Text Completion Animations_0: 8222394083548636602
+      End Top Text Completion Animations_1: 4301817011663096819
+      End Top Text Completion Animations_10: 4743407765609103097
+      End Top Text Completion Animations_11: 5255035677236206201
+      End Top Text Completion Animations_12: 8424308991889302340
+      End Top Text Completion Animations_13: -5803104108700292460
+      End Top Text Completion Animations_14: -9038637619399069982
+      End Top Text Completion Animations_15: -6022709913177938844
+      End Top Text Completion Animations_16: -7024180064581662351
+      End Top Text Completion Animations_17: 1201157357721836440
+      End Top Text Completion Animations_18: 445074025067730123
+      End Top Text Completion Animations_19: -9132442445852114699
+      End Top Text Completion Animations_2: -6980439715144617732
+      End Top Text Completion Animations_20: 671402639694286580
+      End Top Text Completion Animations_21: -6042101748918474009
+      End Top Text Completion Animations_22: 738307483981201846
+      End Top Text Completion Animations_23: -8368353658758912491
+      End Top Text Completion Animations_24: 2519571745856670697
+      End Top Text Completion Animations_25: -2290808644999806189
+      End Top Text Completion Animations_26: -5847422737055701937
+      End Top Text Completion Animations_27: -7400052013817922173
+      End Top Text Completion Animations_28: -5541890066866082940
+      End Top Text Completion Animations_29: -3991306519560453593
+      End Top Text Completion Animations_3: -1022191409088388481
+      End Top Text Completion Animations_30: -135482656895426917
+      End Top Text Completion Animations_31: -7647910860989240321
+      End Top Text Completion Animations_32: -8027143828374513003
+      End Top Text Completion Animations_33: -4796666481606072071
+      End Top Text Completion Animations_34: -7273013371647219151
+      End Top Text Completion Animations_35: -4963566931287716458
+      End Top Text Completion Animations_36: -2818137890256969596
+      End Top Text Completion Animations_37: 1584662554530372095
+      End Top Text Completion Animations_38: -1258746354726307405
+      End Top Text Completion Animations_39: 1063513872478813443
+      End Top Text Completion Animations_4: -1691332732653334701
+      End Top Text Completion Animations_40: 4731024121485299137
+      End Top Text Completion Animations_41: 966351104318049315
+      End Top Text Completion Animations_42: -7986901761536988887
+      End Top Text Completion Animations_43: -7740667192923708928
+      End Top Text Completion Animations_5: -6950218055353990093
+      End Top Text Completion Animations_6: -4125018486357470544
+      End Top Text Completion Animations_7: -5292075269879993523
+      End Top Text Completion Animations_8: -2264372691366273103
+      End Top Text Completion Animations_9: -5575041437814342490
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

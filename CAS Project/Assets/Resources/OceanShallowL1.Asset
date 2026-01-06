@@ -29,4 +29,8 @@ MonoBehaviour:
   Sequestration: 20
   Education: 'An area of shallow ocean. '
   CreditCost: 0
-  SuitableTileTypePlacements: []
+  CarbonCost: 0
+  DevelopmentCost: 13
+  SuitableTileTypePlacements:
+  - Windmill
+  - Grassland

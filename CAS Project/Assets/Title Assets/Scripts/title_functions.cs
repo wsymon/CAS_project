@@ -1,23 +1,17 @@
-using NUnit.Framework;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
-
 
 public class title_functions : MonoBehaviour
 {
     //field for object with script that counts number of existing plyaer files
     [SerializeField]
     GameObject file_Select_Script;
+
+    [SerializeField]
+    GameObject playerData;
 
     private string[] path;
     private void Start()
@@ -58,6 +52,13 @@ public class title_functions : MonoBehaviour
     [SerializeField]
     GameObject File_select_menu;
 
+    [SerializeField]
+    GameObject File_select_menu_button;
+
+    [SerializeField]
+    GameObject Create_file_menu_button;
+    
+
     //so that the current player data script can access 
     public static string File_source;
 
@@ -69,7 +70,12 @@ public class title_functions : MonoBehaviour
   
     public void Quit()
     {
-        //shuts application down for Quit button
+        StartCoroutine(DelayedQuit());        
+    }
+
+    IEnumerator DelayedQuit()
+    {
+        yield return new WaitForSeconds(2.0f);
         Application.Quit();
     }
 
@@ -78,14 +84,14 @@ public class title_functions : MonoBehaviour
     {
         if (new_game_menu.activeSelf == true)
         {
-            new_game_menu.SetActive(false);
+            Create_file_menu_button.GetComponent<UIAnimationScript>().UIAnimation();
         }
         else
         {
-            new_game_menu.SetActive(true);
+            Create_file_menu_button.GetComponent<UIAnimationScript>().UIAnimation();
             if (File_select_menu.activeSelf == true)
             {
-                File_select_menu.SetActive(false);
+                File_select_menu_button.GetComponent<UIAnimationScript>().UIAnimation();
             }
         }
     }
@@ -96,21 +102,21 @@ public class title_functions : MonoBehaviour
         //checks if 
         if (File_select_menu.activeSelf == true)
         {
-            File_select_menu.SetActive(false);
+            File_select_menu_button.GetComponent<UIAnimationScript>().UIAnimation();
         }
         else
         {
-            File_select_menu.SetActive(true);
+            File_select_menu_button.GetComponent<UIAnimationScript>().UIAnimation();
             if (new_game_menu.activeSelf == true)
             {
                 //if the other menu was open when this menu was clicked, shut the other one. 
-                new_game_menu.SetActive(false);
+                Create_file_menu_button.GetComponent<UIAnimationScript>().UIAnimation();
             }
         }
 
     }
 
-    //function that makes new save file
+    //function that makes new save file and writes to current file
     public void Save_names()
     {
         //counts number of files in saves folder, then subtracts 4 for the template and current files (and their meta data) before cutting in half (metadata) and adding ibe
@@ -125,11 +131,11 @@ public class title_functions : MonoBehaviour
             {
                 string Name = nameInput.text.ToString();
                 string cityName = cityInput.text.ToString();
-                
-                string content = Name + "\n" + cityName + "\n1\n1\n100\n0, 0, 0\nWindmill CoalStation Forest SolarPanel GasStation";
+                string content = Name + "\n" + cityName + "\n1\n1\n100\n0, 0, 0\nWindmill CoalStation Forest SolarPanel GasStation\n1 +";
                 File_source = Application.dataPath + "\\Saves\\Save" + n + ".txt";
-                //writes data to new file with number y 
+                //writes data to new file with number y and to the current file 
                 File.WriteAllText(File_source, content);
+                File.WriteAllText(Application.dataPath + "\\Saves\\Current_File.txt", content);
                 break;
             }
         }

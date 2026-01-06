@@ -1,17 +1,145 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DevelopmentScript : MonoBehaviour
 {
-    //To do:
+    [SerializeField]
+    GameObject TechnologiesContent;
 
-    //some funky ui system of all the available technologies henry is making and their prices that updates 
-    //at the start of scene and when technology is 'developed' or brought using credits, in consideration of
-    //preexisting developed technologies (which are stored within CurrentPlayerData and line 6 of each player file)
-        //include probably a dropdown with options that are greyed/absent in another dropdown for viewing if previously developed
+    [SerializeField]
+    GameObject DevelopmentMenuObject;
 
-    //some function for the closing/opening of the canvas (which would shut the edit/view side menus uponing opening)
-    //for the button press and the second button on the canvas itself
+    [SerializeField]
+    TextMeshProUGUI TechEducation;
 
-    //idk if this is too much for this silly game, but full knowledge of all technology from the start is idk
-    //for altering the start technologies, see the "save name" function within title functions script from first scene
+    [SerializeField]
+    TextMeshProUGUI TechCreditCost;
+
+    [SerializeField]
+    TextMeshProUGUI TechSeq;
+
+    [SerializeField]
+    TextMeshProUGUI TechCarbonCost;
+
+    [SerializeField]
+    TextMeshProUGUI TechOutput;
+
+    [SerializeField]
+    TextMeshProUGUI TechName;
+
+    [SerializeField]
+    Button InvestButton;
+
+    [SerializeField]
+    GameObject PlayerData;
+
+    [SerializeField]
+    GameObject GlobalUIObject;
+
+    [SerializeField]
+    GameObject DevelopmentPopup;
+
+    public string[] AllTechnologies = new string[10];
+    public customTile SelectedTech;
+
+    //initial setup
+    public void TechDropDownSetup()
+    {
+        //makes first option automatically selected the windmill
+        SelectedTech = Resources.Load<customTile>("WindmillL1");
+        TechEducation.text = SelectedTech.Education;
+        TechCarbonCost.text = SelectedTech.CarbonCost.ToString();
+        TechOutput.text = SelectedTech.Output.ToString();
+        TechName.text = SelectedTech.StructureType;
+        TechCreditCost.text = SelectedTech.CreditCost.ToString();
+
+        //ensures confirm button is the correct variant
+        TechUpdate();
+    }
+
+    //UPDATES THE UI
+    public void TechUpdate()
+    {
+
+        if(TechnologiesContent.GetComponent<ToggleGroup>().IsActive() == true)
+        {
+            customTile SelectTile = (customTile)Resources.Load(TechnologiesContent.GetComponent<ToggleGroup>().ActiveToggles().First().name + "L1");
+            if(CurrentPlayerData.DevelopingTechnologies.Contains(SelectTile.StructureType))
+            {
+                TechEducation.text = "Development of this technology will be complete next Round (" + (int)(CurrentPlayerData.Round + 1) + ") " + SelectTile.Education;
+            }
+            else if(CurrentPlayerData.DevelopedTechnologies.Contains(SelectTile.StructureType) == false)
+            {
+                TechEducation.text = "Development of this technology will cost " + SelectTile.DevelopmentCost.ToString() + " credits. " + SelectTile.Education;
+            }
+            else
+            {
+                TechEducation.text = SelectTile.Education;
+            }
+            TechCarbonCost.text = SelectTile.CarbonCost.ToString();
+            TechOutput.text = SelectTile.Output.ToString();
+            TechName.text = SelectTile.StructureType;
+            TechCreditCost.text = SelectTile.CreditCost.ToString();
+            TechSeq.text = SelectTile.Sequestration.ToString();
+
+            bool c = false;
+            foreach(string tech in CurrentPlayerData.DevelopedTechnologies)
+            {
+                if(tech == SelectTile.StructureType)
+                {
+                    c = true;
+                }
+            }
+            foreach(string newTech in CurrentPlayerData.DevelopingTechnologies)
+            {
+                if(newTech == SelectTile.StructureType)
+                {
+                    c = true;
+                }
+            }
+
+            //if the tech is buyable and not currently bought
+            if(SelectTile.DevelopmentCost < CurrentPlayerData.RoundCredits && c == false)
+            {
+                InvestButton.image.color = new Color(255f, 255f, 255f, 255f);
+                InvestButton.interactable = true;
+            }
+            //if not buyable but also not yet bought
+            else if(CurrentPlayerData.DevelopedTechnologies.Contains<string>(SelectTile.StructureType) == false)
+            {
+                //RECHECK THESE VALUES FOR CORRECT 'not usable' COLORS
+                InvestButton.image.color = new Color(185, 185, 185, 255);
+                InvestButton.interactable = false;
+            }
+            else
+            {
+                //make this green as if already bought, this is the sole case for that 
+                InvestButton.image.color = new Color(255, 255, 255, 0);
+                InvestButton.interactable = false;
+            }  
+        }
+    }
+
+    //confirms change and updates global and display data to match 
+    public void ConfirmNewDevelopedTechnology()
+    {
+        //fixes the button
+        InvestButton.image.color = new Color(0.75f, 0.75f, 0.75f, 0.75f);           
+        InvestButton.interactable = false;
+
+        //reducts credit amount and finds customTile of the tech
+        customTile SelectTile = (customTile)Resources.Load(TechnologiesContent.GetComponent<ToggleGroup>().ActiveToggles().First().name + "L1");
+        CurrentPlayerData.RoundCredits -= SelectTile.DevelopmentCost;
+
+        CurrentPlayerData.DevelopingTechnologies.Add(SelectTile.StructureType);
+        GlobalUIObject.GetComponent<GlobalUI>().UpdateGlobalUI();
+        TechUpdate();
+
+    }
 }
+   
