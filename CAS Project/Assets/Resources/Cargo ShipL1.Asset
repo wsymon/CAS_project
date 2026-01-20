@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
+  m_Name: Cargo ShipL1
+  m_EditorClassIdentifier: Assembly-CSharp::customTile
+  m_AnimatedSprites:
+  - {fileID: 423315308728469483, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 3970802576648790863, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 6785352867592445898, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 5839685628009202021, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 3453469308864144616, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 2623679946162940163, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
+  tileGrid: {x: 0, y: 0, z: 0}
+  StructureType: Cargo Ship
+  Level: 1
+  Output: 50
+  Sequestration: 0
+  Education: "Strong contributor of globalisation, transporting the world\u2019s
+    goods but is a producer of carbon emissions."
+  CreditCost: 100
+  CarbonCost: 5
+  DevelopmentCost: 50
+  ConstructionTimeRemaining: 1
+  SuitableTileTypePlacements: []

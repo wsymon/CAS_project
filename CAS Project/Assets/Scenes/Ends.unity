@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18.70018, y: 72.899994}
+  m_AnchoredPosition: {x: -19.4, y: 26}
   m_SizeDelta: {x: 995.1088, y: 35.6856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &59611914
@@ -701,7 +701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000077486, y: 37.3}
+  m_AnchoredPosition: {x: -0.00000077486, y: 145.86}
   m_SizeDelta: {x: 910.51, y: 95.997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &308655766
@@ -1794,10 +1794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'completion text
-
-    this needs to be tested to have enough space, or
-    simply morph all 3 boxes into 1'
+  m_text: Game over!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6eac7d3b6244d3c41b2678c3d112ca12, type: 2}
   m_sharedMaterial: {fileID: -364552656982170471, guid: 6eac7d3b6244d3c41b2678c3d112ca12, type: 2}
@@ -1863,7 +1860,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 5.537178}
+  m_margin: {x: -61.681396, y: 0, z: -54.205017, w: 39.181664}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2742,6 +2739,7 @@ MonoBehaviour:
   completionSeqAndCarbonCost: {fileID: 1853339007}
   completionInfo: {fileID: 986654057}
   AnimationBackdropObject: {fileID: 1749476502}
+  SuccessiveOutputCounter: 0
   cause: 
 --- !u!4 &1491094457
 Transform:
@@ -3582,7 +3580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.70018, y: 161.89998}
+  m_AnchoredPosition: {x: -4, y: 221.3}
   m_SizeDelta: {x: 653.4559, y: 32.9312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1896445286

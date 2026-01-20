@@ -45,9 +45,14 @@ public class CurrentPlayerData  : MonoBehaviour
         TotalOutput = currentouput;
         OutputGoal = goaloutput;
         OutputStatus = outputStatus;
-    } 
+    }
+
     public void UpdateDevelopedTechnologies(string technology)
     {
-        DevelopedTechnologies.Add(technology);
+        if (!DevelopedTechnologies.Contains(technology))
+        {
+            DevelopedTechnologies.Add(technology);
+        }
     }
+
 }

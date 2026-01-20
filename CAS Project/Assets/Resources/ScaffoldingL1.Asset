@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
-  m_Name: ConstructionTile
+  m_Name: ScaffoldingL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
   - {fileID: -1345695324, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
@@ -26,7 +26,7 @@ MonoBehaviour:
   m_TileColliderType: 0
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: 
+  StructureType: Scaffolding
   Level: 0
   Output: 0
   Sequestration: 0

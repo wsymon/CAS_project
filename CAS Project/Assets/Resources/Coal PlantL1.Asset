@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
+  m_Name: Coal PlantL1
+  m_EditorClassIdentifier: Assembly-CSharp::customTile
+  m_AnimatedSprites:
+  - {fileID: 1078397472, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 1820511333, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: -1204183360, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 1738733408, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 743860109, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: -902276836, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
+  tileGrid: {x: 0, y: 0, z: 0}
+  StructureType: Coal Plant
+  Level: 1
+  Output: 1200
+  Sequestration: 0
+  Education: High-output energy source yet comes with heavy carbon penalties. Thrive
+    in output at the cost of environmental health.
+  CreditCost: 300
+  CarbonCost: 12
+  DevelopmentCost: 200
+  ConstructionTimeRemaining: 2
+  SuitableTileTypePlacements: []

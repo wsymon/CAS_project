@@ -10,15 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
-  m_Name: ConstructionTile
+  m_Name: Recycling PlantL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
-  - {fileID: -1345695324, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
-  - {fileID: -1749534187, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
-  - {fileID: -368761038, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
-  - {fileID: -65305535, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
-  - {fileID: 78179668, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
-  - {fileID: -10499847, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 201602089, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -26,13 +21,14 @@ MonoBehaviour:
   m_TileColliderType: 0
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: 
-  Level: 0
+  StructureType: Recycling Plant
+  Level: 1
   Output: 0
-  Sequestration: 0
-  Education: 
-  CreditCost: 0
-  CarbonCost: 0
-  DevelopmentCost: 0
-  ConstructionTimeRemaining: 0
+  Sequestration: 2
+  Education: Reduces carbon emissions indirectly by processing waste and promoting
+    the circular resource economy.
+  CreditCost: 250
+  CarbonCost: 1
+  DevelopmentCost: 150
+  ConstructionTimeRemaining: 1
   SuitableTileTypePlacements: []

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
-  m_Name: ForestL1
+  m_Name: Wood Processing PlantL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
-  - {fileID: -233161755, guid: 75c97178dcd107c4587a212e08f5adb6, type: 3}
+  - {fileID: -1037171051, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -21,13 +21,13 @@ MonoBehaviour:
   m_TileColliderType: 0
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: Forest
+  StructureType: Wood Processing Plant
   Level: 1
-  Output: 10
-  Sequestration: 10
-  Education: Spspspsp
-  CreditCost: 20
-  CarbonCost: 0
-  DevelopmentCost: 10
-  ConstructionTimeRemaining: 0
+  Output: 100
+  Sequestration: 1
+  Education: Converts harvested wood into energy and materials.
+  CreditCost: 200
+  CarbonCost: 2
+  DevelopmentCost: 75
+  ConstructionTimeRemaining: 2
   SuitableTileTypePlacements: []

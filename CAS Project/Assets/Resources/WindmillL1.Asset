@@ -28,11 +28,12 @@ MonoBehaviour:
   tileGrid: {x: 0, y: 0, z: 0}
   StructureType: Windmill
   Level: 1
-  Output: 20
-  Sequestration: 50
-  Education: yet to be done for windmill
-  CreditCost: 120
-  CarbonCost: 15
-  DevelopmentCost: 240
-  ConstructionTimeRemaining: 3
+  Output: 400
+  Sequestration: 0
+  Education: Produces low carbon, renewable energy by harnessing the kinetic energy
+    of the wind. Requires strategic placement and siting to maximise efficiency.
+  CreditCost: 250
+  CarbonCost: 1
+  DevelopmentCost: 100
+  ConstructionTimeRemaining: 2
   SuitableTileTypePlacements: []
