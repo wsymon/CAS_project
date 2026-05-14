@@ -60,6 +60,8 @@ public class GlobalUI : MonoBehaviour
     private int CurrentCarbonCost;
     private string[] DevelopedTech;
     private int outputStatus;
+    //creating BaseOutput Goal
+    private int BaseOutput;
 
     //current note, sequestration goal is current a constant but output goal scales with round number
     //start just sets up variables within CurrentPlayerData and the UI
@@ -74,20 +76,30 @@ public class GlobalUI : MonoBehaviour
             player_information[l] = line;
             l++;
         }
-    
-        //solely to have a variable here to record the initial credits to calculate the difference later...
-        PreCredits = int.Parse(player_information[4]);
+
+
+    //solely to have a variable here to record the initial credits to calculate the difference later...
+    PreCredits = int.Parse(player_information[4]);
         //reference to get existing tile data
         PlayerData.GetComponent<TileDataManagement>().TileInfoCollection();
+        //calculates output from tiles and freezes it
+        var tileData = PlayerData.GetComponent<TileDataManagement>();
 
+        tileData.SnapshotOutput = tileData.CurrentTotalOutput;
+        tileData.SnapshotSequestration = tileData.CurrentTotalSeq;
         PlayerName = player_information[0];
         PlayerCity = player_information[1];
         Round = int.Parse(player_information[2]);
         RoundCredits = int.Parse(player_information[4]);
-        OutputCurrent = PlayerData.GetComponent<TileDataManagement>().CurrentTotalOutput;
-        SequestrationCurrent = PlayerData.GetComponent<TileDataManagement>().CurrentTotalSeq;
-        OutputGoal = (int)(1.2 * OutputCurrent);
-        SequestrationGoal = 1000;
+        OutputCurrent = PlayerData.GetComponent<TileDataManagement>().SnapshotOutput;
+        //apparently freezes starting difficulty so it doesn't change for the first round??
+        if (Round <= 1 || BaseOutput == 0)
+        {
+            BaseOutput = OutputCurrent;
+        }
+        SequestrationCurrent = PlayerData.GetComponent<TileDataManagement>().SnapshotSequestration;
+        OutputGoal = (int)(BaseOutput * Mathf.Pow(1.15f, Round - 1));
+        SequestrationGoal = 500;
         CurrentCarbonCost = PlayerData.GetComponent<TileDataManagement>().CurrentTotalCarbonCost;
         DevelopedTech = player_information[6].Split(' ');
         string[] status_line = player_information[7].Split(' ');
@@ -145,9 +157,12 @@ public class GlobalUI : MonoBehaviour
         Round = CurrentPlayerData.Round;
         RoundCredits = CurrentPlayerData.RoundCredits;
         ChangeInCredits = PreCredits - CurrentPlayerData.RoundCredits;
-        OutputCurrent = PlayerData.GetComponent<TileDataManagement>().CurrentTotalOutput;
+        OutputCurrent = PlayerData.GetComponent<TileDataManagement>().SnapshotOutput;
         SequestrationCurrent = PlayerData.GetComponent<TileDataManagement>().CurrentTotalSeq;
         OutputGoal = CurrentPlayerData.OutputGoal;
+    //calculates new scaling output
+        OutputGoal = (int)(BaseOutput * Mathf.Pow(1.15f, Round - 1));
+        CurrentPlayerData.OutputGoal = OutputGoal;
         SequestrationGoal = CurrentPlayerData.SequestrationGoal;
         CurrentCarbonCost = PlayerData.GetComponent<TileDataManagement>().CurrentTotalCarbonCost;
         outputStatus = CurrentPlayerData.OutputStatus;
@@ -157,30 +172,43 @@ public class GlobalUI : MonoBehaviour
         //alter bounds later to match that of the real map
         int x = 0;
         int y = 0;
-        Vector3Int Pos;
-        
+        //Vector3Int Pos; old line idk
+
         //loops through entire map and adds tiles within playertile to an array
         //ADD SIZE OF MAP HERE LATER, current size is 0 -> 100 x and 0 -> 100 y...
-        while(x < 100)
+        while (x < 100)
         {
-            while(y < 100)
+            while (y < 100)
             {
-                Pos =  new Vector3Int(x, y, 0);
+                Vector3Int Pos = new Vector3Int(x, y, 0);
+
                 if (PlayerTileMap.HasTile(Pos))
+                // //if construction tilemap has a tile AND that tile, next round, will still be under construction... (update 15/5 idk how much of this is true im just doing whatever i can try T-T)
                 {
                     customTile ATile = PlayerTileMap.GetTile<customTile>(Pos);
-                    //if construction tilemap has a tile AND that tile, next round, will still be under construction...
-                    if (constructionTileMap.HasTile(Pos) && PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1 > 0)
+
+                    if (constructionTileMap.HasTile(Pos) &&
+                        PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1 > 0)
                     {
-                        CurrentTileData[Pos] = new TileDataManagement.TileInformation(ATile.StructureType, ATile.Level, PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1);
+                        CurrentTileData[Pos] = new TileDataManagement.TileInformation(
+                            ATile.StructureType,
+                            ATile.Level,
+                            PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1
+                        );
                     }
                     else
                     {
-                        CurrentTileData[Pos] = new TileDataManagement.TileInformation(ATile.StructureType, ATile.Level, 0);
+                        CurrentTileData[Pos] = new TileDataManagement.TileInformation(
+                            ATile.StructureType,
+                            ATile.Level,
+                            0
+                        );
                     }
                 }
+
                 y++;
             }
+
             y = 0;
             x++;
         }

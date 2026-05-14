@@ -36,6 +36,7 @@ public class TileDataManagement : MonoBehaviour
         public int Level;
         public int ConstructionTimeRemaining;
 
+
         public TileInformation(string structureType, int level, int constructionTimeRemaining)
         {
             StructureType = structureType;
@@ -66,11 +67,15 @@ public class TileDataManagement : MonoBehaviour
 
     public int CurrentTotalSeq;
     public int CurrentTotalOutput;
+    //snapshot is frozen value displayed at the end screen
+    public int SnapshotOutput;
+    public int SnapshotSequestration;
     public int CurrentTotalCreditCost;
     public int PastCreditCost;
     public int CurrentTotalCarbonCost;
 
     public int Round;
+
 
     //solely for updating player (not tile) file at changes/end of scene
     private string tech;
@@ -142,7 +147,11 @@ public class TileDataManagement : MonoBehaviour
                         if(int.Parse(SeperatedTileData[5]) > 0)
                         {
                             ConstructionTileMap.SetTile(tempTilePosition, constructionTile);
-                            TileConstructionTimeData.Add(tempTilePosition, int.Parse(SeperatedTileData[5]));
+                            //apparently this is also a fix idk
+                            if (!TileConstructionTimeData.ContainsKey(tempTilePosition))
+                            {
+                                TileConstructionTimeData[tempTilePosition] = int.Parse(SeperatedTileData[5]);
+                            }
                         }
 
                     }
@@ -261,8 +270,16 @@ public class TileDataManagement : MonoBehaviour
                 {
                     customTile ATile = playerTileMap.GetTile<customTile>(Pos);
                     if (ConstructionTileMap.HasTile(Pos))
+                        //apparently this fixes the construction time or something idk
                     {
-                        CurrentTileData[Pos] = new TileInformation(ATile.StructureType, ATile.Level, TileConstructionTimeData[Pos]);
+                        int remaining = TileConstructionTimeData.ContainsKey(Pos)
+                        ? TileConstructionTimeData[Pos]
+    :                   0;
+
+                        CurrentTileData[Pos] = new TileInformation(
+                            ATile.StructureType,
+                            ATile.Level,
+                            remaining);
                     }
                     else
                     {
