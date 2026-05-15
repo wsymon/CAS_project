@@ -1,7 +1,11 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 
 //allows unity editor menu to show option to makea  custom tile
@@ -42,13 +46,26 @@ public class customTile : AnimatedTile
         base.GetTileData(position, tilemap, ref tileData);
     }
 
+    #if UNITY_EDITOR
     [MenuItem("Assets/Create/2D/CustomTiles/CustomTile")]
     public static void createCustomTile()
     {
-        string path = EditorUtility.SaveFilePanelInProject("Save Custom Tile", "New Custom Tile", "Asset", "Save Custom Tile", "Assets");
+        string path = EditorUtility.SaveFilePanelInProject(
+            "Save Custom Tile",
+            "New Custom Tile",
+            "Asset",
+            "Save Custom Tile",
+            "Assets"
+        );
+
         if (path == "") return;
-        AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<customTile>(), path);
+
+        AssetDatabase.CreateAsset(
+            ScriptableObject.CreateInstance<customTile>(),
+            path
+        );
     }
+    #endif
 
     public Sprite GetTileSprite(customTile CustomTile)
     {
