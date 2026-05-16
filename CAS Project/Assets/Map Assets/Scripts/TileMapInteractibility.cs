@@ -9,8 +9,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
 using System.Collections;
-using NUnit.Framework.Constraints;
-using NUnit.Framework.Internal;
 
 public class TileMapInteractibility : MonoBehaviour
 {
@@ -20,6 +18,9 @@ public class TileMapInteractibility : MonoBehaviour
 
     [SerializeField]
     AnimatedTile Hover;
+
+    [SerializeField]
+    Sprite empty;
 
     [SerializeField]
     Grid MapGrid;
@@ -417,7 +418,7 @@ public class TileMapInteractibility : MonoBehaviour
         {
             //if the tile at that position has editable possibilities then open edit menu
             customTile BaseTile = (customTile)BaseTileMap.GetTile(currentGrid);
-            if (BaseTile.SuitableTileTypePlacements != null)
+            if (BaseTile.SuitableTileTypePlacements.Count != 0)
             {
                 //all stuff for changing information on edit menu!!
                 if(TileEditMenuObject.activeSelf == false)
@@ -429,6 +430,15 @@ public class TileMapInteractibility : MonoBehaviour
 
                 //ensures selected options viability matches that presented by the confirm button
                 EditMenuConfirmButtonUpdater();  
+            }
+            else
+            {
+                //added this part 16/5, should be here i think.
+            
+                if(TileEditMenuObject.activeSelf != false && BaseTile.SuitableTileTypePlacements.Intersect(CurrentPlayerData.DevelopedTechnologies).Any())
+                {
+                    TileEditMenuCloser();
+                }
             }
         }
 
@@ -450,7 +460,7 @@ public class TileMapInteractibility : MonoBehaviour
         //if credit cost is not payablew
         if(DropDownObject.GetComponent<Dropdown>().options.Count() > 0)
         {
-            if(Resources.Load<customTile>(DropDownObject.GetComponent<Dropdown>().options[DropDownObject.GetComponent<Dropdown>().value].text.ToString() + "L1").CreditCost > CurrentPlayerData.RoundCredits || DropDownObject.GetComponent<Dropdown>().options[DropDownObject.GetComponent<Dropdown>().value].text.ToString() == "Not viable")
+            if(Resources.Load<customTile>(DropDownObject.GetComponent<Dropdown>().options[DropDownObject.GetComponent<Dropdown>().value].text.ToString().Replace(" ","") + "L1").CreditCost > CurrentPlayerData.RoundCredits || DropDownObject.GetComponent<Dropdown>().options[DropDownObject.GetComponent<Dropdown>().value].text.ToString() == "Not viable")
             {
                 //make button inaccessible and make text of it red 
                 EditConfirmButton.GetComponent<Image>().color = new Color(6f, 185f, 185f, 255f);
@@ -513,6 +523,7 @@ public class TileMapInteractibility : MonoBehaviour
         {
             //if rare case, then make dropdown object not visible as no viable otions 
              DropDownObject.GetComponent<Dropdown>().captionText.text = "Not viable";
+             tempEditTileImage.GetComponent<Image>().sprite = empty;
         }
         else
         {
@@ -529,7 +540,7 @@ public class TileMapInteractibility : MonoBehaviour
     public void resetEditDisplayInfo()
     {
         //gets the text of the name of the possible tile that is selected in dropdown
-        string selectedEditOptionText = DropDownObject.GetComponent<Dropdown>().captionText.text.ToString();
+        string selectedEditOptionText = DropDownObject.GetComponent<Dropdown>().captionText.text.Replace(" ","").ToString();
         //provided customTile data in Resources folder exists for that option, get data and update for edit display
         if (File.Exists(Application.dataPath + "\\Resources\\" + selectedEditOptionText + "L1.Asset") == true)
         {
@@ -556,19 +567,16 @@ public class TileMapInteractibility : MonoBehaviour
         TileEditMenuCloser();
         InfoMenuUpdaterandOpener(PastSelected, ConstructionTileMap);
         GlobalUIObject.GetComponent<GlobalUI>().UpdateGlobalUI();
-
     }
     public void ApplyTileChange()
     {
         //gets change and notes credit cost change (don't worry about seq/output, globalui will sort out)
-        customTile NewTile = Resources.Load<customTile>(DropDownObject.GetComponent<Dropdown>().captionText.text.ToString() + "L1");
+        customTile NewTile = Resources.Load<customTile>(DropDownObject.GetComponent<Dropdown>().captionText.text.ToString().Replace(" ", "") + "L1");
         Debug.Log(NewTile.StructureType);
         playerData.GetComponent<TileDataManagement>().TileConstructionTimeData.Add(PastSelected, NewTile.ConstructionTimeRemaining);
         customTile ConstructionTile = Resources.Load<customTile>("ConstructionTile");
         CurrentPlayerData.RoundCredits -= NewTile.CreditCost;
         playerTileMap.SetTile(PastSelected, NewTile);
         ConstructionTileMap.SetTile(PastSelected, ConstructionTile);
-
-        //sound effect surely?                                                                                                      /
     }
 }

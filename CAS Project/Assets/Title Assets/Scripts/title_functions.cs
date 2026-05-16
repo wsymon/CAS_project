@@ -70,7 +70,7 @@ public class title_functions : MonoBehaviour
   
     public void Quit()
     {
-        StartCoroutine(DelayedQuit());        
+        StartCoroutine(DelayedQuit());       
     }
 
     IEnumerator DelayedQuit()

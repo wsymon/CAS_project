@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using System.IO.Compression;
 using System.Numerics;
+using UnityEditor;
 public class TileDataManagement : MonoBehaviour
 {
     //reference for the player's tilemap (including all edits and all structures that contribute to Seq/output)
@@ -175,7 +176,6 @@ public class TileDataManagement : MonoBehaviour
     public void ExistingTileDataCollection(Tilemap Specifiedtilemap, Vector3Int gridReference)
     {
         customTile specificTile = (customTile)Specifiedtilemap.GetTile(gridReference);
-        Debug.Log(gridReference + " level " + specificTile.Level + " seq " + specificTile.Sequestration + " type " + specificTile.StructureType + " output " + specificTile.Output + "education" + specificTile.Education + specificTile.ConstructionTimeRemaining);
     }
 
     //Creates new file in name of new player with standard tile data 
@@ -251,8 +251,8 @@ public class TileDataManagement : MonoBehaviour
     public void UpdateTileAndPlayerFileData()
     {
         //alter bounds later to match that of the real map
-        int x = 0;
-        int y = 0;
+        int x = -1;
+        int y = -1;
         Vector3Int Pos;
 
         //clears current tile data/player to refill it
@@ -277,13 +277,13 @@ public class TileDataManagement : MonoBehaviour
     :                   0;
 
                         CurrentTileData[Pos] = new TileInformation(
-                            ATile.StructureType,
+                            ATile.StructureType.Replace(" ",""),
                             ATile.Level,
                             remaining);
                     }
                     else
                     {
-                        CurrentTileData[Pos] = new TileInformation(ATile.StructureType, ATile.Level, 0);
+                        CurrentTileData[Pos] = new TileInformation(ATile.StructureType.Replace(" ",""), ATile.Level, 0);
                     }
                 }
                 y++;

@@ -236,6 +236,7 @@ public class File_select_script : MonoBehaviour
         //just makes the select button menu and button not visible in the event no player files exist as they were deleted
         if(file_numbers.Count == 0)
         {
+            
             FileSelectObject.SetActive(false);
             select_file_button.interactable = false;
             select_file_button.image.color = new Color(191, 191, 191, 255);

@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
   - {fileID: 2103923225, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: -65808656, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 1864012814, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 1562247996, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 253316400, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: 1906827215, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -24,8 +29,9 @@ MonoBehaviour:
   StructureType: Shore
   Level: 1
   Output: 0
-  Sequestration: 0
-  Education: Shore of your island, bordering the land and water.
+  Sequestration: 5
+  Education: Shores or coastal areas are vital areas for flood protection, carbon
+    sequestration and a biodiverse habitat for many aquatic species.
   CreditCost: 0
   CarbonCost: 0
   DevelopmentCost: 0

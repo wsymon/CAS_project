@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: OceanL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
+  - {fileID: 8631046948484078540, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  - {fileID: -1396538097952455571, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
   - {fileID: 1426195794, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1

@@ -59,6 +59,8 @@ public class GlobalUI : MonoBehaviour
     private int OutputGoal;
     private int CurrentCarbonCost;
     private string[] DevelopedTech;
+    private string[] Pre_DevelopedTech;
+
     private int outputStatus;
     //creating BaseOutput Goal
     private int BaseOutput;
@@ -78,8 +80,8 @@ public class GlobalUI : MonoBehaviour
         }
 
 
-    //solely to have a variable here to record the initial credits to calculate the difference later...
-    PreCredits = int.Parse(player_information[4]);
+        //solely to have a variable here to record the initial credits to calculate the difference later...
+        PreCredits = int.Parse(player_information[4]);
         //reference to get existing tile data
         PlayerData.GetComponent<TileDataManagement>().TileInfoCollection();
         //calculates output from tiles and freezes it
@@ -101,16 +103,53 @@ public class GlobalUI : MonoBehaviour
         OutputGoal = (int)(BaseOutput * Mathf.Pow(1.15f, Round - 1));
         SequestrationGoal = 500;
         CurrentCarbonCost = PlayerData.GetComponent<TileDataManagement>().CurrentTotalCarbonCost;
-        DevelopedTech = player_information[6].Split(' ');
-        string[] status_line = player_information[7].Split(' ');
-        if(status_line[1] == "+")
+
+
+        Pre_DevelopedTech = player_information[6].Split(' ');
+        foreach(string t in Pre_DevelopedTech)
         {
-            outputStatus = int.Parse(player_information[7].Split(' ')[0]);
+            Debug.Log(t);
         }
-        else
+
+        var temporary = new List<string>();
+        foreach(string spacelessTech in Pre_DevelopedTech)
         {
-            outputStatus = -1 * int.Parse(player_information[7].Split(' ')[0]);
+            if(File.Exists(Application.dataPath + "\\Resources\\" + spacelessTech + "L1" + ".Asset") == true)
+            {
+                customTile D = (customTile)Resources.Load(spacelessTech + "L1");
+                Debug.Log(D.StructureType);
+                if(D.StructureType != null)
+                {
+                    Debug.Log("null");
+                }
+                temporary.Add(D.StructureType.ToString());
+            }
+            else
+            {
+                Debug.Log("no file foun");
+            }
         }
+        Pre_DevelopedTech = null;
+        DevelopedTech = temporary.Distinct().ToArray();
+        temporary = null;
+
+        foreach(string t in DevelopedTech)
+        {
+            Debug.Log(t);
+        }
+
+        //string[] status_line = player_information[7].Split(' ');
+        //scrapped method where oyu would get extra credits for fulfilling output for successive rounds (have cut, Anthony didn't use, vestigal organ present in files)
+
+        //if(status_line[1] == "+")
+        //{
+        //    outputStatus = int.Parse(player_information[7].Split(' ')[0]);
+        //}
+        //else
+        //{
+        //    outputStatus = -1 * int.Parse(player_information[7].Split(' ')[0]);
+        //}
+        int outputStatus = 1;
 
         //calls functions to update, could could manually but may need to reference from button click...
         PlayerData.GetComponent<CurrentPlayerData>().UpdateGlobalVariables(Round, PlayerName, PlayerCity, 0, RoundCredits, SequestrationCurrent, SequestrationGoal, CurrentCarbonCost, OutputCurrent, OutputGoal, outputStatus);
@@ -170,15 +209,14 @@ public class GlobalUI : MonoBehaviour
         PlayerData.GetComponent<CurrentPlayerData>().UpdateGlobalVariables(Round, PlayerName, PlayerCity, ChangeInCredits, RoundCredits, SequestrationCurrent, SequestrationGoal,CurrentCarbonCost, OutputCurrent, OutputGoal, outputStatus);
 
         //alter bounds later to match that of the real map
-        int x = 0;
-        int y = 0;
+        int x = -1;
+        int y = -1;
         //Vector3Int Pos; old line idk
 
         //loops through entire map and adds tiles within playertile to an array
-        //ADD SIZE OF MAP HERE LATER, current size is 0 -> 100 x and 0 -> 100 y...
-        while (x < 100)
+        while (x < 26)
         {
-            while (y < 100)
+            while (y < 26)
             {
                 Vector3Int Pos = new Vector3Int(x, y, 0);
 
@@ -191,7 +229,7 @@ public class GlobalUI : MonoBehaviour
                         PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1 > 0)
                     {
                         CurrentTileData[Pos] = new TileDataManagement.TileInformation(
-                            ATile.StructureType,
+                            ATile.StructureType.Replace(" ",""),
                             ATile.Level,
                             PlayerData.GetComponent<TileDataManagement>().TileConstructionTimeData[Pos] - 1
                         );
@@ -199,7 +237,7 @@ public class GlobalUI : MonoBehaviour
                     else
                     {
                         CurrentTileData[Pos] = new TileDataManagement.TileInformation(
-                            ATile.StructureType,
+                            ATile.StructureType.Replace(" ",""),
                             ATile.Level,
                             0
                         );
@@ -208,7 +246,6 @@ public class GlobalUI : MonoBehaviour
 
                 y++;
             }
-
             y = 0;
             x++;
         }
@@ -239,7 +276,10 @@ public class GlobalUI : MonoBehaviour
         string tech = "";
         foreach(string developedTech in CurrentPlayerData.DevelopedTechnologies)
         {
-            tech += " " + developedTech;
+            Debug.Log(developedTech);
+            tech += " " + developedTech.Replace(" ", "");
+            Debug.Log(tech);
+            
         }
 
         //writes to data string, finds original player and current file and writes there

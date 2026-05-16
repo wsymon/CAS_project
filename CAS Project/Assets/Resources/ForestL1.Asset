@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ForestL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
   m_AnimatedSprites:
-  - {fileID: -233161755, guid: 75c97178dcd107c4587a212e08f5adb6, type: 3}
+  - {fileID: -7101944194513185733, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -25,7 +25,8 @@ MonoBehaviour:
   Level: 1
   Output: 10
   Sequestration: 10
-  Education: Spspspsp
+  Education: 'Critical ecosystems that store carbon, protect soil and water as well
+    as house over 80% of the world''s land based specieis of animals and plants. '
   CreditCost: 20
   CarbonCost: 0
   DevelopmentCost: 10

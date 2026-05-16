@@ -42,13 +42,14 @@ public class customTile : AnimatedTile
         base.GetTileData(position, tilemap, ref tileData);
     }
 
-    [MenuItem("Assets/Create/2D/CustomTiles/CustomTile")]
-    public static void createCustomTile()
-    {
-        string path = EditorUtility.SaveFilePanelInProject("Save Custom Tile", "New Custom Tile", "Asset", "Save Custom Tile", "Assets");
-        if (path == "") return;
-        AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<customTile>(), path);
-    }
+    //this is needed to make new customTIles via unity's editor menu, restore if desired, can also do by copy/pasting existing ones. 
+    //[MenuItem("Assets/Create/2D/CustomTiles/CustomTile")]
+    //public static void createCustomTile()
+   // {
+    //    string path = EditorUtility.SaveFilePanelInProject("Save Custom Tile", "New Custom Tile", "Asset", "Save Custom Tile", "Assets");
+     //   if (path == "") return;
+    //    AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<customTile>(), path);
+    //}
 
     public Sprite GetTileSprite(customTile CustomTile)
     {

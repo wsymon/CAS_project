@@ -44,7 +44,7 @@ public class DevelopmentScript : MonoBehaviour
     [SerializeField]
     GameObject DevelopmentPopup;
 
-    public string[] AllTechnologies = new string[10];
+    public string[] AllTechnologies = new string[14];
     public customTile SelectedTech;
 
     //initial setup
@@ -65,13 +65,12 @@ public class DevelopmentScript : MonoBehaviour
     //UPDATES THE UI
     public void TechUpdate()
     {
-
         if(TechnologiesContent.GetComponent<ToggleGroup>().IsActive() == true)
         {
-            customTile SelectTile = (customTile)Resources.Load(TechnologiesContent.GetComponent<ToggleGroup>().ActiveToggles().First().name + "L1");
+            customTile SelectTile = (customTile)Resources.Load(TechnologiesContent.GetComponent<ToggleGroup>().ActiveToggles().First().name.Replace(" ", "") + "L1");
             if(CurrentPlayerData.DevelopingTechnologies.Contains(SelectTile.StructureType))
             {
-                TechEducation.text = "Development of this technology will be complete next Round (" + (int)(CurrentPlayerData.Round + 1) + ") " + SelectTile.Education;
+                TechEducation.text = "Development of this technology will be complete next Round (" + (int)(CurrentPlayerData.Round + 1) + "). " + SelectTile.Education;
             }
             else if(CurrentPlayerData.DevelopedTechnologies.Contains(SelectTile.StructureType) == false)
             {
@@ -104,7 +103,7 @@ public class DevelopmentScript : MonoBehaviour
             }
 
             //if the tech is buyable and not currently bought
-            if(SelectTile.DevelopmentCost < CurrentPlayerData.RoundCredits && c == false)
+            if(SelectTile.DevelopmentCost <= CurrentPlayerData.RoundCredits && c == false)
             {
                 InvestButton.image.color = new Color(255f, 255f, 255f, 255f);
                 InvestButton.interactable = true;
@@ -133,13 +132,10 @@ public class DevelopmentScript : MonoBehaviour
         InvestButton.interactable = false;
 
         //reducts credit amount and finds customTile of the tech
-        customTile SelectTile = (customTile)Resources.Load(TechnologiesContent.GetComponent<ToggleGroup>().ActiveToggles().First().name + "L1");
+        customTile SelectTile = (customTile)Resources.Load(TechnologiesContent.GetComponent<ToggleGroup>().ActiveToggles().First().name.Replace(" ", "") + "L1");
         CurrentPlayerData.RoundCredits -= SelectTile.DevelopmentCost;
-
         CurrentPlayerData.DevelopingTechnologies.Add(SelectTile.StructureType);
         GlobalUIObject.GetComponent<GlobalUI>().UpdateGlobalUI();
         TechUpdate();
-
     }
 }
-   
