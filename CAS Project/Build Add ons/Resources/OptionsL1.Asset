@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9855c154e8f030e48867eb90dd2227e9, type: 3}
-  m_Name: MountainsL1
+  m_Name: OptionsL1
   m_EditorClassIdentifier: Assembly-CSharp::customTile
-  m_AnimatedSprites:
-  - {fileID: -3845128573961801612, guid: f5bc4f4b4de9622438b83ff4c3512f08, type: 3}
+  m_AnimatedSprites: []
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
@@ -21,15 +20,13 @@ MonoBehaviour:
   m_TileColliderType: 0
   m_TileAnimationFlags: 0
   tileGrid: {x: 0, y: 0, z: 0}
-  StructureType: Mountains
-  Level: 1
+  StructureType: Options
+  Level: 0
   Output: 0
-  Sequestration: 2
-  Education: 'Crucial for out world''s environmental stability, mountains supply
-    freshwater to roughly half of humanity and harbour 25 of 34 of the world''s biodiversity
-    hotspots. '
+  Sequestration: 0
+  Education: 'No clue what this is for, I think my past self put this here to do
+    something but I have no recollection what. '
   CreditCost: 0
   CarbonCost: 0
   DevelopmentCost: 0
-  ConstructionTimeRemaining: 0
   SuitableTileTypePlacements: []
