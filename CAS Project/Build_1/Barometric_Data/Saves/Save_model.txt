@@ -1,0 +1,7 @@
+Name
+City
+Round
+Subround (unused, ignore this line)
+Credits
+Time (Vector3Int or 
+OutputCounter (in form "x +" or "x -")

@@ -23,6 +23,10 @@ public class CurrentPlayerData  : MonoBehaviour
     public static int ConstructionTime;
     public static int OutputStatus;
 
+
+    //these are stored as their 'structuretypes', which include space, while data in files does not have space but data in Resources files does. 
+    //if we were smarter, we would have had everything without spaces and just for text displays looked for capitalized letter and added space.
+    //now i am in a world of pain because of this :D
     public static List<string> DevelopedTechnologies = new List<string> {  };
     public static List<string> DevelopingTechnologies = new List<string> { };
 

@@ -70,7 +70,7 @@ public class title_functions : MonoBehaviour
   
     public void Quit()
     {
-        StartCoroutine(DelayedQuit());        
+        StartCoroutine(DelayedQuit());       
     }
 
     IEnumerator DelayedQuit()
@@ -131,7 +131,7 @@ public class title_functions : MonoBehaviour
             {
                 string Name = nameInput.text.ToString();
                 string cityName = cityInput.text.ToString();
-                string content = Name + "\n" + cityName + "\n1\n1\n100\n0, 0, 0\nWindmill CoalStation Forest SolarPanel GasStation\n1 +";
+                string content = Name + "\n" + cityName + "\n1\n1\n100\n0, 0, 0\nWindmill CoalPlant Forest SolarPanels\n1 +";
                 File_source = Application.dataPath + "\\Saves\\Save" + n + ".txt";
                 //writes data to new file with number y and to the current file 
                 File.WriteAllText(File_source, content);

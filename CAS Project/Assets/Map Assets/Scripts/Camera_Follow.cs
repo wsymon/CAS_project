@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class Camera_Movement : MonoBehaviour
 {
     //cam movement defines
@@ -9,21 +8,32 @@ public class Camera_Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float panSpeed = 5f;
 
+    private Vector3 pos;
+
     //to reference actual camera game object in unity 
     [SerializeField]
     Camera _camera;
 
     private void Start()
     {
-     //referencing the body of the object to be moved
+        //referencing the body of the object to be moved
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void LateUpdate()
+    {       
+        pos = _camera.GetComponent<Transform>().position; 
+        rb.linearVelocity = panSpeed * MovementInput;
+
     }
 
     private void Update()
     {
-        //movement for the camera's following object
-        rb.linearVelocity = panSpeed * MovementInput;
+        float clampx = Mathf.Clamp(_camera.GetComponent<Transform>().position.x, 11.4f, 14.5f);
+        float clampy = Mathf.Clamp(_camera.GetComponent<Transform>().position.y, 16, 20);
+        _camera.GetComponent<Transform>().position = new Vector3(clampx, clampy, _camera.GetComponent<Transform>().position.z);
     }
+
     public void Move(InputAction.CallbackContext context)
     {
         //takes movement input and makes it readable to this program

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -43,6 +44,9 @@ public class EndScript : MonoBehaviour
     [SerializeField]
     GameObject SeqbutNoOutputTextGameObject;
 
+    [SerializeField]
+    GameObject OutputbutNoSeqTextGameObject;
+
     //ALL FOR WIN/LOSE END
     [SerializeField]
     GameObject CompletionUIGameObject;
@@ -63,6 +67,7 @@ public class EndScript : MonoBehaviour
     [SerializeField]
     GameObject AnimationBackdropObject;
 
+ 
     public int SuccessiveOutputCounter;
     private float SeqPercent;
     private int file_number = -1;
@@ -73,11 +78,11 @@ public class EndScript : MonoBehaviour
     //just does the logic to check whether game is over (and then if won/lost) or simply round end
     void Awake()
     {
-        if(CurrentPlayerData.Round > 10 && CurrentPlayerData.TotalSequestration >= CurrentPlayerData.SequestrationGoal && CurrentPlayerData.TotalOutput >= CurrentPlayerData.OutputGoal)
+        if(CurrentPlayerData.Round > 9 && CurrentPlayerData.TotalSequestration >= CurrentPlayerData.SequestrationGoal && CurrentPlayerData.TotalOutput >= CurrentPlayerData.OutputGoal)
         {
             Completion("Sustainability");
         }
-        else if(CurrentPlayerData.Round > 10)
+        else if(CurrentPlayerData.Round > 9)
         {
             Completion("Unsustainability");
         }
@@ -92,7 +97,6 @@ public class EndScript : MonoBehaviour
     {
         Debug.Log("round end");
         //this because i am too silly :3
-        SeqbutNoOutputTextGameObject.SetActive(true);
         SuccessiveOutputCounter = CurrentPlayerData.OutputStatus;
 
         if(CurrentPlayerData.TotalSequestration >= CurrentPlayerData.SequestrationGoal)
@@ -140,9 +144,17 @@ public class EndScript : MonoBehaviour
                 NextRoundSeqGoalText.color = new Color(255, 255, 255, 0);
                 SeqPercentageText.color = new Color(255, 255, 255, 0);
                 SeqbutNoOutputTextGameObject.SetActive(true);
-                //SeqbutNoOutputTextGameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
             }
         }
+        else if (CurrentPlayerData.TotalOutput >= CurrentPlayerData.OutputGoal)
+        {
+            Debug.Log("output compelte but seq fail");
+            SeqText.color = new Color(255, 255, 255, 0);
+            NextRoundSeqGoalText.color = new Color(255, 255, 255, 0);
+            SeqPercentageText.color = new Color(255, 255, 255, 0);
+            OutputbutNoSeqTextGameObject.SetActive(true);
+        }        
+            
 
         //UI changes (those for past round)
         PlayerNameAndCityText.text = CurrentPlayerData.Name + "'s city " + CurrentPlayerData.CityName + ", Round "  + CurrentPlayerData.Round + ":";
@@ -160,16 +172,20 @@ public class EndScript : MonoBehaviour
     }
 
     //calculations for next round to update to the currentPlayerData global values and the needed UI changes
-    //BALANCE LATER
     public void NextRoundCalculations()
     {
         Debug.Log("next round calculations");
-        //changes
+        //changes to global things excluding Anthony's balancing in GlobalUI Script 
+
+        //increases round by one, sets credit change to none to fit, round credits is base +200 and rounded 30% of output. 
+        //noticed this wasn't in GlobalUI with balancing, have left it here,  
         CurrentPlayerData.Round = CurrentPlayerData.Round + 1;
         CurrentPlayerData.ChangeInCredits = 0;
-        CurrentPlayerData.RoundCredits = CurrentPlayerData.RoundCredits + 100; //BASE ADDITIVE 
-        CurrentPlayerData.SequestrationGoal =(int)Math.Round( CurrentPlayerData.CarbonCost*3.0); //the carbon goal is 300% of existing carbon causes
-        CurrentPlayerData.OutputGoal = (int)Math.Round(CurrentPlayerData.TotalOutput*1.4); // the output goal is +40% of previous output (maybe change, irl is 1-2%)
+        CurrentPlayerData.RoundCredits = CurrentPlayerData.RoundCredits + 200 + (int)math.round(CurrentPlayerData.TotalOutput * 0.3); 
+
+
+      //  CurrentPlayerData.SequestrationGoal =(int)Math.Round( CurrentPlayerData.CarbonCost*3.0); //the carbon goal is 300% of existing carbon causes
+       // CurrentPlayerData.OutputGoal = (int)Math.Round(CurrentPlayerData.TotalOutput*1.4); // the output goal is +40% of previous output (maybe change, irl is 1-2%)
         
         //updating changes to player file and current file
         string[] player_data = new string[10];
@@ -180,10 +196,11 @@ public class EndScript : MonoBehaviour
         player_data[4] = CurrentPlayerData.RoundCredits.ToString();
         player_data[5] = "rah :3";        
 
+        //adds technologies within the developing tech list under current player data to the list of developed ones stored in the player file. 
         DevelopTechs = "";
         foreach(string atech in CurrentPlayerData.DevelopedTechnologies)
         {
-            DevelopTechs = DevelopTechs + " " + atech;
+            DevelopTechs = DevelopTechs + " " + atech.Replace(" ", "");
         }
         player_data[6] = DevelopTechs;
 
@@ -217,11 +234,11 @@ public class EndScript : MonoBehaviour
         File.WriteAllLines(Application.dataPath + "\\Saves\\Save" + file_number + ".txt", player_data);
         File.WriteAllLines(Application.dataPath + "\\Saves\\Current_File.txt", player_data);
 
-        //gives 30% boost to credits if output is good successively
-        if(SuccessiveOutputCounter >= 3)
-        {
-            CurrentPlayerData.RoundCredits = (int)Math.Round(CurrentPlayerData.RoundCredits * 1.3); 
-        }
+        //gives 30% boost to credits if output is good successively, cut as not touched
+   //     if(SuccessiveOutputCounter >= 3)
+    //    {
+     //       CurrentPlayerData.RoundCredits = (int)Math.Round(CurrentPlayerData.RoundCredits * 1.3); 
+      //  }
 
         //application of changes to UI
         RoundEndUIGameObject.SetActive(true);
@@ -246,7 +263,7 @@ public class EndScript : MonoBehaviour
         {
             Debug.Log("Completion Success");
             completionInfo.text = "Congratulations! In " + CurrentPlayerData.Round.ToString() + " rounds, you succeeded in an energy transformation that brought " + CurrentPlayerData.CityName + " City to a sustainable and renewable system of energy production! For more unformation, press the download button for a text file of your statistics! We encourage to reflect on any new technological or systemic knowledge you learnt, and bring that awareness into another round of Barometric and your future decisions.";
-            completionSeqAndCarbonCost.text = "Your society's cost in carbon of " + CurrentPlayerData.CarbonCost.ToString() + " ppm was offset through your sequestration potential of " + CurrentPlayerData.TotalSequestration.ToString() + " ppm. Nice work!";
+            completionSeqAndCarbonCost.text = "Your society's goal of " + CurrentPlayerData.SequestrationGoal.ToString() + " ppm was reached through your sequestration of " + CurrentPlayerData.TotalSequestration.ToString() + " ppm. Nice work!";
             completionOutput.text = "Additionally, your society's need of " + CurrentPlayerData.OutputGoal.ToString() + " kJ was more that satisfied through your production of " + CurrentPlayerData.TotalOutput.ToString() + " kJ per round.";
             SaveFilesCompletion("Sustainability");
         }
@@ -262,7 +279,7 @@ public class EndScript : MonoBehaviour
         {
             Debug.Log("unsustainability");
             completionInfo.text = "Unfortunately, within the allocated rounds your society was unable to provide the appropriate output nor reach sufficient sustainable practices to avoid significant environmental and ecological disaster.";
-            completionSeqAndCarbonCost.text = "Out of the " + CurrentPlayerData.CarbonCost.ToString() + " ppm cost in carbon of your output, only " + CurrentPlayerData.TotalSequestration.ToString() + " ppm was sequestered per round.";
+            completionSeqAndCarbonCost.text = "Out of the goal for " + CurrentPlayerData.SequestrationGoal.ToString() + " ppm sequestered, only " + CurrentPlayerData.TotalSequestration.ToString() + " ppm was sequestered per round.";
             completionOutput.text = "Additionally, your society's current output of " + CurrentPlayerData.TotalOutput.ToString() + " kJ failed to satisfy society's need for " + CurrentPlayerData.OutputGoal.ToString() + " kJ.";
             SaveFilesCompletion("Unsustainability");
         }
