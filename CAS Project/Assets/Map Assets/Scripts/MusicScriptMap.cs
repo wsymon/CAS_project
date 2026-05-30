@@ -6,12 +6,6 @@ public class MusicScriptMap : MonoBehaviour
     AudioClip Track1;
 
     [SerializeField]
-    AudioClip Track2;
-
-    [SerializeField]
-    AudioClip Track3;
-
-    [SerializeField]
     AudioSource MusicPlayer;
 
     private bool FadeIn;
@@ -26,21 +20,9 @@ public class MusicScriptMap : MonoBehaviour
         FadeOut = false;
         FadeIn = true;
 
-        if(CurrentPlayerData.Round < 3)
-        {
-            MusicPlayer.clip = Track1;
-            MusicPlayer.Play();
-        }
-        else if (CurrentPlayerData.Round < 6)
-        {
-            MusicPlayer.clip = Track2;
-            MusicPlayer.Play();
-        }
-        else
-        {
-            MusicPlayer.clip = Track3;
-            MusicPlayer.Play();
-        }
+        MusicPlayer.clip = Track1;
+        MusicPlayer.Play();
+    
         FadeIn = true;
     }
 

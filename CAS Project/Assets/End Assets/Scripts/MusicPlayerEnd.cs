@@ -6,15 +6,6 @@ public class MusicPlayerEnd : MonoBehaviour
     AudioClip Track1;
 
     [SerializeField]
-    AudioClip Track2;
-
-    [SerializeField]
-    AudioClip Track3;
-
-    [SerializeField]
-    AudioClip Track4;
-
-    [SerializeField]
     AudioSource MusicPlayer;
 
     [SerializeField]
@@ -31,30 +22,8 @@ public class MusicPlayerEnd : MonoBehaviour
     {
         FadeOut = false;
         FadeIn = true;
-
-        if(RoundEndObject.GetComponent<EndScript>().cause == "Sustainability")
-        {
-            MusicPlayer.clip = Track1;
-            MusicPlayer.Play();
-        }
-        else if (RoundEndObject.GetComponent<EndScript>().cause == "Unsustainability")
-        {
-            MusicPlayer.clip = Track2;
-            MusicPlayer.Play();
-        }
-        else if (RoundEndObject.GetComponent<EndScript>().cause == "Output")
-        {
-            MusicPlayer.clip = Track3;
-            MusicPlayer.Play();
-        }
-        
-        //if just a normal round end
-        else
-        {
-            MusicPlayer.clip = Track4;
-            MusicPlayer.Play();
-        }
-
+        MusicPlayer.clip = Track1;
+        MusicPlayer.Play();
         FadeIn = true;
     }
 

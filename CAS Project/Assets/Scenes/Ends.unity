@@ -2751,10 +2751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68b3c27a96d4f2438967396ce11f668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicPlayerEnd
-  Track1: {fileID: 8300000, guid: 90e452583f442b14481c061b13d0479a, type: 3}
-  Track2: {fileID: 8300000, guid: ca77cad84777f784e9e4a9222b27b66c, type: 3}
-  Track3: {fileID: 8300000, guid: c0521b3a2b723ce41aebc45fde0add93, type: 3}
-  Track4: {fileID: 8300000, guid: ca77cad84777f784e9e4a9222b27b66c, type: 3}
+  Track1: {fileID: 8300000, guid: 9056a65ed62dc714d9276fb7b7628741, type: 3}
   MusicPlayer: {fileID: 1399510285}
   RoundEndObject: {fileID: 1491094455}
 --- !u!1 &1441629011

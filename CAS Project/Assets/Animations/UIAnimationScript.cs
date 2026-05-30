@@ -35,6 +35,7 @@ public class UIAnimationScript : MonoBehaviour
     //call this function, will do all the rest
     public void UIAnimation()
     {
+        Debug.Log("called");
         if(gobject.activeSelf == true)
         {
            UICloseAnimation();
